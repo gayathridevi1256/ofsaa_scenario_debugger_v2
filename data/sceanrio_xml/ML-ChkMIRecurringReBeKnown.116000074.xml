@@ -1,0 +1,2016 @@
+<METADATA SCENARIO="116000074" DOMAIN="MTS" RELEASE="5.7.1" TARGET_ENV="" CHECKSUM="2958103586">
+   <TABLE NAME="KDD_SCNRO" CLEAN="NO">
+        <ROW>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116000074</COLUMN>
+         <COLUMN NAME="DMN_CD" TYPE="CHAR" PK="NO"  NULL="NO">MTS</COLUMN>
+         <COLUMN NAME="OWNER_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="SCNRO_USE_CD" TYPE="CHAR" PK="NO"  NULL="NO">EXP</COLUMN>
+         <COLUMN NAME="SCNRO_NM" TYPE="CHAR" PK="NO"  NULL="NO">(ML/EN) Known Remitter/Beneficiary Names in Checks, Monetary Instruments</COLUMN>
+         <COLUMN NAME="SCNRO_TX" TYPE="CHAR" PK="NO"  NULL="NO">This scenario identifies possible money laundering or fraud involving checks or monetary instruments with recurring remitters, beneficiaries, or both. This activity can be evidence of attempts to structure deposits and move funds back and forth between accounts in an effort to hide their origin. Also, it can be indicative of a fraud scheme.</COLUMN>
+         <COLUMN NAME="CNTRY_ID" TYPE="NUMBER" PK="NO"  NULL="NO">113000011</COLUMN>
+         <COLUMN NAME="SCNRO_CLASS_CD" TYPE="CHAR" PK="NO"  NULL="NO">ML</COLUMN>
+         <COLUMN NAME="SCNRO_SHORT_NM" TYPE="CHAR" PK="NO"  NULL="NO">Checks, MIs - Recurring RE/BE Known</COLUMN>
+         <COLUMN NAME="SCNRO_CTLG_ID" TYPE="CHAR" PK="NO"  NULL="NO">ML-ChkMIRecurringReBeKnown</COLUMN>
+         <COLUMN NAME="VERSION_ID" TYPE="CHAR" PK="NO"  NULL="NO">36818690</COLUMN>
+         <COLUMN NAME="LAST_UPDT_DT" TYPE="DATE" PK="NO"  NULL="NO">2024-08-07 00:00:00.0</COLUMN>
+         <COLUMN NAME="BASIC_SCNRO_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="LAST_UPDT_USER_NM" TYPE="CHAR" PK="NO"  NULL="NO">sagafono</COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_ATTR" CLEAN="NO">
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116000988</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">REM_SEQ_ID</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">F</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116000995</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">TOT_TRXN_AM</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">F</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116000996</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">LRF_PRCTG</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">F</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116000997</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">BENEF</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116000999</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">TRXN_CT</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">I</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001000</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">ACTVY_RISK_LVL</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">I</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001001</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">DATA_DUMP_DT</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001002</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">REM</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001003</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">EFFCTV_RISK_NB</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">I</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001004</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">PASS_THRU_PRCTG</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">F</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001005</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">BENEF_SEQ_ID</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">F</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001021</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">REM_SEQ_ID</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">F</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001022</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">BENEF_SEQ_ID</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">F</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001382</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">HR_PRCTG</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">F</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118747338</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">Trusted_Trans_Amt</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">F</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118860710</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">Overall_Risk</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_PTTRN" CLEAN="YES">
+        <ROW>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="PTTRN_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="ACTVN_TS" TYPE="DATE" PK="NO"  NULL="NO">2004-03-20 00:00:00.0</COLUMN>
+         <COLUMN NAME="PTTRN_TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">RUL</COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000074</COLUMN>
+         <COLUMN NAME="BASE_PTTRN_ID" TYPE="NUMBER" PK="NO"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="CREATOR_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="TERMINATOR_ID" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="CREATION_DT" TYPE="DATE" PK="NO"  NULL="NO">2004-03-19 14:23:17.0</COLUMN>
+         <COLUMN NAME="CMMNT_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_PARAM_SET" CLEAN="NO">
+        <ROW>
+         <COLUMN NAME="PARAM_SET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">114002013</COLUMN>
+         <COLUMN NAME="ALGORITHM_NM" TYPE="CHAR" PK="NO"  NULL="NO">Rule Matcher</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">ML-ChkMiRecurringReBeKnown-fEN-rBene</COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_JOB" CLEAN="NO">
+        <ROW>
+         <COLUMN NAME="JOB_ID" TYPE="NUMBER" PK="YES"  NULL="NO">114001759</COLUMN>
+         <COLUMN NAME="CREAT_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="DMN_CD" TYPE="CHAR" PK="NO"  NULL="NO">MTS</COLUMN>
+         <COLUMN NAME="PARAM_SET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">114002013</COLUMN>
+         <COLUMN NAME="START_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="STATUS_CD" TYPE="CHAR" PK="NO"  NULL="NO">IGN</COLUMN>
+         <COLUMN NAME="THREAD_CT" TYPE="NUMBER" PK="NO"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="PRCSNG_BATCH_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="CLONED_JOB_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_DATASET" CLEAN="NO">
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DATASET_NM" TYPE="CHAR" PK="NO"  NULL="NO">ML_ChkMI_RecReBeKnown_GRP_EN</COLUMN>
+         <COLUMN NAME="USER_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="CREATE_DT" TYPE="DATE" PK="NO"  NULL="NO">2004-03-19 16:38:25.0</COLUMN>
+         <COLUMN NAME="REALIZED_NM" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@.DSVIEW116002776</COLUMN>
+         <COLUMN NAME="SQL_FL" TYPE="CHAR" PK="NO"  NULL="NO">T</COLUMN>
+         <COLUMN NAME="SQL_CMMNT" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000074</COLUMN>
+         <COLUMN NAME="SQL_TX" TYPE="LONG" PK="NO"  NULL="NO"><![CDATA[with mi_view as
+(SELECT *
+FROM @MINER@.MI_TRXN tr
+WHERE 
+      (@ALL_TRXN_CDS = 'Y' OR tr.src_sys_cd IN (@INCL_SRC_CD))
+and   tr.TRXN_BASE_AM >= @Min_Individual_Trans_Amt -- Allows to exclude small transactions 
+and   tr.MANTAS_ISSUE_DATE <= (select cl.CLNDR_DT from @MANTAS@.KDD_CAL cl where cl.CLNDR_NM = 'SYSCAL' and cl.CLNDR_DAY_AGE = 0)  
+and   tr.MANTAS_ISSUE_DATE >  (select add_days(cl.CLNDR_DT, - @Lookback) from @MANTAS@.KDD_CAL cl where cl.CLNDR_NM = 'SYSCAL' and cl.CLNDR_DAY_AGE = 0)
+and   tr.DATA_DUMP_DT <= (select cl.CLNDR_DT from @MANTAS@.KDD_CAL cl where cl.CLNDR_NM = 'SYSCAL' and cl.CLNDR_DAY_AGE = 0)  
+and   tr.DATA_DUMP_DT >  (select add_days(cl.CLNDR_DT, - @Lookback) from @MANTAS@.KDD_CAL cl where cl.CLNDR_NM = 'SYSCAL' and cl.CLNDR_DAY_AGE = 0)       
+and tr.MANTAS_TRXN_PURP_CD = 'GENERAL'
+and tr.MANTAS_TRXN_PRDCT_CD in (@Incl_MI_Trxn_Prdct_Type_Lst)
+and (@Include_Trusted_Trans_FL = 'Y' or COALESCE(tr.TRSTD_TRXN_FL,'N') ='N')    
+),
+
+--pair activity
+pairs as 
+( 
+ select 
+	     pBene.EXTRL_NTITY_SEQ_ID         as Receiver_Seq_Id
+       , pBene.EXTRL_NTITY_NM             as Receiver_Name
+       , pRem.EXTRL_NTITY_SEQ_ID          as Sender_Seq_Id
+       , pRem.EXTRL_NTITY_NM              as Sender_Name
+       , pBene.EXTRL_NTITY_EFCTV_RISK_NB  as Effctv_Risk  
+       , t.Actvy_Risk   
+       , t.Pair_Trans_Am 
+       , t.HR_AM
+       , t.PASS_THRU_AM
+       , t.LRF_AM       
+       , t.Data_Dump_Date 
+       , t.Clndr_Dt
+       , case when pRem.EXTRL_NTITY_NM is not null then COALESCE(t.Sender_Id, rownum) else null end as Other_Id_Orig
+       , case when pRem.EXTRL_NTITY_NM is null then 1 else 0 end as Id_Driven_Orig
+       , case when pRem.EXTRL_NTITY_NM is not null and t.Sender_Id is null then 1 else 0 end as Nm_Driven_Orig
+       , case when pBene.EXTRL_NTITY_NM is not null then COALESCE(t.Receiver_Id, rownum) else null end as Other_Id_Bene
+       , case when pBene.EXTRL_NTITY_NM is null then 1 else 0 end as Id_Driven_Bene
+       , case when pBene.EXTRL_NTITY_NM is not null and t.Receiver_Id is null then 1 else 0 end as Nm_Driven_Bene
+       , case when pBene.EXTRL_NTITY_NM is not null and t.Receiver_Id is null then pBene.EXTRL_NTITY_NM
+              when pBene.EXTRL_NTITY_NM is null then pBene.extrl_ntity_type_cd ||'-'|| pBene.EXTRL_NTITY_ID
+              when pBene.EXTRL_NTITY_NM is not null and t.Receiver_Id = pBene.EXTRL_NTITY_SEQ_ID then pBene.extrl_ntity_type_cd||'-'||pBene.EXTRL_NTITY_ID
+         else pBene.EXTRL_NTITY_NM end as Bene_Counter_Party
+       , t.Trusted_Trans_Amt  
+	   
+  from (
+	 	--BENEF to REM
+  select 
+         t.REM_EXTRL_NTITY_SEQ_ID         as Sender_Id
+	   , t.REM_AUG_NM                     as Sender_Nm
+       , t.REM_JRSDCN_CD                  as Sender_Jrsdcn_Cd
+       , t.BENEF_ACTVY_RISK_NB            as Actvy_Risk   
+       , t.BENEF_EXTRL_NTITY_SEQ_ID       as Receiver_Id
+	   , t.BENEF_AUG_NM					  as Receiver_Nm
+       , t.BENEF_JRSDCN_CD                as Receiver_Jrsdcn_Cd
+	   ---
+	   , t.INTRL_REM_ACCT_FL 				as Sender_Fl
+	   , t.INTRL_BENEF_ACCT_FL				as Receiver_Fl
+	   , 'Y' 								as Other_Receiver_Fl
+	   , -1 								as Other_Receiver_Id
+	   , '-' 								as Other_Receiver_Nm
+       , '-' 								as Other_Receiver_Jrsdcn_Cd
+	   ----
+       , t.TRXN_BASE_AM                   as Pair_Trans_Am 
+       , (CASE WHEN t.benef_actvy_risk_nb > @ACTVY_RISK_LVL THEN t.trxn_base_am ELSE 0 END) HR_AM
+       , (CASE WHEN t.pass_thru_fl = 'Y' THEN t.trxn_base_am ELSE 0 END) PASS_THRU_AM
+       , (CASE WHEN t.trxn_base_am - trunc(t.trxn_base_am, -@LrfDigits) = 0 THEN t.TRXN_BASE_AM
+                WHEN t.Clr_Trxn_Actvy_Am - trunc(t.clr_trxn_actvy_am, -@LrfDigits) = 0 THEN t.clr_trxn_actvy_am
+                WHEN t.dep_trxn_Actvy_am - trunc(t.dep_trxn_actvy_am, -@LrfDigits) = 0 THEN t.dep_trxn_actvy_am
+                WHEN t.issue_trxn_actvy_am - trunc(t.issue_trxn_actvy_am, -@LrfDigits) = 0 THEN t.issue_trxn_actvy_am
+                ELSE 0
+                END) LRF_AM 
+       , t.DATA_DUMP_DT                   as Data_Dump_Date 
+       , (select k.CLNDR_DT from @MANTAS@.KDD_CAL k where k.CLNDR_DAY_AGE = 0 and k.CLNDR_NM = 'SYSCAL') as Clndr_Dt
+       , case when t.TRSTD_TRXN_FL = 'Y' then t.TRXN_BASE_AM else 0 end as Trusted_Trans_Amt
+  from mi_view t 
+  where t.INTRL_REM_ACCT_FL <> 'Y' and t.INTRL_BENEF_ACCT_FL <> 'Y' 
+ 
+  --------------------------------------------------
+ union all
+  --------------------------------------------------
+  -- SCND BENEF to REM
+  select
+         t.REM_EXTRL_NTITY_SEQ_ID           as Sender_Id
+       , t.REM_AUG_NM						as Sender_Nm
+       , t.REM_JRSDCN_CD                    as Sender_Jrsdcn_Cd
+       , t.SCND_BENEF_ACTVY_RISK_NB         as Actvy_Risk 
+       , t.SCND_BENEF_EXTRL_NTITY_SEQ_ID    as Receiver_Id
+	   , t.SCND_BENEF_AUG_NM				as Receiver_Nm
+       , t.SCND_BENEF_JRSDCN_CD             as Receiver_Jrsdcn_Cd
+	   ---
+	   , t.INTRL_REM_ACCT_FL 				as Sender_Fl
+	   , t.INTRL_SCND_BENEF_ACCT_FL			as Receiver_Fl
+	   , t.INTRL_BENEF_ACCT_FL 				as Other_Receiver_Fl
+	   , t.BENEF_EXTRL_NTITY_SEQ_ID 		as Other_Receiver_Id
+	   , t.BENEF_AUG_NM 					as Other_Receiver_Nm
+       , t.BENEF_JRSDCN_CD                  as Other_Receiver_Jrsdcn_Cd
+	   ---
+       , t.TRXN_BASE_AM                   as Pair_Trans_Am 
+       ,(CASE WHEN t.scnd_benef_actvy_risk_nb > @ACTVY_RISK_LVL THEN t.trxn_base_am ELSE 0 END) HR_AM
+       ,(CASE WHEN t.pass_thru_fl = 'Y' THEN t.trxn_base_am ELSE 0 END) PASS_THRU_AM
+       ,(CASE WHEN t.trxn_base_am - trunc(t.trxn_base_am, -@LrfDigits) = 0 THEN t.TRXN_BASE_AM
+                WHEN t.Clr_Trxn_Actvy_Am - trunc(t.clr_trxn_actvy_am, -@LrfDigits) = 0 THEN t.clr_trxn_actvy_am
+                WHEN t.dep_trxn_Actvy_am - trunc(t.dep_trxn_actvy_am, -@LrfDigits) = 0 THEN t.dep_trxn_actvy_am
+                WHEN t.issue_trxn_actvy_am - trunc(t.issue_trxn_actvy_am, -@LrfDigits) = 0 THEN t.issue_trxn_actvy_am
+                ELSE 0
+                END) LRF_AM 
+       , t.DATA_DUMP_DT                   as Data_Dump_Date 
+       , (select k.CLNDR_DT from @MANTAS@.KDD_CAL k where k.CLNDR_DAY_AGE = 0 and k.CLNDR_NM = 'SYSCAL') as Clndr_Dt
+       , case when t.TRSTD_TRXN_FL = 'Y' then t.TRXN_BASE_AM else 0 end as Trusted_Trans_Amt
+  from mi_view t
+  where t.INTRL_REM_ACCT_FL <> 'Y' and t.INTRL_SCND_BENEF_ACCT_FL <> 'Y' 
+  --------------------------------------------------
+  ) t
+  inner join @MINER@.external_entity pRem on 
+               (t.Sender_Id = pRem.EXTRL_NTITY_SEQ_ID or (t.Sender_Nm = pRem.EXTRL_NTITY_NM and t.Sender_Jrsdcn_Cd = pRem.JRSDCN_CD)) 
+  inner join @MINER@.external_entity pBene on 
+               (t.Receiver_Id = pBene.EXTRL_NTITY_SEQ_ID or (t.Receiver_Nm = pBene.EXTRL_NTITY_NM and t.Receiver_Jrsdcn_Cd = pBene.JRSDCN_CD))
+	
+   where 
+   -- exclude records where Sending Side = Receiving Side
+	pRem.EXTRL_NTITY_SEQ_ID <> pBene.EXTRL_NTITY_SEQ_ID 
+  -- include transaction record where Receiver_Party <> Other_Receiver_Party .. i.e., the Bene and Secondary Bene are not same
+  and 
+  (
+    t.Other_Receiver_Fl ='Y' 
+    or 
+    (
+      -- looking at second benef ID, make sure it's not same as benef ID
+      (pBene.EXTRL_NTITY_NM is null and COALESCE(t.Other_Receiver_Id, -1) <> t.Receiver_Id)
+      or
+      -- looking at second benef Name, make sure it's not same as benef name
+      (pBene.EXTRL_NTITY_NM is not null and (COALESCE(t.Other_Receiver_Nm, '-') <> t.Receiver_Nm or COALESCE(t.Other_Receiver_Jrsdcn_Cd, '-') <> t.Receiver_Jrsdcn_Cd))
+    )
+  )
+  --OFSAABD-19206
+  --Included Jurisdiction Codes 
+  and (@All_Jurisdictions_Fl = 'Y' OR pRem.JRSDCN_CD IN (@Incl_Jurisdictions_Lst))  
+  and (@All_Jurisdictions_Fl = 'Y' OR pBene.JRSDCN_CD IN (@Incl_Jurisdictions_Lst))  
+  -- 36818690 Exclude Exempted EN
+  and pRem.EXTRL_NTITY_EFCTV_RISK_NB <> -2
+  and pBene.EXTRL_NTITY_EFCTV_RISK_NB <> -2  
+) 
+
+select
+       gt.Sender_Name         	as REM,
+       gt.Sender_Seq_Id         as REM_SEQ_ID,
+       gt.Receiver_Name        	as BENEF,
+       gt.Receiver_Seq_Id       as BENEF_SEQ_ID,
+	   gt.Receiver_Seq_Id		as EXTRL_NTITY_SEQ_ID,
+       count(1)  			    as TRXN_CT,
+       sum(gt.Pair_Trans_Am) 	as TOT_TRXN_AM,
+       max(gt.Effctv_Risk) 	    as EFFCTV_RISK_NB,
+       sum(gt.Pass_Thru_Am)/sum(gt.Pair_Trans_Am)*100 as Pass_Thru_Prctg,
+       sum(gt.Lrf_Am)/sum(gt.Pair_Trans_Am)*100       as Lrf_Prctg,
+       sum(gt.HR_Am)/sum(gt.Pair_Trans_Am)*100        as Hr_Prctg,
+       max(gt.Data_Dump_Date)     as DATA_DUMP_DT,
+       max(gt.Actvy_Risk)       as ACTVY_RISK_LVL,
+       case 
+         when max(gt.Effctv_Risk) >= @EFCTV_RISK_LVL and  max(gt.Actvy_Risk) >= @ACTVY_RISK_LVL then 'HR'
+         when max(gt.Effctv_Risk) <  @EFCTV_RISK_LVL and  max(gt.Actvy_Risk) <  @ACTVY_RISK_LVL then 'RR'
+       else 'MR'           
+       end Overall_Risk,        
+       sum(gt.Trusted_Trans_Amt) as Trusted_Trans_Amt    
+
+from 
+   pairs gt
+
+group by gt.Sender_Seq_Id, gt.Sender_Name, gt.Receiver_Seq_Id, gt.Receiver_Name   
+having
+ (
+   sum(gt.Id_Driven_Orig) = count(1) or count(distinct gt.Other_Id_Orig) > 1 or (sum(gt.Nm_Driven_Orig) = 1 and count(1) = 1) 
+  )
+ and 
+ (
+  sum(gt.Id_Driven_Bene) = count(1) or count(distinct gt.Other_Id_Bene) > 1 or (sum(gt.Nm_Driven_Bene) = 1 and count(1) = 1)
+ )
+
+ and max(gt.Data_Dump_Date) > add_days(max(gt.CLNDR_DT), -@Frequency)
+
+ and (   
+    count(1) >=   
+                 (case 
+                    when max(gt.Effctv_Risk) >= @EFCTV_RISK_LVL and  max(gt.Actvy_Risk) >= @ACTVY_RISK_LVL then @HR_PMIN_CT
+                    when max(gt.Effctv_Risk) <  @EFCTV_RISK_LVL and  max(gt.Actvy_Risk) <  @ACTVY_RISK_LVL then @RR_PMIN_CT
+                    else @MR_PMIN_CT
+                  end) 
+ or
+ (
+    count(1) >=   
+                 (case 
+                    when max(gt.Effctv_Risk) >= @EFCTV_RISK_LVL and  max(gt.Actvy_Risk) >= @ACTVY_RISK_LVL then @HR_SMIN_CT
+                    when max(gt.Effctv_Risk) <  @EFCTV_RISK_LVL and  max(gt.Actvy_Risk) <  @ACTVY_RISK_LVL then @RR_SMIN_CT
+                    else @MR_SMIN_CT
+                  end) 
+  and                 
+   sum(gt.Pair_Trans_Am) >=   
+                 (case 
+                    when max(gt.Effctv_Risk) >= @EFCTV_RISK_LVL and  max(gt.Actvy_Risk) >= @ACTVY_RISK_LVL then @HR_SMIN_AM
+                    when max(gt.Effctv_Risk) <  @EFCTV_RISK_LVL and  max(gt.Actvy_Risk) <  @ACTVY_RISK_LVL then @RR_SMIN_AM
+                    else @MR_SMIN_AM
+                  end)                   
+ )
+ )]]></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002890</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DATASET_NM" TYPE="CHAR" PK="NO"  NULL="NO">ML_ChkMI_RecReBeKnown_TRXN_EN</COLUMN>
+         <COLUMN NAME="USER_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="CREATE_DT" TYPE="DATE" PK="NO"  NULL="NO">2004-03-22 11:45:40.0</COLUMN>
+         <COLUMN NAME="REALIZED_NM" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@.DSVIEW116002890</COLUMN>
+         <COLUMN NAME="SQL_FL" TYPE="CHAR" PK="NO"  NULL="NO">T</COLUMN>
+         <COLUMN NAME="SQL_CMMNT" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000074</COLUMN>
+         <COLUMN NAME="SQL_TX" TYPE="LONG" PK="NO"  NULL="NO"><![CDATA[with mi_view as
+(SELECT *
+FROM @MINER@.MI_TRXN tr
+WHERE 
+      (@ALL_TRXN_CDS = 'Y' OR tr.src_sys_cd IN (@INCL_SRC_CD))
+and   tr.TRXN_BASE_AM >= @Min_Individual_Trans_Amt -- Allows to exclude small transactions 
+and   tr.MANTAS_ISSUE_DATE <= (select cl.CLNDR_DT from @MANTAS@.KDD_CAL cl where cl.CLNDR_NM = 'SYSCAL' and cl.CLNDR_DAY_AGE = 0)  
+and   tr.MANTAS_ISSUE_DATE >  (select add_days(cl.CLNDR_DT, - @Lookback) from @MANTAS@.KDD_CAL cl where cl.CLNDR_NM = 'SYSCAL' and cl.CLNDR_DAY_AGE = 0)
+and   tr.DATA_DUMP_DT <= (select cl.CLNDR_DT from @MANTAS@.KDD_CAL cl where cl.CLNDR_NM = 'SYSCAL' and cl.CLNDR_DAY_AGE = 0)  
+and   tr.DATA_DUMP_DT >  (select add_days(cl.CLNDR_DT, - @Lookback) from @MANTAS@.KDD_CAL cl where cl.CLNDR_NM = 'SYSCAL' and cl.CLNDR_DAY_AGE = 0)       
+and tr.MANTAS_TRXN_PURP_CD = 'GENERAL'
+and tr.MANTAS_TRXN_PRDCT_CD in (@Incl_MI_Trxn_Prdct_Type_Lst)
+and (@Include_Trusted_Trans_FL = 'Y' or COALESCE(tr.TRSTD_TRXN_FL,'N') ='N')      
+)
+
+
+ select 
+         t.FO_TRXN_SEQ_ID
+	   , pBene.EXTRL_NTITY_SEQ_ID         as Benef_Seq_Id
+       , pBene.EXTRL_NTITY_NM             as Benef_Name
+       , pRem.EXTRL_NTITY_SEQ_ID          as Rem_Seq_Id
+       , pRem.EXTRL_NTITY_NM              as Rem_Name
+	   
+  from (
+	 	--BENEF to REM
+  select 
+         t.FO_TRXN_SEQ_ID
+       , t.REM_EXTRL_NTITY_SEQ_ID         as Sender_Id
+	   , t.REM_AUG_NM                     as Sender_Nm
+       , t.REM_JRSDCN_CD                    as Sender_Jrsdcn_Cd
+       , t.BENEF_EXTRL_NTITY_SEQ_ID       as Receiver_Id
+	   , t.BENEF_AUG_NM					  as Receiver_Nm
+       , t.BENEF_JRSDCN_CD                as Receiver_Jrsdcn_Cd
+	   ---
+	   , t.INTRL_REM_ACCT_FL 				as Sender_Fl
+	   , t.INTRL_BENEF_ACCT_FL				as Receiver_Fl
+	   , 'Y' 								as Other_Receiver_Fl
+	   , -1 								as Other_Receiver_Id
+	   , '-' 								as Other_Receiver_Nm
+       , '-' 								as Other_Receiver_Jrsdcn_Cd
+	   
+       from mi_view t 
+  where t.INTRL_REM_ACCT_FL <> 'Y' and t.INTRL_BENEF_ACCT_FL <> 'Y' 
+ 
+  --------------------------------------------------
+ union all
+  --------------------------------------------------
+  -- SCND BENEF to REM
+  select
+         t.FO_TRXN_SEQ_ID
+       , t.REM_EXTRL_NTITY_SEQ_ID           as Sender_Id
+       , t.REM_AUG_NM						as Sender_Nm
+       , t.REM_JRSDCN_CD                    as Sender_Jrsdcn_Cd
+       , t.SCND_BENEF_EXTRL_NTITY_SEQ_ID    as Receiver_Id
+	   , t.SCND_BENEF_AUG_NM				as Receiver_Nm
+       , t.SCND_BENEF_JRSDCN_CD                as Receiver_Jrsdcn_Cd
+	   ---
+	   , t.INTRL_REM_ACCT_FL 				as Sender_Fl
+	   , t.INTRL_SCND_BENEF_ACCT_FL			as Receiver_Fl
+	   , t.INTRL_BENEF_ACCT_FL 				as Other_Receiver_Fl
+	   , t.BENEF_EXTRL_NTITY_SEQ_ID 		as Other_Receiver_Id
+	   , t.BENEF_AUG_NM 					as Other_Receiver_Nm
+       , t.BENEF_JRSDCN_CD                  as Other_Receiver_Jrsdcn_Cd
+
+  from mi_view t
+  where t.INTRL_REM_ACCT_FL <> 'Y' and t.INTRL_SCND_BENEF_ACCT_FL <> 'Y' 
+  --------------------------------------------------
+  ) t
+  inner join @MINER@.external_entity pRem on 
+               (t.Sender_Id = pRem.EXTRL_NTITY_SEQ_ID or (t.Sender_Nm = pRem.EXTRL_NTITY_NM and t.Sender_Jrsdcn_Cd = pRem.JRSDCN_CD)) 
+  inner join @MINER@.external_entity pBene on 
+               (t.Receiver_Id = pBene.EXTRL_NTITY_SEQ_ID or (t.Receiver_Nm = pBene.EXTRL_NTITY_NM and t.Receiver_Jrsdcn_Cd = pBene.JRSDCN_CD))
+	
+   where 
+   -- exclude records where Sending Side = Receiving Side
+	pRem.EXTRL_NTITY_SEQ_ID <> pBene.EXTRL_NTITY_SEQ_ID 
+  -- include transaction record where Receiver_Party <> Other_Receiver_Party .. i.e., the Bene and Secondary Bene are not same
+  and 
+  (
+    t.Other_Receiver_Fl ='Y' 
+    or 
+    (
+      -- looking at second benef ID, make sure it's not same as benef ID
+      (pBene.EXTRL_NTITY_NM is null and COALESCE(t.Other_Receiver_Id, -1) <> t.Receiver_Id)
+      or
+      -- looking at second benef Name, make sure it's not same as benef name
+      (pBene.EXTRL_NTITY_NM is not null and (COALESCE(t.Other_Receiver_Nm, '-') <> t.Receiver_Nm or COALESCE(t.Other_Receiver_Jrsdcn_Cd, '-') <> t.Receiver_Jrsdcn_Cd))
+    )
+  )
+  --OFSAABD-19206
+  --Included Jurisdiction Codes 
+  and (@All_Jurisdictions_Fl = 'Y' OR pRem.JRSDCN_CD IN (@Incl_Jurisdictions_Lst))  
+  and (@All_Jurisdictions_Fl = 'Y' OR pBene.JRSDCN_CD IN (@Incl_Jurisdictions_Lst))
+  -- 36818690 Exclude Exempted EN
+  and pRem.EXTRL_NTITY_EFCTV_RISK_NB <> -2 
+  and pBene.EXTRL_NTITY_EFCTV_RISK_NB <> -2]]></COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_TSHLD_SET" CLEAN="NO">
+        <ROW>
+         <COLUMN NAME="TSHLD_SET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="TSHLD_SET_NM" TYPE="CHAR" PK="NO"  NULL="NO">BASE THRESHOLD SET</COLUMN>
+         <COLUMN NAME="BASE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000074</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_TSHLD" CLEAN="NO">
+        <ROW>
+         <COLUMN NAME="TSHLD_NM" TYPE="CHAR" PK="NO"  NULL="NO">Min_Individual_Trans_Amt</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">114003320</COLUMN>
+         <COLUMN NAME="MIN_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="MAX_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">100000</COLUMN>
+         <COLUMN NAME="DFLT_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">100</COLUMN>
+         <COLUMN NAME="UNIT_TX" TYPE="CHAR" PK="NO"  NULL="NO">MONEY</COLUMN>
+         <COLUMN NAME="CURR_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">100</COLUMN>
+         <COLUMN NAME="VALUE_TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">REAL</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">Min Individual Trans Amt</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Minimum individual transaction amount to qualify for aggregating transactions. Allows for the exclusion of small transactions that may have minimal impact on aggregated amounts.</COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000074</COLUMN>
+         <COLUMN NAME="BASE_TSHLD_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TSHLD_SET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_SORT_ORDR_NB" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_FL" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="TSHLD_NM" TYPE="CHAR" PK="NO"  NULL="NO">Incl_MI_Trxn_Prdct_Type_Lst</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">114697563</COLUMN>
+         <COLUMN NAME="MIN_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="MAX_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DFLT_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">'CASH-EQ-CASHIER-CHECK', 'CASH-EQ-CERT-CHECK', 'CASH-EQ-MONEY-ORDER', 'CASH-EQ-TRAVELERS-CHECK', 'CASH-EQ-OTHER', 'CASH-LETTER', 'CHECK', 'PAPER-OTHER', 'CHECK-ACH'</COLUMN>
+         <COLUMN NAME="UNIT_TX" TYPE="CHAR" PK="NO"  NULL="NO"><![CDATA[<NO_UNIT>]]></COLUMN>
+         <COLUMN NAME="CURR_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">'CASH-EQ-CASHIER-CHECK', 'CASH-EQ-CERT-CHECK', 'CASH-EQ-MONEY-ORDER', 'CASH-EQ-TRAVELERS-CHECK', 'CASH-EQ-OTHER', 'CASH-LETTER', 'CHECK', 'PAPER-OTHER', 'CHECK-ACH'</COLUMN>
+         <COLUMN NAME="VALUE_TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">LIST</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">Included MI Transaction Product Types</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">List of Transaction Product Type Codes for Monetary Instrument transactions included by the scenario Allowable values are defined in the Mantas Transaction Product Type Codes field of the Monetary Instrument Transaction file as described in the Transaction Code Values section and Transaction Supplementary Guidance section of the DIS</COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000074</COLUMN>
+         <COLUMN NAME="BASE_TSHLD_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TSHLD_SET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_SORT_ORDR_NB" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_FL" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="TSHLD_NM" TYPE="CHAR" PK="NO"  NULL="NO">EFCTV_RISK_LVL</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001293</COLUMN>
+         <COLUMN NAME="MIN_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="MAX_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">10</COLUMN>
+         <COLUMN NAME="DFLT_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">5</COLUMN>
+         <COLUMN NAME="UNIT_TX" TYPE="CHAR" PK="NO"  NULL="NO"><![CDATA[<NO_UNIT>]]></COLUMN>
+         <COLUMN NAME="CURR_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">5</COLUMN>
+         <COLUMN NAME="VALUE_TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">INTEGER</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">Effctv Risk Cutoff Lvl</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Effective risk level specified for the conditional thresholds to decide which set of thresholds values is applied in alert generation.</COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000074</COLUMN>
+         <COLUMN NAME="BASE_TSHLD_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TSHLD_SET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_SORT_ORDR_NB" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_FL" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="TSHLD_NM" TYPE="CHAR" PK="NO"  NULL="NO">ACTVY_RISK_LVL</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001294</COLUMN>
+         <COLUMN NAME="MIN_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="MAX_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">10</COLUMN>
+         <COLUMN NAME="DFLT_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">5</COLUMN>
+         <COLUMN NAME="UNIT_TX" TYPE="CHAR" PK="NO"  NULL="NO"><![CDATA[<NO_UNIT>]]></COLUMN>
+         <COLUMN NAME="CURR_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">5</COLUMN>
+         <COLUMN NAME="VALUE_TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">INTEGER</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">Actvty Risk Cutoff Lvl</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Activity risk level specified for the conditional thresholds to decide which set of threshold values is applied in alert generation.</COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000074</COLUMN>
+         <COLUMN NAME="BASE_TSHLD_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TSHLD_SET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_SORT_ORDR_NB" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_FL" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="TSHLD_NM" TYPE="CHAR" PK="NO"  NULL="NO">HR_PMIN_CT</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001295</COLUMN>
+         <COLUMN NAME="MIN_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="MAX_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">1000</COLUMN>
+         <COLUMN NAME="DFLT_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">10</COLUMN>
+         <COLUMN NAME="UNIT_TX" TYPE="CHAR" PK="NO"  NULL="NO"><![CDATA[<NO_UNIT>]]></COLUMN>
+         <COLUMN NAME="CURR_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">10</COLUMN>
+         <COLUMN NAME="VALUE_TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">INTEGER</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">HR Min Primary Trans Ct</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Minimum primary total transaction count required for an alert.</COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000074</COLUMN>
+         <COLUMN NAME="BASE_TSHLD_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TSHLD_SET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_SORT_ORDR_NB" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_FL" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="TSHLD_NM" TYPE="CHAR" PK="NO"  NULL="NO">MR_PMIN_CT</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001296</COLUMN>
+         <COLUMN NAME="MIN_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="MAX_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">1000</COLUMN>
+         <COLUMN NAME="DFLT_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">10</COLUMN>
+         <COLUMN NAME="UNIT_TX" TYPE="CHAR" PK="NO"  NULL="NO"><![CDATA[<NO_UNIT>]]></COLUMN>
+         <COLUMN NAME="CURR_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">10</COLUMN>
+         <COLUMN NAME="VALUE_TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">INTEGER</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">MR Min Primary Trans Ct</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Minimum primary total transaction count required for an alert.</COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000074</COLUMN>
+         <COLUMN NAME="BASE_TSHLD_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TSHLD_SET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_SORT_ORDR_NB" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_FL" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="TSHLD_NM" TYPE="CHAR" PK="NO"  NULL="NO">RR_PMIN_CT</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001297</COLUMN>
+         <COLUMN NAME="MIN_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="MAX_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">1000</COLUMN>
+         <COLUMN NAME="DFLT_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">10</COLUMN>
+         <COLUMN NAME="UNIT_TX" TYPE="CHAR" PK="NO"  NULL="NO"><![CDATA[<NO_UNIT>]]></COLUMN>
+         <COLUMN NAME="CURR_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">10</COLUMN>
+         <COLUMN NAME="VALUE_TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">INTEGER</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">RR Min Primary Trans Ct</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Minimum primary total transaction count required for an alert.</COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000074</COLUMN>
+         <COLUMN NAME="BASE_TSHLD_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TSHLD_SET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_SORT_ORDR_NB" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_FL" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="TSHLD_NM" TYPE="CHAR" PK="NO"  NULL="NO">HR_SMIN_CT</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001298</COLUMN>
+         <COLUMN NAME="MIN_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="MAX_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">500</COLUMN>
+         <COLUMN NAME="DFLT_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">2</COLUMN>
+         <COLUMN NAME="UNIT_TX" TYPE="CHAR" PK="NO"  NULL="NO"><![CDATA[<NO_UNIT>]]></COLUMN>
+         <COLUMN NAME="CURR_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">2</COLUMN>
+         <COLUMN NAME="VALUE_TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">INTEGER</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">HR Min Secondary Trans Ct</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Minimum total transaction count required for an alert. The Min Secondary Trans Amt threshold must also be evaluated.</COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000074</COLUMN>
+         <COLUMN NAME="BASE_TSHLD_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TSHLD_SET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_SORT_ORDR_NB" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_FL" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="TSHLD_NM" TYPE="CHAR" PK="NO"  NULL="NO">MR_SMIN_CT</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001299</COLUMN>
+         <COLUMN NAME="MIN_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="MAX_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">500</COLUMN>
+         <COLUMN NAME="DFLT_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">2</COLUMN>
+         <COLUMN NAME="UNIT_TX" TYPE="CHAR" PK="NO"  NULL="NO"><![CDATA[<NO_UNIT>]]></COLUMN>
+         <COLUMN NAME="CURR_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">2</COLUMN>
+         <COLUMN NAME="VALUE_TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">INTEGER</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">MR Min Secondary Trans Ct</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Minimum total transaction count required for an alert. The Min Secondary Trans Amt threshold must also be evaluated.</COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000074</COLUMN>
+         <COLUMN NAME="BASE_TSHLD_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TSHLD_SET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_SORT_ORDR_NB" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_FL" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="TSHLD_NM" TYPE="CHAR" PK="NO"  NULL="NO">RR_SMIN_CT</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001300</COLUMN>
+         <COLUMN NAME="MIN_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="MAX_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">500</COLUMN>
+         <COLUMN NAME="DFLT_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">2</COLUMN>
+         <COLUMN NAME="UNIT_TX" TYPE="CHAR" PK="NO"  NULL="NO"><![CDATA[<NO_UNIT>]]></COLUMN>
+         <COLUMN NAME="CURR_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">2</COLUMN>
+         <COLUMN NAME="VALUE_TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">INTEGER</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">RR Min Secondary Trans Ct</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Minimum total transaction count required for an alert. The Min Secondary Trans Amt threshold must also be evaluated.</COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000074</COLUMN>
+         <COLUMN NAME="BASE_TSHLD_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TSHLD_SET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_SORT_ORDR_NB" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_FL" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="TSHLD_NM" TYPE="CHAR" PK="NO"  NULL="NO">HR_SMIN_AM</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001301</COLUMN>
+         <COLUMN NAME="MIN_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">100</COLUMN>
+         <COLUMN NAME="MAX_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">100000</COLUMN>
+         <COLUMN NAME="DFLT_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">1000</COLUMN>
+         <COLUMN NAME="UNIT_TX" TYPE="CHAR" PK="NO"  NULL="NO">MONEY</COLUMN>
+         <COLUMN NAME="CURR_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">1000</COLUMN>
+         <COLUMN NAME="VALUE_TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">REAL</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">HR Min Secondary Trans Amt</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Minimum transaction amount required for an alert. The Min Secondary Trans Ct threshold must also be evaluated.</COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000074</COLUMN>
+         <COLUMN NAME="BASE_TSHLD_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TSHLD_SET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_SORT_ORDR_NB" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_FL" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="TSHLD_NM" TYPE="CHAR" PK="NO"  NULL="NO">MR_SMIN_AM</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001302</COLUMN>
+         <COLUMN NAME="MIN_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">100</COLUMN>
+         <COLUMN NAME="MAX_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">100000</COLUMN>
+         <COLUMN NAME="DFLT_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">1000</COLUMN>
+         <COLUMN NAME="UNIT_TX" TYPE="CHAR" PK="NO"  NULL="NO">MONEY</COLUMN>
+         <COLUMN NAME="CURR_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">1000</COLUMN>
+         <COLUMN NAME="VALUE_TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">REAL</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">MR Min Secondary Trans Amt</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Minimum transaction amount required for an alert. The Min Secondary Trans Ct threshold must also be evaluated.</COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000074</COLUMN>
+         <COLUMN NAME="BASE_TSHLD_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TSHLD_SET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_SORT_ORDR_NB" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_FL" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="TSHLD_NM" TYPE="CHAR" PK="NO"  NULL="NO">RR_SMIN_AM</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001303</COLUMN>
+         <COLUMN NAME="MIN_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">100</COLUMN>
+         <COLUMN NAME="MAX_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">100000</COLUMN>
+         <COLUMN NAME="DFLT_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">1000</COLUMN>
+         <COLUMN NAME="UNIT_TX" TYPE="CHAR" PK="NO"  NULL="NO">MONEY</COLUMN>
+         <COLUMN NAME="CURR_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">1000</COLUMN>
+         <COLUMN NAME="VALUE_TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">REAL</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">RR Min Secondary Trans Amt</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Minimum transaction amount required for an alert. The Min Secondary Trans Ct threshold must also be evaluated.</COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000074</COLUMN>
+         <COLUMN NAME="BASE_TSHLD_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TSHLD_SET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_SORT_ORDR_NB" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_FL" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="TSHLD_NM" TYPE="CHAR" PK="NO"  NULL="NO">Frequency</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001304</COLUMN>
+         <COLUMN NAME="MIN_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">7</COLUMN>
+         <COLUMN NAME="MAX_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">30</COLUMN>
+         <COLUMN NAME="DFLT_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">7</COLUMN>
+         <COLUMN NAME="UNIT_TX" TYPE="CHAR" PK="NO"  NULL="NO">DAYS</COLUMN>
+         <COLUMN NAME="CURR_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">7</COLUMN>
+         <COLUMN NAME="VALUE_TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">INTEGER</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">Frequency Period</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Number of calendar days specified for the frequency period</COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000074</COLUMN>
+         <COLUMN NAME="BASE_TSHLD_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TSHLD_SET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_SORT_ORDR_NB" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_FL" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="TSHLD_NM" TYPE="CHAR" PK="NO"  NULL="NO">Lookback</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001305</COLUMN>
+         <COLUMN NAME="MIN_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">7</COLUMN>
+         <COLUMN NAME="MAX_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">30</COLUMN>
+         <COLUMN NAME="DFLT_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">14</COLUMN>
+         <COLUMN NAME="UNIT_TX" TYPE="CHAR" PK="NO"  NULL="NO">DAYS</COLUMN>
+         <COLUMN NAME="CURR_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">14</COLUMN>
+         <COLUMN NAME="VALUE_TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">INTEGER</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">Lookback Period</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Number of calendar days specified for the lookback period</COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000074</COLUMN>
+         <COLUMN NAME="BASE_TSHLD_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TSHLD_SET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_SORT_ORDR_NB" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_FL" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="TSHLD_NM" TYPE="CHAR" PK="NO"  NULL="NO">LrfDigits</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001306</COLUMN>
+         <COLUMN NAME="MIN_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">2</COLUMN>
+         <COLUMN NAME="MAX_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">10</COLUMN>
+         <COLUMN NAME="DFLT_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">4</COLUMN>
+         <COLUMN NAME="UNIT_TX" TYPE="CHAR" PK="NO"  NULL="NO"><![CDATA[<NO_UNIT>]]></COLUMN>
+         <COLUMN NAME="CURR_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">4</COLUMN>
+         <COLUMN NAME="VALUE_TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">INTEGER</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">Large Round Figure Digits</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Number of zero digits to the left of the decimal point required for an amount to be considered a large round figure Used to derive alert scoring variables</COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000074</COLUMN>
+         <COLUMN NAME="BASE_TSHLD_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TSHLD_SET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_SORT_ORDR_NB" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_FL" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="TSHLD_NM" TYPE="CHAR" PK="NO"  NULL="NO">INCL_SRC_CD</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001307</COLUMN>
+         <COLUMN NAME="MIN_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="MAX_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DFLT_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">'Inactive'</COLUMN>
+         <COLUMN NAME="UNIT_TX" TYPE="CHAR" PK="NO"  NULL="NO"><![CDATA[<NO_UNIT>]]></COLUMN>
+         <COLUMN NAME="CURR_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">'Inactive'</COLUMN>
+         <COLUMN NAME="VALUE_TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">LIST</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">Included Transaction Source Codes</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">List of transaction source codes that the scenario covers The client defines allowable values</COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000074</COLUMN>
+         <COLUMN NAME="BASE_TSHLD_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TSHLD_SET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_SORT_ORDR_NB" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_FL" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="TSHLD_NM" TYPE="CHAR" PK="NO"  NULL="NO">ALL_TRXN_CDS</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001309</COLUMN>
+         <COLUMN NAME="MIN_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="MAX_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DFLT_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">'Y'</COLUMN>
+         <COLUMN NAME="UNIT_TX" TYPE="CHAR" PK="NO"  NULL="NO"><![CDATA[<NO_UNIT>]]></COLUMN>
+         <COLUMN NAME="CURR_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">'Y'</COLUMN>
+         <COLUMN NAME="VALUE_TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">STRING</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">All Transaction Sources</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Parameter that allows the coverage of all transaction source codes without enumerating them in the Included Transaction Source Codes threshold  Y Covers all transaction source codes regardless of the Included Transaction Source Codes threshold value  N Covers only those transaction source codes that are listed in the Included Transaction Source Codes threshold</COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000074</COLUMN>
+         <COLUMN NAME="BASE_TSHLD_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TSHLD_SET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_SORT_ORDR_NB" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_FL" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="TSHLD_NM" TYPE="CHAR" PK="NO"  NULL="NO">Include_Trusted_Trans_FL</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118751837</COLUMN>
+         <COLUMN NAME="MIN_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="MAX_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DFLT_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">'Y'</COLUMN>
+         <COLUMN NAME="UNIT_TX" TYPE="CHAR" PK="NO"  NULL="NO"><![CDATA[<NO_UNIT>]]></COLUMN>
+         <COLUMN NAME="CURR_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">'Y'</COLUMN>
+         <COLUMN NAME="VALUE_TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">STRING</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">Include Trusted Transactions</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Parameter that controls the inclusion or exclusion of transactions which have been designated as trusted transactions. Trusted transactions are those transactions considered trusted based upon the presence of one or more trusted pairs (parties identified as enjoying a trusted relationship) on the transaction.     Y: Include trusted transactions   N: Exclude trusted transactions</COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000074</COLUMN>
+         <COLUMN NAME="BASE_TSHLD_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TSHLD_SET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_SORT_ORDR_NB" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_FL" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="TSHLD_NM" TYPE="CHAR" PK="NO"  NULL="NO">All_Jurisdictions_Fl</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118861310</COLUMN>
+         <COLUMN NAME="MIN_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="MAX_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DFLT_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">'Y'</COLUMN>
+         <COLUMN NAME="UNIT_TX" TYPE="CHAR" PK="NO"  NULL="NO"><![CDATA[<NO_UNIT>]]></COLUMN>
+         <COLUMN NAME="CURR_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">'Y'</COLUMN>
+         <COLUMN NAME="VALUE_TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">STRING</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">All Jurisdictions</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Parameter that allows the coverage of all jurisdictions without enumerating them in the Included Jurisdiction Codes threshold:   Y: Covers all jurisdiction codes regardless of the Included Jurisdiction Codes threshold value.   N: Covers only those jurisdictions that are listed in the Included Jurisdiction Codes threshold value.</COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000074</COLUMN>
+         <COLUMN NAME="BASE_TSHLD_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TSHLD_SET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_SORT_ORDR_NB" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_FL" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="TSHLD_NM" TYPE="CHAR" PK="NO"  NULL="NO">Incl_Jurisdictions_Lst</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118861311</COLUMN>
+         <COLUMN NAME="MIN_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="MAX_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DFLT_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">'Inactive'</COLUMN>
+         <COLUMN NAME="UNIT_TX" TYPE="CHAR" PK="NO"  NULL="NO"><![CDATA[<NO_UNIT>]]></COLUMN>
+         <COLUMN NAME="CURR_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">'Inactive'</COLUMN>
+         <COLUMN NAME="VALUE_TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">LIST</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">Included Jurisdiction Codes</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">The list of jurisdiction codes that the scenario covers. The client defines allowable values.</COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000074</COLUMN>
+         <COLUMN NAME="BASE_TSHLD_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TSHLD_SET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_SORT_ORDR_NB" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DSPLY_FL" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_TSHLD_DATASET" CLEAN="YES">
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">114003320</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">114697563</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001293</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001294</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001295</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001296</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001297</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001298</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001299</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001300</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001301</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001302</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001303</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001304</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001305</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001306</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001307</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001309</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118751837</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118861310</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118861311</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002890</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">114003320</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002890</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">114697563</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002890</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001305</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002890</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001307</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002890</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001309</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002890</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118751837</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002890</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118861310</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002890</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118861311</COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_TSHLD_HIST" CLEAN="NO">
+        <ROW>
+         <COLUMN NAME="HIST_SEQ_ID" TYPE="NUMBER" PK="YES"  NULL="NO">114231177</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="NO"  NULL="NO">114697563</COLUMN>
+         <COLUMN NAME="VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">'''CASH-EQ-CASHIER-CHECK'', ''CASH-EQ-CERT-CHECK'', ''CASH-EQ-MONEY-ORDER'', ''CASH-EQ-TRAVELERS-CHECK'', ''CASH-EQ-OTHER'', ''CASH-LETTER'', ''CHECK'', ''PAPER-OTHER'', ''CHECK-ACH'''</COLUMN>
+         <COLUMN NAME="CREAT_TS" TYPE="DATE" PK="NO"  NULL="NO">2024-07-24 15:43:58.0</COLUMN>
+         <COLUMN NAME="CREAT_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DEACT_ID" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="CMMNT_TX" TYPE="CHAR" PK="NO"  NULL="NO">Threshold value created during Scenario Migration</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="HIST_SEQ_ID" TYPE="NUMBER" PK="YES"  NULL="NO">114231178</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116001293</COLUMN>
+         <COLUMN NAME="VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">5</COLUMN>
+         <COLUMN NAME="CREAT_TS" TYPE="DATE" PK="NO"  NULL="NO">2024-07-24 15:43:58.0</COLUMN>
+         <COLUMN NAME="CREAT_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DEACT_ID" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="CMMNT_TX" TYPE="CHAR" PK="NO"  NULL="NO">Threshold value created during Scenario Migration</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="HIST_SEQ_ID" TYPE="NUMBER" PK="YES"  NULL="NO">114231179</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116001294</COLUMN>
+         <COLUMN NAME="VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">5</COLUMN>
+         <COLUMN NAME="CREAT_TS" TYPE="DATE" PK="NO"  NULL="NO">2024-07-24 15:43:58.0</COLUMN>
+         <COLUMN NAME="CREAT_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DEACT_ID" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="CMMNT_TX" TYPE="CHAR" PK="NO"  NULL="NO">Threshold value created during Scenario Migration</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="HIST_SEQ_ID" TYPE="NUMBER" PK="YES"  NULL="NO">114231180</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116001295</COLUMN>
+         <COLUMN NAME="VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">10</COLUMN>
+         <COLUMN NAME="CREAT_TS" TYPE="DATE" PK="NO"  NULL="NO">2024-07-24 15:43:58.0</COLUMN>
+         <COLUMN NAME="CREAT_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DEACT_ID" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="CMMNT_TX" TYPE="CHAR" PK="NO"  NULL="NO">Threshold value created during Scenario Migration</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="HIST_SEQ_ID" TYPE="NUMBER" PK="YES"  NULL="NO">114231181</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116001296</COLUMN>
+         <COLUMN NAME="VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">10</COLUMN>
+         <COLUMN NAME="CREAT_TS" TYPE="DATE" PK="NO"  NULL="NO">2024-07-24 15:43:58.0</COLUMN>
+         <COLUMN NAME="CREAT_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DEACT_ID" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="CMMNT_TX" TYPE="CHAR" PK="NO"  NULL="NO">Threshold value created during Scenario Migration</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="HIST_SEQ_ID" TYPE="NUMBER" PK="YES"  NULL="NO">114231182</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="NO"  NULL="NO">114003320</COLUMN>
+         <COLUMN NAME="VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">100</COLUMN>
+         <COLUMN NAME="CREAT_TS" TYPE="DATE" PK="NO"  NULL="NO">2024-07-24 15:43:58.0</COLUMN>
+         <COLUMN NAME="CREAT_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DEACT_ID" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="CMMNT_TX" TYPE="CHAR" PK="NO"  NULL="NO">Threshold value created during Scenario Migration</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="HIST_SEQ_ID" TYPE="NUMBER" PK="YES"  NULL="NO">114231183</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116001297</COLUMN>
+         <COLUMN NAME="VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">10</COLUMN>
+         <COLUMN NAME="CREAT_TS" TYPE="DATE" PK="NO"  NULL="NO">2024-07-24 15:43:58.0</COLUMN>
+         <COLUMN NAME="CREAT_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DEACT_ID" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="CMMNT_TX" TYPE="CHAR" PK="NO"  NULL="NO">Threshold value created during Scenario Migration</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="HIST_SEQ_ID" TYPE="NUMBER" PK="YES"  NULL="NO">114231184</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116001298</COLUMN>
+         <COLUMN NAME="VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">2</COLUMN>
+         <COLUMN NAME="CREAT_TS" TYPE="DATE" PK="NO"  NULL="NO">2024-07-24 15:43:58.0</COLUMN>
+         <COLUMN NAME="CREAT_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DEACT_ID" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="CMMNT_TX" TYPE="CHAR" PK="NO"  NULL="NO">Threshold value created during Scenario Migration</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="HIST_SEQ_ID" TYPE="NUMBER" PK="YES"  NULL="NO">114231185</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116001299</COLUMN>
+         <COLUMN NAME="VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">2</COLUMN>
+         <COLUMN NAME="CREAT_TS" TYPE="DATE" PK="NO"  NULL="NO">2024-07-24 15:43:58.0</COLUMN>
+         <COLUMN NAME="CREAT_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DEACT_ID" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="CMMNT_TX" TYPE="CHAR" PK="NO"  NULL="NO">Threshold value created during Scenario Migration</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="HIST_SEQ_ID" TYPE="NUMBER" PK="YES"  NULL="NO">114231186</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116001300</COLUMN>
+         <COLUMN NAME="VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">2</COLUMN>
+         <COLUMN NAME="CREAT_TS" TYPE="DATE" PK="NO"  NULL="NO">2024-07-24 15:43:58.0</COLUMN>
+         <COLUMN NAME="CREAT_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DEACT_ID" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="CMMNT_TX" TYPE="CHAR" PK="NO"  NULL="NO">Threshold value created during Scenario Migration</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="HIST_SEQ_ID" TYPE="NUMBER" PK="YES"  NULL="NO">114231187</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116001301</COLUMN>
+         <COLUMN NAME="VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">1000</COLUMN>
+         <COLUMN NAME="CREAT_TS" TYPE="DATE" PK="NO"  NULL="NO">2024-07-24 15:43:58.0</COLUMN>
+         <COLUMN NAME="CREAT_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DEACT_ID" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="CMMNT_TX" TYPE="CHAR" PK="NO"  NULL="NO">Threshold value created during Scenario Migration</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="HIST_SEQ_ID" TYPE="NUMBER" PK="YES"  NULL="NO">114231188</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116001302</COLUMN>
+         <COLUMN NAME="VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">1000</COLUMN>
+         <COLUMN NAME="CREAT_TS" TYPE="DATE" PK="NO"  NULL="NO">2024-07-24 15:43:58.0</COLUMN>
+         <COLUMN NAME="CREAT_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DEACT_ID" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="CMMNT_TX" TYPE="CHAR" PK="NO"  NULL="NO">Threshold value created during Scenario Migration</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="HIST_SEQ_ID" TYPE="NUMBER" PK="YES"  NULL="NO">114231189</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116001303</COLUMN>
+         <COLUMN NAME="VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">1000</COLUMN>
+         <COLUMN NAME="CREAT_TS" TYPE="DATE" PK="NO"  NULL="NO">2024-07-24 15:43:58.0</COLUMN>
+         <COLUMN NAME="CREAT_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DEACT_ID" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="CMMNT_TX" TYPE="CHAR" PK="NO"  NULL="NO">Threshold value created during Scenario Migration</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="HIST_SEQ_ID" TYPE="NUMBER" PK="YES"  NULL="NO">114231190</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116001304</COLUMN>
+         <COLUMN NAME="VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">7</COLUMN>
+         <COLUMN NAME="CREAT_TS" TYPE="DATE" PK="NO"  NULL="NO">2024-07-24 15:43:58.0</COLUMN>
+         <COLUMN NAME="CREAT_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DEACT_ID" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="CMMNT_TX" TYPE="CHAR" PK="NO"  NULL="NO">Threshold value created during Scenario Migration</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="HIST_SEQ_ID" TYPE="NUMBER" PK="YES"  NULL="NO">114231191</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116001305</COLUMN>
+         <COLUMN NAME="VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">14</COLUMN>
+         <COLUMN NAME="CREAT_TS" TYPE="DATE" PK="NO"  NULL="NO">2024-07-24 15:43:58.0</COLUMN>
+         <COLUMN NAME="CREAT_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DEACT_ID" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="CMMNT_TX" TYPE="CHAR" PK="NO"  NULL="NO">Threshold value created during Scenario Migration</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="HIST_SEQ_ID" TYPE="NUMBER" PK="YES"  NULL="NO">114231192</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116001306</COLUMN>
+         <COLUMN NAME="VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">4</COLUMN>
+         <COLUMN NAME="CREAT_TS" TYPE="DATE" PK="NO"  NULL="NO">2024-07-24 15:43:58.0</COLUMN>
+         <COLUMN NAME="CREAT_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DEACT_ID" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="CMMNT_TX" TYPE="CHAR" PK="NO"  NULL="NO">Threshold value created during Scenario Migration</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="HIST_SEQ_ID" TYPE="NUMBER" PK="YES"  NULL="NO">114231193</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116001307</COLUMN>
+         <COLUMN NAME="VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">'''Inactive'''</COLUMN>
+         <COLUMN NAME="CREAT_TS" TYPE="DATE" PK="NO"  NULL="NO">2024-07-24 15:43:58.0</COLUMN>
+         <COLUMN NAME="CREAT_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DEACT_ID" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="CMMNT_TX" TYPE="CHAR" PK="NO"  NULL="NO">Threshold value created during Scenario Migration</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="HIST_SEQ_ID" TYPE="NUMBER" PK="YES"  NULL="NO">114231194</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="NO"  NULL="NO">116001309</COLUMN>
+         <COLUMN NAME="VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">'''Y'''</COLUMN>
+         <COLUMN NAME="CREAT_TS" TYPE="DATE" PK="NO"  NULL="NO">2024-07-24 15:43:58.0</COLUMN>
+         <COLUMN NAME="CREAT_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DEACT_ID" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="CMMNT_TX" TYPE="CHAR" PK="NO"  NULL="NO">Threshold value created during Scenario Migration</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="HIST_SEQ_ID" TYPE="NUMBER" PK="YES"  NULL="NO">114231195</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="NO"  NULL="NO">118751837</COLUMN>
+         <COLUMN NAME="VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">'''Y'''</COLUMN>
+         <COLUMN NAME="CREAT_TS" TYPE="DATE" PK="NO"  NULL="NO">2024-07-24 15:43:58.0</COLUMN>
+         <COLUMN NAME="CREAT_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DEACT_ID" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="CMMNT_TX" TYPE="CHAR" PK="NO"  NULL="NO">Threshold value created during Scenario Migration</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="HIST_SEQ_ID" TYPE="NUMBER" PK="YES"  NULL="NO">114231196</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="NO"  NULL="NO">118861310</COLUMN>
+         <COLUMN NAME="VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">'''Y'''</COLUMN>
+         <COLUMN NAME="CREAT_TS" TYPE="DATE" PK="NO"  NULL="NO">2024-07-24 15:43:58.0</COLUMN>
+         <COLUMN NAME="CREAT_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DEACT_ID" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="CMMNT_TX" TYPE="CHAR" PK="NO"  NULL="NO">Threshold value created during Scenario Migration</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="HIST_SEQ_ID" TYPE="NUMBER" PK="YES"  NULL="NO">114231197</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="NO"  NULL="NO">118861311</COLUMN>
+         <COLUMN NAME="VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">'''Inactive'''</COLUMN>
+         <COLUMN NAME="CREAT_TS" TYPE="DATE" PK="NO"  NULL="NO">2024-07-24 15:43:58.0</COLUMN>
+         <COLUMN NAME="CREAT_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DEACT_ID" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="CMMNT_TX" TYPE="CHAR" PK="NO"  NULL="NO">Threshold value created during Scenario Migration</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_DATASET_ATTR" CLEAN="YES">
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">113002353</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">113001051</COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002890</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">113002710</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">113001067</COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116000988</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116000995</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116000996</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116000997</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116000999</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001000</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001001</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001002</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001003</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001004</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001005</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002890</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001021</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002890</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001022</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116001382</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118747338</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118860710</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_DATASET_DMN" CLEAN="YES">
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="DMN_CD" TYPE="CHAR" PK="YES"  NULL="NO">MTS</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002890</COLUMN>
+         <COLUMN NAME="DMN_CD" TYPE="CHAR" PK="YES"  NULL="NO">MTS</COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_JOB_DATASET" CLEAN="YES">
+        <ROW>
+         <COLUMN NAME="JOB_ID" TYPE="NUMBER" PK="YES"  NULL="NO">114001759</COLUMN>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">113001051</COLUMN>
+         <COLUMN NAME="ORDER_NB" TYPE="NUMBER" PK="NO"  NULL="NO">2</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="JOB_ID" TYPE="NUMBER" PK="YES"  NULL="NO">114001759</COLUMN>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="ORDER_NB" TYPE="NUMBER" PK="NO"  NULL="NO">0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="JOB_ID" TYPE="NUMBER" PK="YES"  NULL="NO">114001759</COLUMN>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002890</COLUMN>
+         <COLUMN NAME="ORDER_NB" TYPE="NUMBER" PK="NO"  NULL="NO">1</COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_PARAM_BINDING" CLEAN="YES">
+        <ROW>
+         <COLUMN NAME="PARAM_NM" TYPE="CHAR" PK="YES"  NULL="NO">pattern</COLUMN>
+         <COLUMN NAME="ALGORITHM_NM" TYPE="CHAR" PK="YES"  NULL="NO">Rule Matcher</COLUMN>
+         <COLUMN NAME="PARAM_SET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">114002013</COLUMN>
+         <COLUMN NAME="PARAM_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">116000107</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="PARAM_NM" TYPE="CHAR" PK="YES"  NULL="NO">threshold_set_id</COLUMN>
+         <COLUMN NAME="ALGORITHM_NM" TYPE="CHAR" PK="YES"  NULL="NO">Rule Matcher</COLUMN>
+         <COLUMN NAME="PARAM_SET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">114002013</COLUMN>
+         <COLUMN NAME="PARAM_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">116000107</COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_PTTRN_DATASET" CLEAN="YES">
+        <ROW>
+         <COLUMN NAME="PTTRN_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">113001051</COLUMN>
+         <COLUMN NAME="ORDER_NB" TYPE="NUMBER" PK="NO"  NULL="NO">2</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="PTTRN_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="ORDER_NB" TYPE="NUMBER" PK="NO"  NULL="NO">0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="PTTRN_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002890</COLUMN>
+         <COLUMN NAME="ORDER_NB" TYPE="NUMBER" PK="NO"  NULL="NO">1</COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_PTTRN_ROLE" CLEAN="YES">
+        <ROW>
+         <COLUMN NAME="PTTRN_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="VRBL_NM" TYPE="CHAR" PK="YES"  NULL="NO">ACTVY_RISK</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Actvty Risk Lvl =</COLUMN>
+         <COLUMN NAME="DPLY_PSTN_CT" TYPE="NUMBER" PK="NO"  NULL="NO">4</COLUMN>
+         <COLUMN NAME="FRMT_TX" TYPE="CHAR" PK="NO"  NULL="NO">INTEGER</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="PTTRN_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="VRBL_NM" TYPE="CHAR" PK="YES"  NULL="NO">EFCTV_RISK</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Effctv Risk Lvl =</COLUMN>
+         <COLUMN NAME="DPLY_PSTN_CT" TYPE="NUMBER" PK="NO"  NULL="NO">3</COLUMN>
+         <COLUMN NAME="FRMT_TX" TYPE="CHAR" PK="NO"  NULL="NO">INTEGER</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="PTTRN_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="VRBL_NM" TYPE="CHAR" PK="YES"  NULL="NO">EXTERNAL_ENTITY</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">EXTERNAL_ENTITY</COLUMN>
+         <COLUMN NAME="DPLY_PSTN_CT" TYPE="NUMBER" PK="NO"  NULL="NO">9</COLUMN>
+         <COLUMN NAME="FRMT_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="PTTRN_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="VRBL_NM" TYPE="CHAR" PK="YES"  NULL="NO">HR_PRCTG</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Hr Prctg</COLUMN>
+         <COLUMN NAME="DPLY_PSTN_CT" TYPE="NUMBER" PK="NO"  NULL="NO">8</COLUMN>
+         <COLUMN NAME="FRMT_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="PTTRN_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="VRBL_NM" TYPE="CHAR" PK="YES"  NULL="NO">LRF_PRCTG</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Lrf Prctg</COLUMN>
+         <COLUMN NAME="DPLY_PSTN_CT" TYPE="NUMBER" PK="NO"  NULL="NO">6</COLUMN>
+         <COLUMN NAME="FRMT_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="PTTRN_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="VRBL_NM" TYPE="CHAR" PK="YES"  NULL="NO">OVERALL_RISK</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Overall Risk =</COLUMN>
+         <COLUMN NAME="DPLY_PSTN_CT" TYPE="NUMBER" PK="NO"  NULL="NO">2</COLUMN>
+         <COLUMN NAME="FRMT_TX" TYPE="CHAR" PK="NO"  NULL="NO">STRING</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="PTTRN_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="VRBL_NM" TYPE="CHAR" PK="YES"  NULL="NO">PASS_THRU_PRCTG</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Pass Thru Prctg</COLUMN>
+         <COLUMN NAME="DPLY_PSTN_CT" TYPE="NUMBER" PK="NO"  NULL="NO">7</COLUMN>
+         <COLUMN NAME="FRMT_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="PTTRN_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="VRBL_NM" TYPE="CHAR" PK="YES"  NULL="NO">TOT_TRXN_AM</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Tot Trans Amt =</COLUMN>
+         <COLUMN NAME="DPLY_PSTN_CT" TYPE="NUMBER" PK="NO"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="FRMT_TX" TYPE="CHAR" PK="NO"  NULL="NO">CURRENCY</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="PTTRN_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="VRBL_NM" TYPE="CHAR" PK="YES"  NULL="NO">TOT_TRXN_CT</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Tot Trans Ct =</COLUMN>
+         <COLUMN NAME="DPLY_PSTN_CT" TYPE="NUMBER" PK="NO"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="FRMT_TX" TYPE="CHAR" PK="NO"  NULL="NO">INTEGER</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="PTTRN_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="VRBL_NM" TYPE="CHAR" PK="YES"  NULL="NO">Trusted_Trans_Prctg</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">% Trans w/Trusted Pairs =</COLUMN>
+         <COLUMN NAME="DPLY_PSTN_CT" TYPE="NUMBER" PK="NO"  NULL="NO">5</COLUMN>
+         <COLUMN NAME="FRMT_TX" TYPE="CHAR" PK="NO"  NULL="NO">%</COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_SEQ_PTTRN" CLEAN="YES">
+        <ROW>
+         <COLUMN NAME="PTTRN_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116000107</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Retrieve External Entity Pairs</COLUMN>
+         <COLUMN NAME="PTTRN_TX" TYPE="LONG" PK="NO"  NULL="NO"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rule-pattern PUBLIC "-//SRA//DTD Patterns//EN" "pattern.dtd">
+<rule-pattern action="BreakAction" focus="EXTERNAL_ENTITY" id="p1">
+  <datasets>
+    <dataset href="/datasets/116002776" id="ds2" name="ML_ChkMI_RecReBeKnown_GRP_EN"/>
+    <dataset href="/datasets/116002890" id="ds3" name="ML_ChkMI_RecReBeKnown_TRXN_EN"/>
+    <dataset href="/datasets/113001051" id="ds4" name="EXTERNAL_ENTITY_WRP"/>
+  </datasets>
+  <scenario class="Money Laundering" description="This scenario identifies possible money laundering or fraud involving checks or monetary instruments with recurring remitters, beneficiaries, or both. This activity can be evidence of attempts to structure deposits and move funds back and forth between accounts in an effort to hide their origin. Also, it can be indicative of a fraud scheme." focus="EXTERNAL_ENTITY" href="/scenarios/116000074" id="s5" name="(ML/EN) Known Remitter/Beneficiary Names in Checks, Monetary Instruments" scenarioid="116000074" scnroctldid="ML-ChkMIRecurringReBeKnown" shortname="Checks, MIs - Recurring RE/BE Known"/>
+  <roles>
+    <role format="CURRENCY" highlight="Y" name="TOT_TRXN_AM">
+Tot Trans Amt =
+    </role>
+    <role format="INTEGER" highlight="Y" name="TOT_TRXN_CT">
+Tot Trans Ct =
+    </role>
+    <role format="STRING" highlight="Y" name="OVERALL_RISK">
+Overall Risk =
+    </role>
+    <role format="INTEGER" highlight="Y" name="EFCTV_RISK">
+Effctv Risk Lvl =
+    </role>
+    <role format="INTEGER" highlight="Y" name="ACTVY_RISK">
+Actvty Risk Lvl =
+    </role>
+    <role format="%" highlight="Y" name="Trusted_Trans_Prctg">
+% Trans w/Trusted Pairs =
+    </role>
+    <role format="" highlight="N" name="LRF_PRCTG">Lrf Prctg</role>
+    <role format="" highlight="N" name="PASS_THRU_PRCTG">Pass Thru Prctg</role>
+    <role format="" highlight="N" name="HR_PRCTG">Hr Prctg</role>
+    <role format="" highlight="N" name="EXTERNAL_ENTITY">EXTERNAL_ENTITY</role>
+  </roles>
+  <rule>
+    <row dataset="ds2" norecord="yes">
+      <comment>Retrieve External Entity Pairs</comment>
+      <binding name="REM">REM_SEQ_ID</binding>
+      <binding name="BENEF">BENEF_SEQ_ID</binding>
+      <binding name="TOT_TRXN_CT">TRXN_CT</binding>
+      <binding name="TOT_TRXN_AM">TOT_TRXN_AM</binding>
+      <binding name="PASS_THRU_PRCTG">PASS_THRU_PRCTG</binding>
+      <binding name="LRF_PRCTG">LRF_PRCTG</binding>
+      <binding name="HR_PRCTG">HR_PRCTG</binding>
+      <binding name="EFCTV_RISK">EFFCTV_RISK_NB</binding>
+      <binding name="ACTVY_RISK">ACTVY_RISK_LVL</binding>
+      <binding name="OVERALL_RISK">Overall_Risk</binding>
+      <binding name="EXTERNAL_ENTITY">BENEF_SEQ_ID</binding>
+      <binding name="Trusted_Trans_Amt">Trusted_Trans_Amt</binding>
+      <binding name="Trusted_Trans_Prctg">
+cond($TOT_TRXN_AM==0;0;($Trusted_Trans_Amt/$TOT_TRXN_AM)*100)
+      </binding>
+    </row>
+    <focal-attribute cluster="no">BENEF_SEQ_ID</focal-attribute>
+  </rule>
+  <rule>
+    <row dataset="ds3" norecord="no">
+      <comment>Bind Transactions</comment>
+      <constraint>
+($REM==REM_SEQ_ID)
+
+&amp;&amp;
+
+($BENEF == BENEF_SEQ_ID)
+      </constraint>
+    </row>
+    <focal-attribute>BENEF_SEQ_ID</focal-attribute>
+  </rule>
+  <rule>
+    <row dataset="ds4" norecord="no">
+      <comment>Bind External Entity Data</comment>
+    </row>
+    <focal-attribute>EXTRL_NTITY_SEQ_ID</focal-attribute>
+  </rule>
+</rule-pattern>
+]]></COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_TRANSFORM" CLEAN="YES">
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">join 113001051 with (join 113001067 with 113001100 on 113001067.DATA_DUMP_DT == 113001100.CLNDR_DT) on 113001051.EXTRL_NTITY_SEQ_ID == 113001067.REM_EXTRL_NTITY_SEQ_ID</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">REM_SEQ_ID = 1</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">2</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">REM = 1</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">3</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">BENEF = 1</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">4</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">BENEF_SEQ_ID = 1</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">5</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">TRXN_CT = 1</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">6</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">TOT_TRXN_AM = 1</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">7</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">EFFCTV_RISK_NB = 1</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">8</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">PASS_THRU_PRCTG = 1</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">9</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">LRF_PRCTG = 1</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">10</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">DATA_DUMP_DT = 1</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">11</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">ACTVY_RISK_LVL = 1</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">12</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">HR_PRCTG = 1</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">13</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">Trusted_Trans_Amt = 0</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">14</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">Overall_Risk = ''</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002890</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">join 113001051 with (join 113001100 with 113001067 on 113001100.CLNDR_DT == 113001067.MANTAS_ISSUE_DATE) on 113001051.EXTRL_NTITY_SEQ_ID == 113001067.REM_EXTRL_NTITY_SEQ_ID</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002890</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">REM_SEQ_ID = 1</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002890</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">2</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">BENEF_SEQ_ID = 1</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_DATASET_GUI_TOOL" CLEAN="YES">
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="TOOL_CD" TYPE="CHAR" PK="NO"  NULL="NO">DS</COLUMN>
+         <COLUMN NAME="TOOL_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">113001067</COLUMN>
+         <COLUMN NAME="TOOL_X" TYPE="NUMBER" PK="NO"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="TOOL_Y" TYPE="NUMBER" PK="NO"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="TOOL_NM" TYPE="CHAR" PK="NO"  NULL="NO">MI_TRXN_WRP</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="TOOL_CD" TYPE="CHAR" PK="NO"  NULL="NO">DS</COLUMN>
+         <COLUMN NAME="TOOL_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">113001051</COLUMN>
+         <COLUMN NAME="TOOL_X" TYPE="NUMBER" PK="NO"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="TOOL_Y" TYPE="NUMBER" PK="NO"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="TOOL_NM" TYPE="CHAR" PK="NO"  NULL="NO">EXTERNAL_ENTITY_WRP</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">2</COLUMN>
+         <COLUMN NAME="TOOL_CD" TYPE="CHAR" PK="NO"  NULL="NO">DS</COLUMN>
+         <COLUMN NAME="TOOL_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">113001100</COLUMN>
+         <COLUMN NAME="TOOL_X" TYPE="NUMBER" PK="NO"  NULL="NO">2</COLUMN>
+         <COLUMN NAME="TOOL_Y" TYPE="NUMBER" PK="NO"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="TOOL_NM" TYPE="CHAR" PK="NO"  NULL="NO">KDD_CAL_WRP</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">3</COLUMN>
+         <COLUMN NAME="TOOL_CD" TYPE="CHAR" PK="NO"  NULL="NO">J</COLUMN>
+         <COLUMN NAME="TOOL_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="TOOL_X" TYPE="NUMBER" PK="NO"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="TOOL_Y" TYPE="NUMBER" PK="NO"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="TOOL_NM" TYPE="CHAR" PK="NO"  NULL="NO">Join</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">4</COLUMN>
+         <COLUMN NAME="TOOL_CD" TYPE="CHAR" PK="NO"  NULL="NO">D</COLUMN>
+         <COLUMN NAME="TOOL_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="TOOL_X" TYPE="NUMBER" PK="NO"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="TOOL_Y" TYPE="NUMBER" PK="NO"  NULL="NO">2</COLUMN>
+         <COLUMN NAME="TOOL_NM" TYPE="CHAR" PK="NO"  NULL="NO">Derivation2</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002890</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="TOOL_CD" TYPE="CHAR" PK="NO"  NULL="NO">DS</COLUMN>
+         <COLUMN NAME="TOOL_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">113001100</COLUMN>
+         <COLUMN NAME="TOOL_X" TYPE="NUMBER" PK="NO"  NULL="NO">2</COLUMN>
+         <COLUMN NAME="TOOL_Y" TYPE="NUMBER" PK="NO"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="TOOL_NM" TYPE="CHAR" PK="NO"  NULL="NO">KDD_CAL_WRP</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002890</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="TOOL_CD" TYPE="CHAR" PK="NO"  NULL="NO">DS</COLUMN>
+         <COLUMN NAME="TOOL_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">113001067</COLUMN>
+         <COLUMN NAME="TOOL_X" TYPE="NUMBER" PK="NO"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="TOOL_Y" TYPE="NUMBER" PK="NO"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="TOOL_NM" TYPE="CHAR" PK="NO"  NULL="NO">MI_TRXN_WRP</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002890</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">2</COLUMN>
+         <COLUMN NAME="TOOL_CD" TYPE="CHAR" PK="NO"  NULL="NO">DS</COLUMN>
+         <COLUMN NAME="TOOL_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">113001051</COLUMN>
+         <COLUMN NAME="TOOL_X" TYPE="NUMBER" PK="NO"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="TOOL_Y" TYPE="NUMBER" PK="NO"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="TOOL_NM" TYPE="CHAR" PK="NO"  NULL="NO">EXTERNAL_ENTITY_WRP</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002890</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">3</COLUMN>
+         <COLUMN NAME="TOOL_CD" TYPE="CHAR" PK="NO"  NULL="NO">J</COLUMN>
+         <COLUMN NAME="TOOL_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="TOOL_X" TYPE="NUMBER" PK="NO"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="TOOL_Y" TYPE="NUMBER" PK="NO"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="TOOL_NM" TYPE="CHAR" PK="NO"  NULL="NO">Join</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002890</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">4</COLUMN>
+         <COLUMN NAME="TOOL_CD" TYPE="CHAR" PK="NO"  NULL="NO">D</COLUMN>
+         <COLUMN NAME="TOOL_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="TOOL_X" TYPE="NUMBER" PK="NO"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="TOOL_Y" TYPE="NUMBER" PK="NO"  NULL="NO">2</COLUMN>
+         <COLUMN NAME="TOOL_NM" TYPE="CHAR" PK="NO"  NULL="NO">Derivation</COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_DATASET_GUI_MAPPING" CLEAN="YES">
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">3</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">4</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">2</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">4</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">3</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">4</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">4</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">4</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">5</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">4</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">6</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">4</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">7</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">4</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">8</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">4</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">9</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">4</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">10</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">4</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">11</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">4</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">12</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">4</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">13</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">4</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">14</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">4</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002890</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">3</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002890</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">4</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002890</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">2</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">4</COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_DATASET_GUI_WIRING" CLEAN="YES">
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TO_TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">3</COLUMN>
+         <COLUMN NAME="FROM_TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TO_TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">3</COLUMN>
+         <COLUMN NAME="FROM_TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TO_TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">3</COLUMN>
+         <COLUMN NAME="FROM_TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">2</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002776</COLUMN>
+         <COLUMN NAME="TO_TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">4</COLUMN>
+         <COLUMN NAME="FROM_TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">3</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002890</COLUMN>
+         <COLUMN NAME="TO_TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">3</COLUMN>
+         <COLUMN NAME="FROM_TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002890</COLUMN>
+         <COLUMN NAME="TO_TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">3</COLUMN>
+         <COLUMN NAME="FROM_TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002890</COLUMN>
+         <COLUMN NAME="TO_TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">3</COLUMN>
+         <COLUMN NAME="FROM_TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">2</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116002890</COLUMN>
+         <COLUMN NAME="TO_TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">4</COLUMN>
+         <COLUMN NAME="FROM_TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">3</COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_TA_ROLES" CLEAN="NO">
+        <ROW>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116000074</COLUMN>
+         <COLUMN NAME="VRBL_NM" TYPE="CHAR" PK="YES"  NULL="NO">ACTVY_RISK</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">INTEGER</COLUMN>
+         <COLUMN NAME="RND_DIGITS_CT" TYPE="CHAR" PK="NO"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">Activity Risk Lvl</COLUMN>
+         <COLUMN NAME="UNITS_DPLY_CD" TYPE="CHAR" PK="NO"  NULL="NO"> </COLUMN>
+         <COLUMN NAME="DPLY_PSTN_CT" TYPE="NUMBER" PK="NO"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="FLD_NAME_TX" TYPE="CHAR" PK="NO"  NULL="NO">ACTVY_RISK_LVL</COLUMN>
+         <COLUMN NAME="AXIS_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116000074</COLUMN>
+         <COLUMN NAME="VRBL_NM" TYPE="CHAR" PK="YES"  NULL="NO">EFCTV_RISK</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">INTEGER</COLUMN>
+         <COLUMN NAME="RND_DIGITS_CT" TYPE="CHAR" PK="NO"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">Effctv Risk Lvl</COLUMN>
+         <COLUMN NAME="UNITS_DPLY_CD" TYPE="CHAR" PK="NO"  NULL="NO"> </COLUMN>
+         <COLUMN NAME="DPLY_PSTN_CT" TYPE="NUMBER" PK="NO"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="FLD_NAME_TX" TYPE="CHAR" PK="NO"  NULL="NO">EFCTV_RISK_LVL</COLUMN>
+         <COLUMN NAME="AXIS_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116000074</COLUMN>
+         <COLUMN NAME="VRBL_NM" TYPE="CHAR" PK="YES"  NULL="NO">HR_PRCTG</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">%</COLUMN>
+         <COLUMN NAME="RND_DIGITS_CT" TYPE="CHAR" PK="NO"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">HR %</COLUMN>
+         <COLUMN NAME="UNITS_DPLY_CD" TYPE="CHAR" PK="NO"  NULL="NO"> </COLUMN>
+         <COLUMN NAME="DPLY_PSTN_CT" TYPE="NUMBER" PK="NO"  NULL="NO">2</COLUMN>
+         <COLUMN NAME="FLD_NAME_TX" TYPE="CHAR" PK="NO"  NULL="NO">HR_PRCTG_1</COLUMN>
+         <COLUMN NAME="AXIS_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116000074</COLUMN>
+         <COLUMN NAME="VRBL_NM" TYPE="CHAR" PK="YES"  NULL="NO">LRF_PRCTG</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">%</COLUMN>
+         <COLUMN NAME="RND_DIGITS_CT" TYPE="CHAR" PK="NO"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">Percent Round Amts</COLUMN>
+         <COLUMN NAME="UNITS_DPLY_CD" TYPE="CHAR" PK="NO"  NULL="NO"> </COLUMN>
+         <COLUMN NAME="DPLY_PSTN_CT" TYPE="NUMBER" PK="NO"  NULL="NO">3</COLUMN>
+         <COLUMN NAME="FLD_NAME_TX" TYPE="CHAR" PK="NO"  NULL="NO">LRF_PRCTG_1</COLUMN>
+         <COLUMN NAME="AXIS_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116000074</COLUMN>
+         <COLUMN NAME="VRBL_NM" TYPE="CHAR" PK="YES"  NULL="NO">OVERALL_RISK</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">STRING</COLUMN>
+         <COLUMN NAME="RND_DIGITS_CT" TYPE="CHAR" PK="NO"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">Overall Risk</COLUMN>
+         <COLUMN NAME="UNITS_DPLY_CD" TYPE="CHAR" PK="NO"  NULL="NO"> </COLUMN>
+         <COLUMN NAME="DPLY_PSTN_CT" TYPE="NUMBER" PK="NO"  NULL="NO">4</COLUMN>
+         <COLUMN NAME="FLD_NAME_TX" TYPE="CHAR" PK="NO"  NULL="NO">OVERALL_RISK</COLUMN>
+         <COLUMN NAME="AXIS_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116000074</COLUMN>
+         <COLUMN NAME="VRBL_NM" TYPE="CHAR" PK="YES"  NULL="NO">PASS_THRU_PRCTG</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">%</COLUMN>
+         <COLUMN NAME="RND_DIGITS_CT" TYPE="CHAR" PK="NO"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">% Pass Through</COLUMN>
+         <COLUMN NAME="UNITS_DPLY_CD" TYPE="CHAR" PK="NO"  NULL="NO"> </COLUMN>
+         <COLUMN NAME="DPLY_PSTN_CT" TYPE="NUMBER" PK="NO"  NULL="NO">5</COLUMN>
+         <COLUMN NAME="FLD_NAME_TX" TYPE="CHAR" PK="NO"  NULL="NO">PASS_THRU_PRCTG</COLUMN>
+         <COLUMN NAME="AXIS_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116000074</COLUMN>
+         <COLUMN NAME="VRBL_NM" TYPE="CHAR" PK="YES"  NULL="NO">TOT_TRXN_AM</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">CURRENCY</COLUMN>
+         <COLUMN NAME="RND_DIGITS_CT" TYPE="CHAR" PK="NO"  NULL="NO">3</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">Tot Trans Amt</COLUMN>
+         <COLUMN NAME="UNITS_DPLY_CD" TYPE="CHAR" PK="NO"  NULL="NO">000</COLUMN>
+         <COLUMN NAME="DPLY_PSTN_CT" TYPE="NUMBER" PK="NO"  NULL="NO">6</COLUMN>
+         <COLUMN NAME="FLD_NAME_TX" TYPE="CHAR" PK="NO"  NULL="NO">TOT_TRANS_AM</COLUMN>
+         <COLUMN NAME="AXIS_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="YES"  NULL="NO">116000074</COLUMN>
+         <COLUMN NAME="VRBL_NM" TYPE="CHAR" PK="YES"  NULL="NO">TOT_TRXN_CT</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">INTEGER</COLUMN>
+         <COLUMN NAME="RND_DIGITS_CT" TYPE="CHAR" PK="NO"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">Tot Trans Ct</COLUMN>
+         <COLUMN NAME="UNITS_DPLY_CD" TYPE="CHAR" PK="NO"  NULL="NO"> </COLUMN>
+         <COLUMN NAME="DPLY_PSTN_CT" TYPE="NUMBER" PK="NO"  NULL="NO">7</COLUMN>
+         <COLUMN NAME="FLD_NAME_TX" TYPE="CHAR" PK="NO"  NULL="NO">TOT_TRANS_CT</COLUMN>
+         <COLUMN NAME="AXIS_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+   </TABLE>
+</METADATA>

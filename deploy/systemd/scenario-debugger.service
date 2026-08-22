@@ -1,0 +1,143 @@
+# ==============================================================================
+# scenario-debugger.service — Systemd service for Scenario Debugger
+#
+# WHAT THIS FILE DOES:
+#   Keeps the FastAPI backend running 24/7 on the Linux server.
+#   Auto-restarts if it crashes. Starts automatically on server reboot.
+#
+# WHERE THIS FILE GOES:
+#   /etc/systemd/system/scenario-debugger.service
+#
+# HOW TO ENABLE:
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable scenario-debugger    (start on boot)
+#   sudo systemctl start  scenario-debugger    (start now)
+#   sudo systemctl status scenario-debugger    (check it's running)
+#
+# USEFUL COMMANDS:
+#   sudo systemctl stop    scenario-debugger   (stop the app)
+#   sudo systemctl restart scenario-debugger   (restart after code changes)
+#   sudo journalctl -u scenario-debugger -f    (watch live logs)
+#   sudo journalctl -u scenario-debugger -n 100 (last 100 log lines)
+#
+# LAYMAN'S EXPLANATION:
+#   Systemd is Linux's "process babysitter".
+#   Without it, if the server restarts or the app crashes, it stays dead.
+#   With systemd: server restarts → app automatically starts again.
+#   App crashes → systemd notices and restarts it within seconds.
+#   Think of it as a security guard who wakes up the sleeping worker.
+# ==============================================================================
+
+[Unit]
+# Human-readable name shown in systemctl status
+Description=OFSAA Scenario Debugger — FastAPI Backend
+
+# Wait for network to be available before starting
+# (needed because the app connects to Oracle DB on startup)
+After=network.target
+
+# Optional: if you have a separate Oracle DB service on this machine
+# After=oracle.service
+
+
+[Service]
+# --------------------------------------------------------------------------
+# USER & GROUP
+# Run as a dedicated low-privilege user — NEVER run as root.
+# Create this user with:
+#   sudo useradd -r -s /bin/false scenario-debugger
+# LAYMAN: Running as root is like giving a contractor a master key to
+# the whole building. A dedicated user only has keys to their own room.
+# --------------------------------------------------------------------------
+User=scenario-debugger
+Group=scenario-debugger
+
+# --------------------------------------------------------------------------
+# WORKING DIRECTORY
+# The app runs from here. All relative paths are relative to this.
+# --------------------------------------------------------------------------
+WorkingDirectory=/opt/scenario-debugger/backend
+
+# --------------------------------------------------------------------------
+# ENVIRONMENT
+# Load the .env file so the app gets all its configuration.
+# IMPORTANT: Make sure .env is readable by the service user only:
+#   sudo chown scenario-debugger:scenario-debugger .env
+#   sudo chmod 600 .env
+# --------------------------------------------------------------------------
+EnvironmentFile=/opt/scenario-debugger/backend/.env
+
+# --------------------------------------------------------------------------
+# START COMMAND
+# Uses uv to run the FastAPI app with uvicorn.
+# --workers 2: runs 2 parallel workers (handles concurrent users)
+# --no-reload: disable auto-reload in production (use restart instead)
+# Adjust --workers based on your server CPU cores (recommended: cores * 2)
+# --------------------------------------------------------------------------
+ExecStart=/usr/local/bin/uv run uvicorn main:app \
+    --host 127.0.0.1 \
+    --port 8000 \
+    --workers 2 \
+    --no-access-log \
+    --log-level info
+
+# --------------------------------------------------------------------------
+# RESTART POLICY
+# Restart automatically if the process exits unexpectedly.
+# on-failure: only restart on crash, not on intentional stop.
+# RestartSec: wait 5 seconds before restarting (prevents restart loops).
+# --------------------------------------------------------------------------
+Restart=on-failure
+RestartSec=5s
+
+# Maximum restart attempts in 1 minute before giving up
+StartLimitInterval=60s
+StartLimitBurst=3
+
+# --------------------------------------------------------------------------
+# SECURITY HARDENING
+# These restrict what the service process can do on the system.
+# LAYMAN: Like putting the app in a locked room with only the tools it needs.
+# --------------------------------------------------------------------------
+
+# Prevent the process from gaining extra privileges
+NoNewPrivileges=true
+
+# Give it its own private /tmp directory
+PrivateTmp=true
+
+# Make the entire filesystem read-only except specific paths
+ProtectSystem=strict
+
+# Allow writing only to the app data directory
+ReadWritePaths=/opt/scenario-debugger
+
+# Prevent access to home directories
+ProtectHome=true
+
+# Prevent writing to kernel settings
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+
+# Restrict system calls to only what's needed for a Python web app
+SystemCallFilter=@system-service
+SystemCallErrorNumber=EPERM
+
+# Limit file descriptors (open files) — prevents resource exhaustion
+LimitNOFILE=65536
+
+# --------------------------------------------------------------------------
+# LOGGING
+# All stdout/stderr goes to systemd journal.
+# View with: sudo journalctl -u scenario-debugger -f
+# --------------------------------------------------------------------------
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=scenario-debugger
+
+
+[Install]
+# Start this service when the system reaches multi-user mode
+# (i.e. normal server operation — after network, before login prompt)
+WantedBy=multi-user.target

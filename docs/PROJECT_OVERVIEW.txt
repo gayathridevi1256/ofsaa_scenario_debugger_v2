@@ -1,0 +1,200 @@
+================================================================================
+  OFSAA SCENARIO DEBUGGER — PROJECT OVERVIEW
+  Version 1.0.0
+================================================================================
+
+--------------------------------------------------------------------------------
+WHAT IS THIS TOOL?
+--------------------------------------------------------------------------------
+
+The OFSAA Scenario Debugger is an internal web application built to help the
+team investigate why an OFSAA alert scenario is NOT generating alerts.
+
+When a scenario runs in OFSAA and produces no alerts, the usual process is
+manual — someone opens the log file, reads the SQL, runs queries in a database
+client, and tries to figure out which condition is filtering out all the data.
+This can take hours per scenario.
+
+This tool automates that entire process. You upload the scenario log file,
+click Run, and within minutes the system tells you exactly which part of the
+SQL is the problem — and why.
+
+
+--------------------------------------------------------------------------------
+THE PROBLEM IT SOLVES
+--------------------------------------------------------------------------------
+
+OFSAA scenarios are built using a chain of SQL queries called CTEs
+(Common Table Expressions). Each CTE feeds data into the next, like a
+production line. If any one CTE returns zero rows, no alert is generated.
+
+Example chain:
+  Loan data  -->  Customer filter  -->  Risk filter  -->  Alert
+
+If "Risk filter" returns zero rows, the alert never fires. But why?
+  - Is the data just not there?
+  - Is a threshold (like minimum risk level) set too high?
+  - Is a date filter cutting out all records?
+
+Without this tool, answering that question means running each CTE manually
+in a database tool — one by one — until you find the empty one, then
+digging further to find the specific condition causing it.
+
+This tool does all of that automatically and presents the findings in a
+clear, visual interface.
+
+
+--------------------------------------------------------------------------------
+HOW IT WORKS — STEP BY STEP
+--------------------------------------------------------------------------------
+
+STEP 1 — Upload the Log File
+  The user uploads the OFSAA scenario execution log file (.log) through
+  the web interface. No database access is needed at this stage.
+
+STEP 2 — Read the Log
+  The system reads the log file and extracts:
+    - The scenario name (Job Description)
+    - The business date the scenario ran on
+    - The full SQL query that OFSAA executed
+
+STEP 3 — Set the Batch Date
+  The system identifies which business date to use for the analysis
+  (matching the date from the original log, not today's date).
+
+STEP 4 — Execute the Dataset Query
+  The main SQL query is run against the Oracle database to confirm
+  the data environment and establish a baseline.
+
+STEP 5 — Parse the CTEs
+  The SQL is broken down into its individual building blocks (CTEs).
+  Each block is saved separately so it can be tested in isolation.
+
+STEP 6 — Execute Each CTE One by One
+  Each CTE is run against Oracle as a database view. The system checks
+  whether it returns rows or not.
+    - If a CTE returns rows: move to the next one
+    - If a CTE returns ZERO rows: this is the problem point
+
+STEP 7 — Diagnose the Failing CTE
+  When a CTE returns zero rows, the system digs in automatically:
+
+  a) DATA UNAVAILABILITY CHECK
+     Checks if the source tables have any data at all. If a JOIN is
+     eliminating all rows (no matching keys between tables), or if the
+     date range filter has no data in it, this is flagged.
+
+  b) THRESHOLD ANALYSIS
+     Checks if a numeric condition (like "risk score >= 9") is set too
+     high or too low compared to the actual data in the database.
+     The system queries the actual MIN, MAX, and distribution of the
+     column and tells you what value the threshold needs to be.
+
+  c) ACTIONABLE SUGGESTION
+     For each finding, the system gives a plain-English recommendation:
+       "Try reducing the Efctv_Risk_Lvl threshold to get results
+        and try again."
+
+STEP 8 — Display Results
+  All findings are presented in a visual dashboard showing:
+    - Which CTE failed
+    - Why it failed (data issue vs. threshold issue)
+    - The exact SQL condition responsible
+    - Threshold suggestions with actual data ranges
+    - What to change in HRE to fix it
+
+
+--------------------------------------------------------------------------------
+WHAT THE USER SEES
+--------------------------------------------------------------------------------
+
+LOGIN SCREEN
+  Simple username/password login. Access is controlled by an admin.
+
+DASHBOARD
+  - Upload a log file or drag-and-drop
+  - Run multiple scenarios at once (batch mode)
+  - See history of all previous runs
+  - Results from a previous run are cached — re-opening the same
+    scenario instantly shows past results without re-running
+
+RESULTS SCREEN
+  - Live progress updates as the pipeline runs (Step 1 through 6)
+  - CTE waterfall: each CTE shown as a card with pass/fail status
+  - For the failing CTE: full diagnostic breakdown
+  - Threshold Suggestions panel showing:
+      Column name (HRE parameter name in brackets)
+      Current threshold value (e.g., >= 9)
+      Actual data range in the database
+      Plain-English fix suggestion
+  - Option to re-run with fresh data at any time
+
+
+--------------------------------------------------------------------------------
+KEY FEATURES SUMMARY
+--------------------------------------------------------------------------------
+
+  Automated diagnosis     No manual SQL running required
+  Real database queries   Connects to the actual Oracle database (FCCMATOMIC)
+  CTE-level breakdown     Pinpoints exactly which step in the chain fails
+  Threshold suggestions   Shows actual data vs. current threshold setting
+  HRE parameter names     Maps DB column conditions back to HRE config names
+                          (e.g., CUST_EFCTV_RISK_NB shown as Efctv_Risk_Lvl)
+  Batch processing        Run multiple scenario logs at the same time
+  Result caching          Previous results saved; re-run only when needed
+  Audit history           Every run is logged with who ran it and when
+  User management         Admin can add/remove users
+
+
+--------------------------------------------------------------------------------
+TECHNOLOGY (FOR TECHNICAL REFERENCE)
+--------------------------------------------------------------------------------
+
+  Backend   : Python (FastAPI) — runs on port 8000
+  Frontend  : React 19 — runs on port 5173
+  Database  : Oracle (FCCMATOMIC schema) + SQLite for app data
+  Start     : Run "npm run dev" from the project root
+
+  The tool connects to Oracle in read-only mode.
+  It does not modify any OFSAA data — it only reads and diagnoses.
+
+
+--------------------------------------------------------------------------------
+TYPICAL USE CASE
+--------------------------------------------------------------------------------
+
+  1. OFSAA runs overnight. An alert scenario produces zero alerts.
+  2. The analyst downloads the scenario log from OFSAA.
+  3. Analyst opens the Scenario Debugger in a browser.
+  4. Uploads the log file, clicks Run.
+  5. Within 1-2 minutes, the tool shows:
+       "CTE 'RiskFilter' returned 0 rows.
+        Condition: CUST_EFCTV_RISK_NB >= @Efctv_Risk_Lvl (currently 9)
+        Actual data range: 2 to 7
+        Try reducing the Efctv_Risk_Lvl threshold to get results
+        and try again."
+  6. Analyst adjusts the threshold in HRE and re-runs the scenario.
+
+  What previously took 2-3 hours of manual investigation now takes
+  under 5 minutes.
+
+
+--------------------------------------------------------------------------------
+LIMITATIONS / WHAT IT DOES NOT DO
+--------------------------------------------------------------------------------
+
+  - It does not modify OFSAA, HRE, or any database settings.
+    It only reads and diagnoses — all fixes must be made in HRE.
+
+  - It requires a live connection to the Oracle database to run the
+    diagnostic queries. It cannot work offline.
+
+  - It works on scenarios that use CTE-based SQL (which is the standard
+    OFSAA pattern). Non-standard SQL structures may not be fully diagnosed.
+
+  - Maximum log file size: 10 MB.
+
+
+================================================================================
+  END OF DOCUMENT
+================================================================================

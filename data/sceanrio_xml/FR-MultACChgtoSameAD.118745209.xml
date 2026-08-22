@@ -1,0 +1,2640 @@
+<METADATA SCENARIO="118745209" DOMAIN="MTS" RELEASE="5.7.1" TARGET_ENV="" CHECKSUM="564923284">
+   <TABLE NAME="KDD_SCNRO" CLEAN="NO">
+        <ROW>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745209</COLUMN>
+         <COLUMN NAME="DMN_CD" TYPE="CHAR" PK="NO"  NULL="NO">MTS</COLUMN>
+         <COLUMN NAME="OWNER_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="SCNRO_USE_CD" TYPE="CHAR" PK="NO"  NULL="NO">BRK</COLUMN>
+         <COLUMN NAME="SCNRO_NM" TYPE="CHAR" PK="NO"  NULL="NO">(FR/AC) Multiple Accounts with Address Changed to Same Address</COLUMN>
+         <COLUMN NAME="SCNRO_TX" TYPE="CHAR" PK="NO"  NULL="NO">Connections or linkages between accounts based on the registration information associated with accounts can support the detection of fraudulent activity. In particular, contact and statement notification information, such as mailing address, which is common across seemingly unrelated accounts could indicate fraudulent activity such as account takeover schemes affecting multiple accounts, especially for cases in which multiple accounts are changed to the same post office box (POB) or care of (C/O) address.
+This scenario identifies cases where multiple customer accounts have had their mailing addresses changed to the same new address during the lookback period. 
+</COLUMN>
+         <COLUMN NAME="CNTRY_ID" TYPE="NUMBER" PK="NO"  NULL="NO">113000002</COLUMN>
+         <COLUMN NAME="SCNRO_CLASS_CD" TYPE="CHAR" PK="NO"  NULL="NO">FR</COLUMN>
+         <COLUMN NAME="SCNRO_SHORT_NM" TYPE="CHAR" PK="NO"  NULL="NO">Mult AC Chg to Same AD - FR</COLUMN>
+         <COLUMN NAME="SCNRO_CTLG_ID" TYPE="CHAR" PK="NO"  NULL="NO">FR-MultACChgtoSameAD</COLUMN>
+         <COLUMN NAME="VERSION_ID" TYPE="CHAR" PK="NO"  NULL="NO">/main/2</COLUMN>
+         <COLUMN NAME="LAST_UPDT_DT" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="BASIC_SCNRO_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="LAST_UPDT_USER_NM" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_ATTR" CLEAN="NO">
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745963</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">ADD_LINE2</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745964</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">ADD_LINE1</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745981</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">CITY</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745982</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">ACCT_OPEN_DT</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">D</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745983</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">OLD_AC_AGE</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">I</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745984</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">ADD_LINE6</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745985</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">ADD_LINE5</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745986</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">ADD_LINE4</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745987</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">ADD_LINE3</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745988</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">COUNTRY</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745989</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">REG</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745990</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">NEW_AC_AGE</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">I</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745991</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">OCC_CT</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">I</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745992</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">POSTL_CD</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745993</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">LATEST_DT</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">D</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745994</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">EARLIEST_DT</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">D</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745995</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">STATE</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745996</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">ACCT_GEO_RISK_NB</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745997</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">POSTL_CD</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745998</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">CITY</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745999</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">COUNTRY</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746000</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">REG</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746001</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">STATE</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746002</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">ADD_LINE6</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746003</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">ADD_LINE5</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746004</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">ADD_LINE4</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746005</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">ADD_LINE3</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746006</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">ADD_LINE2</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746007</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">ADD_LINE1</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746008</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">POSTL_CD</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746009</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">CITY</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746010</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">ACCT_INTRL_ID</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746011</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">COUNTRY</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746012</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">REG</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746013</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">STATE</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746014</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">ADD_LINE6</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746015</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">ADD_LINE5</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746016</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">ADD_LINE4</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746017</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">ADD_LINE3</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746018</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">ADD_LINE2</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746019</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">ADD_LINE1</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746020</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">POSTL_CD</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746021</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">CITY</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746022</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">ACCT_INTRL_ID</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746023</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">COUNTRY</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746024</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">REG</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746025</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">STATE</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746026</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">ADD_LINE6</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746027</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">ADD_LINE5</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746028</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">ADD_LINE4</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746029</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">ADD_LINE3</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746030</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">ADD_LINE2</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746031</COLUMN>
+         <COLUMN NAME="ATTR_NM" TYPE="CHAR" PK="NO"  NULL="NO">ADD_LINE1</COLUMN>
+         <COLUMN NAME="TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">S</COLUMN>
+         <COLUMN NAME="ORDER_FL" TYPE="CHAR" PK="NO"  NULL="NO">y</COLUMN>
+         <COLUMN NAME="DISCRETE_FL" TYPE="CHAR" PK="NO"  NULL="NO">n</COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_PTTRN" CLEAN="YES">
+        <ROW>
+         <COLUMN NAME="PTTRN_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745213</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="ACTVN_TS" TYPE="DATE" PK="NO"  NULL="NO">2012-04-16 00:00:00</COLUMN>
+         <COLUMN NAME="PTTRN_TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">RUL</COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">118745209</COLUMN>
+         <COLUMN NAME="BASE_PTTRN_ID" TYPE="NUMBER" PK="NO"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="CREATOR_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="TERMINATOR_ID" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="CREATION_DT" TYPE="DATE" PK="NO"  NULL="NO">2012-04-16 13:48:57</COLUMN>
+         <COLUMN NAME="CMMNT_TX" TYPE="CHAR" PK="NO"  NULL="NO">Connections or linkages between accounts based on the registration information associated with accounts can support the detection of fraudulent activity. In particular, contact and statement notification information, such as mailing address, which is common across seemingly unrelated accounts could indicate fraudulent activity such as account takeover schemes affecting multiple accounts, especially for cases in which multiple accounts are changed to the same post office box (POB) or care of (C/O) address.
+This scenario identifies cases where multiple customer accounts have had their mailing addresses changed to the same new address during the lookback period. 
+</COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_PARAM_SET" CLEAN="NO">
+        <ROW>
+         <COLUMN NAME="PARAM_SET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745137</COLUMN>
+         <COLUMN NAME="ALGORITHM_NM" TYPE="CHAR" PK="NO"  NULL="NO">Rule Matcher</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">FR-MultACChgtoSameAD-fAC</COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_JOB" CLEAN="NO">
+        <ROW>
+         <COLUMN NAME="JOB_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745062</COLUMN>
+         <COLUMN NAME="CREAT_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="DMN_CD" TYPE="CHAR" PK="NO"  NULL="NO">MTS</COLUMN>
+         <COLUMN NAME="PARAM_SET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">118745137</COLUMN>
+         <COLUMN NAME="START_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="STATUS_CD" TYPE="CHAR" PK="NO"  NULL="NO">IGN</COLUMN>
+         <COLUMN NAME="THREAD_CT" TYPE="NUMBER" PK="NO"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="PRCSNG_BATCH_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="CLONED_JOB_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_DATASET" CLEAN="NO">
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DATASET_NM" TYPE="CHAR" PK="NO"  NULL="NO">FR_MultACChgtoSameAD_fAC_PR</COLUMN>
+         <COLUMN NAME="USER_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="CREATE_DT" TYPE="DATE" PK="NO"  NULL="NO">2012-04-16 05:36:41</COLUMN>
+         <COLUMN NAME="REALIZED_NM" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@.DSVIEW118746160</COLUMN>
+         <COLUMN NAME="SQL_FL" TYPE="CHAR" PK="NO"  NULL="NO">T</COLUMN>
+         <COLUMN NAME="SQL_CMMNT" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">118745209</COLUMN>
+         <COLUMN NAME="SQL_TX" TYPE="LONG" PK="NO"  NULL="NO"><![CDATA[--PRIMARY RULE
+SELECT 
+
+       PR.ADD_LINE1 ADD_LINE1,
+       PR.ADD_LINE2 ADD_LINE2,
+       PR.ADD_LINE3 ADD_LINE3,
+       PR.ADD_LINE4 ADD_LINE4,
+       PR.ADD_LINE5 ADD_LINE5,
+       PR.ADD_LINE6 ADD_LINE6,
+       PR.CITY CITY,
+       PR.STATE STATE,
+       PR.POSTL_CD POSTL_CD,
+       PR.COUNTRY COUNTRY,
+       PR.REG REG,
+       PR.ACCT_SEQ_ID ACCT_SEQ_ID,
+       PR.ACCT_INTRL_ID ACCT_INTRL_ID,
+       
+       PR.OCC_CT OCC_CT,                    -- Number of customer account with addresses changed to the same address.
+       PR.ACCT_OPEN_DT ACCT_OPEN_DT,        -- Account open date
+       PR.LATEST_DT LATEST_DT,             -- Last date of address change in this alert.
+       PR.EARLIEST_DT EARLIEST_DT,         -- Earliest date of address change in this alert.
+       PR.LATEST_OPN_DT LATEST_OPN_DT,     -- Newest Acct Open date.
+       PR.EARLIEST_OPN_DT EARLIEST_OPN_DT, -- Oldest Acct Open date.
+       PR.OLD_AC_AGE OLD_AC_AGE,          -- Oldest account age in this alert in month.
+       PR.NEW_AC_AGE NEW_AC_AGE,           -- Newest account age in this alert in month. 
+       max(G.GEO_EFCTV_RISK_NB) ACCT_GEO_RISK_NB  -- Geographical risk level of the new address country in the alert.  
+FROM       
+ 
+ (
+SELECT 
+       O.ADD_L1 ADD_LINE1,
+       O.ADD_L2 ADD_LINE2,
+       O.ADD_L3 ADD_LINE3,
+       O.ADD_L4 ADD_LINE4,
+       O.ADD_L5 ADD_LINE5,
+       O.ADD_L6 ADD_LINE6,
+       O.CITY CITY,
+       O.STATE STATE,
+       O.POSTL_CD POSTL_CD,
+       O.CNTRY COUNTRY,
+       O.REG REG,
+       ACC.ACCT_SEQ_ID ACCT_SEQ_ID,
+       O.ACCT_INTRL_ID ACCT_INTRL_ID,
+       O.OCC_CT OCC_CT,                 -- Number of customer account with addresses changed to the same address.
+       ACC.ACCT_OPEN_DT ACCT_OPEN_DT,   -- Account open date
+       O.LATEST_DT LATEST_DT,           -- Last date of address change in this alert.
+       O.EARLIEST_DT EARLIEST_DT,       -- Earliest date of address change in this alert.
+       O.LATEST_OPN_DT LATEST_OPN_DT,   -- Newest Acct Open date.
+       O.EARLIEST_OPN_DT EARLIEST_OPN_DT, -- Oldest Acct Open date.
+       -- Oldest account age in this alert in month.
+       ROUND(MONTHS_BETWEEN ((select b.clndr_dt from @MANTAS@.KDD_cal b where b.CLNDR_NM = 'SYSCAL' and b.CLNDR_DAY_AGE = 0) , O.EARLIEST_OPN_DT)) OLD_AC_AGE,
+       -- Newest account age in this alert in month.
+       ROUND(MONTHS_BETWEEN ((select b.clndr_dt from @MANTAS@.KDD_cal b where b.CLNDR_NM = 'SYSCAL' and b.CLNDR_DAY_AGE = 0) , O.LATEST_OPN_DT)) NEW_AC_AGE
+       
+FROM @BUSINESS@.ACCT ACC,
+(
+SELECT 
+     T2.*
+     FROM
+          (
+          SELECT
+               ADD_L1,
+               ADD_L2,
+               ADD_L3,
+               ADD_L4,
+               ADD_L5,
+               ADD_L6,
+               CITY,
+               STATE,
+               POSTL_CD,
+               CNTRY,
+               REG,
+               OCC_CT,
+               ACCT_INTRL_ID,
+               LATEST_DT,
+               EARLIEST_DT,
+               ROW_NUMBER() over (partition by 
+                         ADD_L1,
+                         ADD_L2,
+                         ADD_L3,
+                         ADD_L4,
+                         ADD_L5,
+                         ADD_L6,
+                         CITY,
+                         STATE,
+                         POSTL_CD,
+                         CNTRY,
+                         REG order by  ADD_L1,
+                         ADD_L2,
+                         ADD_L3,
+                         ADD_L4,
+                         ADD_L5,
+                         ADD_L6,
+                         CITY,
+                         STATE,
+                         POSTL_CD,
+                         CNTRY,
+                         REG,ACCT_OPEN_DT DESC) DUP,
+               MIN(ACCT_OPEN_DT) OVER (PARTITION BY ADD_L1,
+                    ADD_L2,
+                    ADD_L3,
+                    ADD_L4,
+                    ADD_L5,
+                    ADD_L6,
+                    CITY,
+                    STATE,
+                    POSTL_CD,
+                    CNTRY,
+                    REG,
+                    OCC_CT)EARLIEST_OPN_DT,
+               MAX(ACCT_OPEN_DT) OVER (PARTITION BY ADD_L1,
+                    ADD_L2,
+                    ADD_L3,
+                    ADD_L4,
+                    ADD_L5,
+                    ADD_L6,
+                    CITY,
+                    STATE,
+                    POSTL_CD,
+                    CNTRY,
+                    REG,
+                    OCC_CT)LATEST_OPN_DT
+FROM
+     (SELECT A.ADDR_STRT_LINE1_TX ADD_L1,
+         A.ADDR_STRT_LINE2_TX ADD_L2,
+         A.ADDR_STRT_LINE3_TX ADD_L3,
+         A.ADDR_STRT_LINE4_TX ADD_L4,
+         A.ADDR_STRT_LINE5_TX ADD_L5,
+         A.ADDR_STRT_LINE6_TX ADD_L6,
+         A.ADDR_CITY_NM CITY,
+         A.ADDR_STATE_CD STATE,
+         A.ADDR_POSTL_CD POSTL_CD,
+         A.ADDR_CNTRY_CD CNTRY,
+         A.ADDR_RGN_NM REG,
+         A.OCC_CT,
+         A.ACCT_OPEN_DT,
+         MAX(A.CHG_DT)LATEST_DT,
+         MIN(A.ELR_CHG_DT)EARLIEST_DT,
+         --MAX(A.ACCT_OPEN_DT) LATEST_OPN_DT,
+         --MIN(A.ACCT_OPEN_DT) EARLIEST_OPN_DT,
+         MAX(a.ACCT_O) ACCT_INTRL_ID FROM 
+
+(select count(distinct Z.ACCT_O) over (partition by
+         Z.ADDR_STRT_LINE1_TX,
+         Z.ADDR_STRT_LINE2_TX,
+         Z.ADDR_STRT_LINE3_TX,
+         Z.ADDR_STRT_LINE4_TX,
+         Z.ADDR_STRT_LINE5_TX,
+         Z.ADDR_STRT_LINE6_TX,
+         Z.ADDR_CITY_NM,
+         Z.ADDR_STATE_CD,
+         Z.ADDR_POSTL_CD,
+         Z.ADDR_CNTRY_CD,
+         Z.ADDR_RGN_NM)OCC_CT,
+         
+         z.ACCT_O,
+         z.PRMRY_CUST_INTRL_ID,
+         z.HH_ACCT_GRP_ID,
+         z.ADDR_STRT_LINE1_TX,
+         z.ADDR_STRT_LINE2_TX,
+         z.ADDR_STRT_LINE3_TX,
+         z.ADDR_STRT_LINE4_TX,
+         z.ADDR_STRT_LINE5_TX,
+         z.ADDR_STRT_LINE6_TX,
+         z.ADDR_CITY_NM,
+         z.ADDR_STATE_CD,
+         z.ADDR_POSTL_CD,
+         z.ADDR_CNTRY_CD,
+         z.ADDR_RGN_NM,
+         Z.CHG_DT,
+         Z.ELR_CHG_DT,
+         Z.ACCT_OPEN_DT   from           
+         (select max(acct) over (partition by y.HH_ACCT_GRP_ID) acct_o,
+Y.PRMRY_CUST_INTRL_ID,
+         y.HH_ACCT_GRP_ID,
+         y.ADDR_STRT_LINE1_TX,
+         y.ADDR_STRT_LINE2_TX,
+         y.ADDR_STRT_LINE3_TX,
+         y.ADDR_STRT_LINE4_TX,
+         y.ADDR_STRT_LINE5_TX,
+         y.ADDR_STRT_LINE6_TX,
+         y.ADDR_CITY_NM,
+         y.ADDR_STATE_CD,
+         y.ADDR_POSTL_CD,
+         y.ADDR_CNTRY_CD,
+         y.ADDR_RGN_NM,
+         Y.CHG_DT,
+         Y.ELR_CHG_DT,
+         Y.ACCT_OPEN_DT
+from(
+select max(x.ACCT_INTRL_ID) over (partition by x.PRMRY_CUST_INTRL_ID) acct,
+         x.PRMRY_CUST_INTRL_ID,
+         x.ACCT_OPEN_DT,
+         x.HH_ACCT_GRP_ID,
+         X.ADDR_STRT_LINE1_TX,
+         X.ADDR_STRT_LINE2_TX,
+         X.ADDR_STRT_LINE3_TX,
+         X.ADDR_STRT_LINE4_TX,
+         X.ADDR_STRT_LINE5_TX,
+         X.ADDR_STRT_LINE6_TX,
+         X.ADDR_CITY_NM,
+         X.ADDR_STATE_CD,
+         X.ADDR_POSTL_CD,
+         X.ADDR_CNTRY_CD,
+         X.ADDR_RGN_NM,
+         X.CHG_DT,
+         X.ELR_CHG_DT from 
+
+(SELECT  count(A1.ACCT_INTRL_ID)ACCT_CT,
+         A1.ACCT_INTRL_ID,
+         A1.ACCT_OPEN_DT,
+         A1.PRMRY_CUST_INTRL_ID,
+         A1.HH_ACCT_GRP_ID,
+         AA1.ADDR_STRT_LINE1_TX,
+         AA1.ADDR_STRT_LINE2_TX,
+         AA1.ADDR_STRT_LINE3_TX,
+         AA1.ADDR_STRT_LINE4_TX,
+         AA1.ADDR_STRT_LINE5_TX,
+         AA1.ADDR_STRT_LINE6_TX,
+         AA1.ADDR_CITY_NM,
+         AA1.ADDR_STATE_CD,
+         AA1.ADDR_POSTL_CD,
+         AA1.ADDR_CNTRY_CD,
+         AA1.ADDR_RGN_NM,
+         max(C1.CHG_DT)CHG_DT,
+         min(C1.CHG_DT)ELR_CHG_DT
+FROM @BUSINESS@.ACCT_ID_CHG_HIST ACH  
+             RIGHT OUTER JOIN @BUSINESS@.CHG_LOG C1 ON ACH.PREV_ACCT_INTRL_ID=C1.KEY1_TX
+             INNER JOIN @BUSINESS@.ACCT A1 ON A1.ACCT_INTRL_ID = COALESCE(ACH.CURR_ACCT_INTRL_ID,C1.KEY1_TX)
+             INNER JOIN @BUSINESS@.ACCT_RLSHP AR ON AR.RLTD_ACCT_INTRL_ID=A1.ACCT_INTRL_ID 
+             INNER JOIN @BUSINESS@.ACCT_ADDR AA1 ON AA1.ACCT_INTRL_ID = A1.ACCT_INTRL_ID
+                   AND AA1.ADDR_SEQ_NB = C1.KEY2_TX
+                   AND AA1.ADDR_USAGE_CD = C1.KEY3_TX        
+WHERE      -- Employee Account Indicator (Indicator of whether an active member of the Oracle Mantas client has a personal association to this account, either through a direct customer role or a family member relationship.)
+        COALESCE(A1.EMP_ACCT_FL,'N') = 'N'
+  -- Address Purpose (M: Mailing) Identifier of the purpose, or usage, of this address relative to this account (for example, Mailing Address or Business Address).
+  AND   AA1.ADDR_USAGE_CD = 'M'
+  -- Table Name (Name of the Oracle Mantas table that contains the column whose value was changed.) 
+  AND   C1.TBL_NM = 'ACCT_ADDR'
+  -- Included Acct Holder Type Codes
+  AND   A1.MANTAS_ACCT_HOLDR_TYPE_CD in (@Incld_Acct_Hldr_Typ_Cd)
+  -- Included Surveillance Tier Codes (Indicator of how closely this account is monitored for risk and suitability issues.)
+  AND   COALESCE(TO_CHAR(A1.STBLTY_SURVL_LEVEL_NB), 'NULL') IN (@Incld_Survllnc_Tr_Cd)
+  -- Oracle Business Acct Types (Functional area in which this account is used. (RBR: Retail, RBK: Retail Banking))
+  AND   A1.MANTAS_ACCT_BUS_TYPE_CD in (@Orcl_Busnss_Acct_Typ) 
+   -- Lookback Period  
+  AND   C1.CHG_DT <= (SELECT K.CLNDR_DT FROM @MANTAS@.KDD_CAL K WHERE K.CLNDR_NM = 'SYSCAL' AND K.MNTH_BNDRY_CD = 'ED1')
+  AND   C1.CHG_DT >  (SELECT ADD_MONTHS(K.CLNDR_DT, -@Lookback_Period) FROM @MANTAS@.KDD_CAL K WHERE K.CLNDR_NM = 'SYSCAL' AND K.MNTH_BNDRY_CD = 'ED1')
+  -- All Jurisdictions
+  AND   (@All_Jrsdcn_Fl= 'Y' OR A1.JRSDCN_CD IN (@Incld_Jrsdcn_Cd))
+GROUP BY
+         A1.ACCT_OPEN_DT,
+         A1.ACCT_INTRL_ID,
+         A1.PRMRY_CUST_INTRL_ID,
+         A1.HH_ACCT_GRP_ID,
+         AA1.ADDR_STRT_LINE1_TX,
+         AA1.ADDR_STRT_LINE2_TX,
+         AA1.ADDR_STRT_LINE3_TX,
+         AA1.ADDR_STRT_LINE4_TX,
+         AA1.ADDR_STRT_LINE5_TX,
+         AA1.ADDR_STRT_LINE6_TX,
+         AA1.ADDR_CITY_NM,
+         AA1.ADDR_STATE_CD,
+         AA1.ADDR_POSTL_CD,
+         AA1.ADDR_CNTRY_CD,
+         AA1.ADDR_RGN_NM)x)y)z
+       ) 
+A
+
+INNER JOIN
+
+(SELECT  A2.ACCT_OPEN_DT,A2.ACCT_INTRL_ID,
+         A2.PRMRY_CUST_INTRL_ID,
+         A2.HH_ACCT_GRP_ID,
+         AA2.ADDR_STRT_LINE1_TX,
+         AA2.ADDR_STRT_LINE2_TX,
+         AA2.ADDR_STRT_LINE3_TX,
+         AA2.ADDR_STRT_LINE4_TX,
+         AA2.ADDR_STRT_LINE5_TX,
+         AA2.ADDR_STRT_LINE6_TX,
+         AA2.ADDR_CITY_NM,
+         AA2.ADDR_STATE_CD,
+         AA2.ADDR_POSTL_CD,
+         AA2.ADDR_CNTRY_CD,
+         AA2.ADDR_RGN_NM
+     FROM @BUSINESS@.ACCT_ID_CHG_HIST ACH  
+             RIGHT OUTER JOIN @BUSINESS@.ACCT_ADDR AA2 ON ACH.PREV_ACCT_INTRL_ID=AA2.ACCT_INTRL_ID
+             INNER JOIN @BUSINESS@.ACCT A2 ON A2.ACCT_INTRL_ID = COALESCE(ACH.CURR_ACCT_INTRL_ID,AA2.ACCT_INTRL_ID)
+             INNER JOIN @BUSINESS@.ACCT_RLSHP AR ON AR.RLTD_ACCT_INTRL_ID=A2.ACCT_INTRL_ID  
+                                                  
+WHERE    
+  -- Employee Account Indicator (Indicator of whether an active member of the Oracle Mantas client has a personal association to this account, either through a direct customer role or a family member relationship.)
+  COALESCE(A2.EMP_ACCT_FL,'N') = 'N'
+  -- Address Purpose (M: Mailing) Identifier of the purpose, or usage, of this address relative to this account (for example, Mailing Address or Business Address).   
+  AND    AA2.ADDR_USAGE_CD = 'M'
+  -- Included Acct Holder Type Codes
+  AND   A2.MANTAS_ACCT_HOLDR_TYPE_CD in (@Incld_Acct_Hldr_Typ_Cd)
+  -- Included Surveillance Tier Codes (Indicator of how closely this account is monitored for risk and suitability issues.)
+  AND   COALESCE(TO_CHAR(A2.STBLTY_SURVL_LEVEL_NB), 'NULL') IN (@Incld_Survllnc_Tr_Cd)
+  -- Oracle Business Acct Types (Functional area in which this account is used. (RBR: Retail, RBK: Retail Banking))
+  AND  A2.MANTAS_ACCT_BUS_TYPE_CD in (@Orcl_Busnss_Acct_Typ)  
+  -- All Jurisdictions
+  AND (@All_Jrsdcn_Fl= 'Y' OR A2.JRSDCN_CD IN (@Incld_Jrsdcn_Cd)) 
+) B
+
+ON
+
+         A.ACCT_O <> B.ACCT_INTRL_ID
+AND      A.HH_ACCT_GRP_ID <> B.HH_ACCT_GRP_ID
+AND      A.PRMRY_CUST_INTRL_ID <> B.PRMRY_CUST_INTRL_ID
+AND      A.ADDR_STRT_LINE1_TX = B.ADDR_STRT_LINE1_TX
+AND      A.ADDR_STRT_LINE2_TX = B.ADDR_STRT_LINE2_TX
+AND      A.ADDR_STRT_LINE3_TX = B.ADDR_STRT_LINE3_TX
+AND      A.ADDR_STRT_LINE4_TX = B.ADDR_STRT_LINE4_TX
+AND      A.ADDR_STRT_LINE5_TX = B.ADDR_STRT_LINE5_TX
+AND      A.ADDR_STRT_LINE6_TX = B.ADDR_STRT_LINE6_TX
+AND      A.ADDR_CITY_NM = B.ADDR_CITY_NM
+AND      A.ADDR_STATE_CD = B.ADDR_STATE_CD
+AND      A.ADDR_POSTL_CD = B.ADDR_POSTL_CD
+AND      A.ADDR_CNTRY_CD = B.ADDR_CNTRY_CD
+AND      A.ADDR_RGN_NM = B.ADDR_RGN_NM
+
+GROUP BY A.ADDR_STRT_LINE1_TX,
+         A.ADDR_STRT_LINE2_TX,
+         A.ADDR_STRT_LINE3_TX,
+         A.ADDR_STRT_LINE4_TX,
+         A.ADDR_STRT_LINE5_TX,
+         A.ADDR_STRT_LINE6_TX,
+         A.ADDR_CITY_NM,
+         A.ADDR_STATE_CD,
+         A.ADDR_POSTL_CD,
+         A.ADDR_CNTRY_CD,
+         A.ADDR_RGN_NM,
+         A.OCC_CT,
+         A.ACCT_OPEN_DT
+-- Frequency_Period   
+HAVING   MAX(A.CHG_DT) <= (SELECT K.CLNDR_DT FROM @MANTAS@.KDD_CAL K WHERE K.CLNDR_NM = 'SYSCAL' AND K.MNTH_BNDRY_CD = 'ED1')
+AND      MAX(A.CHG_DT) >  (SELECT ADD_MONTHS(K.CLNDR_DT, -@Frequency_Period) FROM @MANTAS@.KDD_CAL K WHERE K.CLNDR_NM = 'SYSCAL' AND K.MNTH_BNDRY_CD = 'ED1')
+) T1
+)T2
+WHERE T2.DUP=1)
+O
+WHERE
+O.ACCT_INTRL_ID=ACC.ACCT_INTRL_ID
+-- Min # Chg to Same Address
+AND O.OCC_CT>=@Min_Chg_to_Same_Addr
+)
+PR,
+ @BUSINESS@.Geography G
+WHERE   G.GEO_CNTRY_CD =PR.COUNTRY 
+  GROUP BY 
+     PR.ADD_LINE1,
+       PR.ADD_LINE2,
+       PR.ADD_LINE3,
+       PR.ADD_LINE4,
+       PR.ADD_LINE5,
+       PR.ADD_LINE6,
+       PR.CITY,
+       PR.STATE,
+       PR.POSTL_CD,
+       PR.COUNTRY,
+       PR.REG,
+       PR.ACCT_SEQ_ID,
+       PR.ACCT_INTRL_ID,     
+       PR.OCC_CT,         -- Number of customer account with addresses changed to the same address.
+       PR.ACCT_OPEN_DT,   -- Account open date
+       PR.LATEST_DT,           -- Last date of address change in this alert.
+       PR.EARLIEST_DT,       -- Earliest date of address change in this alert.
+       PR.LATEST_OPN_DT,   -- Newest Acct Open date.
+       PR.EARLIEST_OPN_DT, -- Oldest Acct Open date.
+       PR.OLD_AC_AGE,  -- Oldest account age in this alert in month.
+       PR.NEW_AC_AGE  -- Newest account age in this alert in month.]]></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DATASET_NM" TYPE="CHAR" PK="NO"  NULL="NO">FR_MultACChgtoSameAD_fAC_Acc_SR</COLUMN>
+         <COLUMN NAME="USER_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="CREATE_DT" TYPE="DATE" PK="NO"  NULL="NO">2012-04-16 07:13:31</COLUMN>
+         <COLUMN NAME="REALIZED_NM" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@.DSVIEW118746168</COLUMN>
+         <COLUMN NAME="SQL_FL" TYPE="CHAR" PK="NO"  NULL="NO">T</COLUMN>
+         <COLUMN NAME="SQL_CMMNT" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">118745209</COLUMN>
+         <COLUMN NAME="SQL_TX" TYPE="LONG" PK="NO"  NULL="NO"><![CDATA[SELECT   X.ACCT_SEQ_ID ACCT_SEQ_ID,
+         Y.ACCT_INTRL_ID ACCT_INTRL_ID,
+         X.ADD_LINE1 ADD_LINE1,
+         X.ADD_LINE2 ADD_LINE2,
+         X.ADD_LINE3 ADD_LINE3,
+         X.ADD_LINE4 ADD_LINE4,
+         X.ADD_LINE5 ADD_LINE5,
+         X.ADD_LINE6 ADD_LINE6,
+         X.CITY      CITY,
+         X.STATE     STATE,
+         X.POSTL_CD  POSTL_CD,
+         X.COUNTRY   COUNTRY,
+         X.REG       REG
+         FROM
+(SELECT  A.ACCT_SEQ_ID  ACCT_SEQ_ID,
+         A.ACCT_INTRL_ID ACCT_INTRL_ID,
+         Aa1.ADDR_STRT_LINE1_TX ADD_LINE1,
+         AA1.ADDR_STRT_LINE2_TX ADD_LINE2,
+         AA1.ADDR_STRT_LINE3_TX ADD_LINE3,
+         AA1.ADDR_STRT_LINE4_TX ADD_LINE4,
+         AA1.ADDR_STRT_LINE5_TX ADD_LINE5,
+         AA1.ADDR_STRT_LINE6_TX ADD_LINE6,
+         AA1.ADDR_CITY_NM CITY,
+         AA1.ADDR_STATE_CD STATE,
+         AA1.ADDR_POSTL_CD POSTL_CD,
+         AA1.ADDR_CNTRY_CD COUNTRY,
+         AA1.ADDR_RGN_NM  REG FROM  @BUSINESS@.ACCT A, @BUSINESS@.ACCT_ADDR AA1,@BUSINESS@.CHG_LOG C1 
+       WHERE  AA1.ACCT_INTRL_ID=C1.KEY1_TX and 
+          A.ACCT_INTRL_ID = AA1.ACCT_INTRL_ID
+           AND C1.CHG_DT <= (SELECT K.CLNDR_DT FROM @MANTAS@.KDD_CAL K WHERE K.CLNDR_NM = 'SYSCAL' AND K.MNTH_BNDRY_CD = 'ED1')
+          AND C1.CHG_DT >  (SELECT ADD_MONTHS(K.CLNDR_DT, -@Lookback_Period) FROM @MANTAS@.KDD_CAL K WHERE K.CLNDR_NM = 'SYSCAL' AND K.MNTH_BNDRY_CD = 'ED1') ) X,
+(SELECT B.ACCT_INTRL_ID FROM @BUSINESS@.ACCT B)Y]]></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DATASET_NM" TYPE="CHAR" PK="NO"  NULL="NO">FR_MultACChgtoSameAD_fAC_AcctAddr_SR</COLUMN>
+         <COLUMN NAME="USER_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="CREATE_DT" TYPE="DATE" PK="NO"  NULL="NO">2012-04-16 07:14:46</COLUMN>
+         <COLUMN NAME="REALIZED_NM" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@.DSVIEW118746169</COLUMN>
+         <COLUMN NAME="SQL_FL" TYPE="CHAR" PK="NO"  NULL="NO">T</COLUMN>
+         <COLUMN NAME="SQL_CMMNT" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">118745209</COLUMN>
+         <COLUMN NAME="SQL_TX" TYPE="LONG" PK="NO"  NULL="NO"><![CDATA[--ACCT_ADDR BB
+
+select   X.ACCT_ADDR_SEQ_ID ACCT_ADDR_SEQ_ID,
+         Y.ACCT_INTRL_ID ACCT_INTRL_ID,
+         X.ADDR_STRT_LINE1_TX ADD_LINE1,
+         X.ADDR_STRT_LINE2_TX ADD_LINE2,
+         X.ADDR_STRT_LINE3_TX ADD_LINE3,
+         X.ADDR_STRT_LINE4_TX ADD_LINE4,
+         X.ADDR_STRT_LINE5_TX ADD_LINE5,
+         X.ADDR_STRT_LINE6_TX ADD_LINE6,
+         X.ADDR_CITY_NM CITY,
+         X.ADDR_STATE_CD STATE,
+         X.ADDR_POSTL_CD POSTL_CD,
+         X.ADDR_CNTRY_CD COUNTRY,
+         X.ADDR_RGN_NM REG
+         FROM
+       
+(SELECT  AA1.ACCT_ADDR_SEQ_ID ,
+         AA1.ADDR_STRT_LINE1_TX ,
+         AA1.ADDR_STRT_LINE2_TX ,
+         AA1.ADDR_STRT_LINE3_TX ,
+         AA1.ADDR_STRT_LINE4_TX ,
+         AA1.ADDR_STRT_LINE5_TX ,
+         AA1.ADDR_STRT_LINE6_TX ,
+         AA1.ADDR_CITY_NM ,
+         AA1.ADDR_STATE_CD ,
+         AA1.ADDR_POSTL_CD ,
+         AA1.ADDR_CNTRY_CD ,
+         AA1.ADDR_RGN_NM,AA1.ACCT_INTRL_ID    FROM @BUSINESS@.ACCT_ADDR AA1,@BUSINESS@.CHG_LOG C1 
+       WHERE  AA1.ACCT_INTRL_ID=C1.KEY1_TX
+        AND C1.CHG_DT <= (SELECT K.CLNDR_DT FROM @MANTAS@.KDD_CAL K WHERE K.CLNDR_NM = 'SYSCAL' AND K.MNTH_BNDRY_CD = 'ED1')
+         AND C1.CHG_DT >  (SELECT ADD_MONTHS(K.CLNDR_DT, -@Lookback_Period) FROM @MANTAS@.KDD_CAL K WHERE K.CLNDR_NM = 'SYSCAL' AND K.MNTH_BNDRY_CD = 'ED1') ) X,
+(select A.ACCT_INTRL_ID  ACCT_INTRL_ID from @BUSINESS@.ACCT A) Y]]></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DATASET_NM" TYPE="CHAR" PK="NO"  NULL="NO">FR_MultACChgtoSameAD_fAC_ChgLog_SR</COLUMN>
+         <COLUMN NAME="USER_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="CREATE_DT" TYPE="DATE" PK="NO"  NULL="NO">2012-04-16 07:15:50</COLUMN>
+         <COLUMN NAME="REALIZED_NM" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@.DSVIEW118746170</COLUMN>
+         <COLUMN NAME="SQL_FL" TYPE="CHAR" PK="NO"  NULL="NO">T</COLUMN>
+         <COLUMN NAME="SQL_CMMNT" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">118745209</COLUMN>
+         <COLUMN NAME="SQL_TX" TYPE="LONG" PK="NO"  NULL="NO"><![CDATA[select   CL.ACCT_CHG_LOG_SMRY_SEQ_ID,
+         Y.ACCT_INTRL_ID ACCT_INTRL_ID,
+         X.ADDR_STRT_LINE1_TX ADD_LINE1,
+         X.ADDR_STRT_LINE2_TX ADD_LINE2,
+         X.ADDR_STRT_LINE3_TX ADD_LINE3,
+         X.ADDR_STRT_LINE4_TX ADD_LINE4,
+         X.ADDR_STRT_LINE5_TX ADD_LINE5,
+         X.ADDR_STRT_LINE6_TX ADD_LINE6,
+         X.ADDR_CITY_NM CITY,
+         X.ADDR_STATE_CD STATE,
+         X.ADDR_POSTL_CD POSTL_CD,
+         X.ADDR_CNTRY_CD COUNTRY,
+         X.ADDR_RGN_NM REG
+                 
+ FROM
+       
+(SELECT  AA1.ACCT_ADDR_SEQ_ID ,
+         AA1.ADDR_STRT_LINE1_TX ,
+         AA1.ADDR_STRT_LINE2_TX ,
+         AA1.ADDR_STRT_LINE3_TX ,
+         AA1.ADDR_STRT_LINE4_TX ,
+         AA1.ADDR_STRT_LINE5_TX ,
+         AA1.ADDR_STRT_LINE6_TX ,
+         AA1.ADDR_CITY_NM ,
+         AA1.ADDR_STATE_CD ,
+         AA1.ADDR_POSTL_CD ,
+         AA1.ADDR_CNTRY_CD ,
+         AA1.ADDR_RGN_NM,
+         AA1.ACCT_INTRL_ID,
+         AA1.ADDR_SEQ_NB  
+       FROM @BUSINESS@.ACCT_ID_CHG_HIST ACH  
+             RIGHT OUTER JOIN @BUSINESS@.ACCT_CHG_LOG_SMRY C1 ON ACH.PREV_ACCT_INTRL_ID=C1.ACCT_INTRL_ID
+             INNER JOIN @BUSINESS@.ACCT A1 ON A1.ACCT_INTRL_ID = COALESCE(ACH.CURR_ACCT_INTRL_ID,C1.ACCT_INTRL_ID)
+             inner join @BUSINESS@.ACCT_ADDR AA1 ON AA1.ACCT_INTRL_ID=A1.ACCT_INTRL_ID
+        )X,
+        @BUSINESS@.ACCT_CHG_LOG_SMRY CL,
+       (select A.ACCT_INTRL_ID  ACCT_INTRL_ID from @BUSINESS@.ACCT A) Y
+WHERE  
+ X.ACCT_INTRL_ID=CL.ACCT_INTRL_ID
+AND CL.CHG_DT <= (SELECT K.CLNDR_DT FROM @MANTAS@.KDD_CAL K WHERE K.CLNDR_NM = 'SYSCAL' AND K.MNTH_BNDRY_CD = 'ED1')
+AND CL.CHG_DT >  (SELECT ADD_MONTHS(K.CLNDR_DT, -@Lookback_Period) FROM @MANTAS@.KDD_CAL K WHERE K.CLNDR_NM = 'SYSCAL' AND K.MNTH_BNDRY_CD = 'ED1')]]></COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_TSHLD_SET" CLEAN="NO">
+        <ROW>
+         <COLUMN NAME="TSHLD_SET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745213</COLUMN>
+         <COLUMN NAME="TSHLD_SET_NM" TYPE="CHAR" PK="NO"  NULL="NO">BASE THRESHOLD SET</COLUMN>
+         <COLUMN NAME="BASE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">118745209</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_TSHLD" CLEAN="NO">
+        <ROW>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118748180</COLUMN>
+         <COLUMN NAME="TSHLD_NM" TYPE="CHAR" PK="NO"  NULL="NO">All_Jrsdcn_Fl</COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">118745209</COLUMN>
+         <COLUMN NAME="MIN_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="MAX_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DFLT_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">'Y'</COLUMN>
+         <COLUMN NAME="UNIT_TX" TYPE="CHAR" PK="NO"  NULL="NO"><![CDATA[<NO_UNIT>]]></COLUMN>
+         <COLUMN NAME="CURR_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">'Y'</COLUMN>
+         <COLUMN NAME="VALUE_TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">STRING</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">All Jurisdictions</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Parameter that allows the coverage of all jurisdictions without enumerating them in the Included Jurisdiction Codes threshold.   Y: Covers all jurisdiction codes regardless of the Included Jurisdiction Code threshold value.  N: Covers only those jurisdictions that are listed in the Included Jurisdiction Codes threshold.</COLUMN>
+         <COLUMN NAME="TSHLD_SET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">118745213</COLUMN>
+         <COLUMN NAME="BASE_TSHLD_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118748181</COLUMN>
+         <COLUMN NAME="TSHLD_NM" TYPE="CHAR" PK="NO"  NULL="NO">Frequency_Period</COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">118745209</COLUMN>
+         <COLUMN NAME="MIN_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="MAX_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">6</COLUMN>
+         <COLUMN NAME="DFLT_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="UNIT_TX" TYPE="CHAR" PK="NO"  NULL="NO"><![CDATA[<NO_UNIT>]]></COLUMN>
+         <COLUMN NAME="CURR_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="VALUE_TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">INTEGER</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">Frequency Period</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Number of months specified for the frequency period.</COLUMN>
+         <COLUMN NAME="TSHLD_SET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">118745213</COLUMN>
+         <COLUMN NAME="BASE_TSHLD_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118748182</COLUMN>
+         <COLUMN NAME="TSHLD_NM" TYPE="CHAR" PK="NO"  NULL="NO">Incld_Acct_Hldr_Typ_Cd</COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">118745209</COLUMN>
+         <COLUMN NAME="MIN_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="MAX_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DFLT_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">'CR', 'CI', 'EE', 'IA'</COLUMN>
+         <COLUMN NAME="UNIT_TX" TYPE="CHAR" PK="NO"  NULL="NO"><![CDATA[<NO_UNIT>]]></COLUMN>
+         <COLUMN NAME="CURR_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">'CR', 'CI', 'EE', 'IA'</COLUMN>
+         <COLUMN NAME="VALUE_TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">LIST</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">Included Acct Holder Type Codes</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Codes that identify the account holder types used by the scenario threshold set. Allowable values are defined in DIS.</COLUMN>
+         <COLUMN NAME="TSHLD_SET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">118745213</COLUMN>
+         <COLUMN NAME="BASE_TSHLD_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118748183</COLUMN>
+         <COLUMN NAME="TSHLD_NM" TYPE="CHAR" PK="NO"  NULL="NO">Incld_Jrsdcn_Cd</COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">118745209</COLUMN>
+         <COLUMN NAME="MIN_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="MAX_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DFLT_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">'Inactive'</COLUMN>
+         <COLUMN NAME="UNIT_TX" TYPE="CHAR" PK="NO"  NULL="NO"><![CDATA[<NO_UNIT>]]></COLUMN>
+         <COLUMN NAME="CURR_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">'Inactive'</COLUMN>
+         <COLUMN NAME="VALUE_TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">LIST</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">Included Jurisdiction Codes</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">The list of jurisdiction codes that the scenario covers.  The Oracle client defines the allowable values.</COLUMN>
+         <COLUMN NAME="TSHLD_SET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">118745213</COLUMN>
+         <COLUMN NAME="BASE_TSHLD_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118748184</COLUMN>
+         <COLUMN NAME="TSHLD_NM" TYPE="CHAR" PK="NO"  NULL="NO">Incld_Survllnc_Tr_Cd</COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">118745209</COLUMN>
+         <COLUMN NAME="MIN_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="MAX_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DFLT_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">'1', '2', '3', '4', '5', '6', 'NULL'</COLUMN>
+         <COLUMN NAME="UNIT_TX" TYPE="CHAR" PK="NO"  NULL="NO"><![CDATA[<NO_UNIT>]]></COLUMN>
+         <COLUMN NAME="CURR_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">'1', '2', '3', '4', '5', '6', 'NULL'</COLUMN>
+         <COLUMN NAME="VALUE_TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">LIST</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">Included Surveillance Tier Codes</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">List Surveillance Tiers covered by the threshold set. Scale ranges from 1 (strictest) to 6 (least stringent).</COLUMN>
+         <COLUMN NAME="TSHLD_SET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">118745213</COLUMN>
+         <COLUMN NAME="BASE_TSHLD_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118748185</COLUMN>
+         <COLUMN NAME="TSHLD_NM" TYPE="CHAR" PK="NO"  NULL="NO">Lookback_Period</COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">118745209</COLUMN>
+         <COLUMN NAME="MIN_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="MAX_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">6</COLUMN>
+         <COLUMN NAME="DFLT_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">6</COLUMN>
+         <COLUMN NAME="UNIT_TX" TYPE="CHAR" PK="NO"  NULL="NO"><![CDATA[<NO_UNIT>]]></COLUMN>
+         <COLUMN NAME="CURR_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">6</COLUMN>
+         <COLUMN NAME="VALUE_TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">INTEGER</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">Lookback Period</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Number of months prior to the current month specified for the lookback period.</COLUMN>
+         <COLUMN NAME="TSHLD_SET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">118745213</COLUMN>
+         <COLUMN NAME="BASE_TSHLD_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118748186</COLUMN>
+         <COLUMN NAME="TSHLD_NM" TYPE="CHAR" PK="NO"  NULL="NO">Min_Chg_to_Same_Addr</COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">118745209</COLUMN>
+         <COLUMN NAME="MIN_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="MAX_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">999</COLUMN>
+         <COLUMN NAME="DFLT_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">3</COLUMN>
+         <COLUMN NAME="UNIT_TX" TYPE="CHAR" PK="NO"  NULL="NO"><![CDATA[<NO_UNIT>]]></COLUMN>
+         <COLUMN NAME="CURR_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">3</COLUMN>
+         <COLUMN NAME="VALUE_TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">INTEGER</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">Min # Chg to Same Address</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Minimum number of customer account addresses changed to the same address required to generate an alert.</COLUMN>
+         <COLUMN NAME="TSHLD_SET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">118745213</COLUMN>
+         <COLUMN NAME="BASE_TSHLD_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118748187</COLUMN>
+         <COLUMN NAME="TSHLD_NM" TYPE="CHAR" PK="NO"  NULL="NO">Orcl_Busnss_Acct_Typ</COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="NO">118745209</COLUMN>
+         <COLUMN NAME="MIN_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="MAX_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DFLT_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">'RBK',  'RBR'</COLUMN>
+         <COLUMN NAME="UNIT_TX" TYPE="CHAR" PK="NO"  NULL="NO"><![CDATA[<NO_UNIT>]]></COLUMN>
+         <COLUMN NAME="CURR_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">'RBK',  'RBR'</COLUMN>
+         <COLUMN NAME="VALUE_TYPE_CD" TYPE="CHAR" PK="NO"  NULL="NO">LIST</COLUMN>
+         <COLUMN NAME="DPLY_NM" TYPE="CHAR" PK="NO"  NULL="NO">Oracle Business Acct Types</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Codes that identify the business purpose or usage of this account in this scenarios</COLUMN>
+         <COLUMN NAME="TSHLD_SET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">118745213</COLUMN>
+         <COLUMN NAME="BASE_TSHLD_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_TSHLD_DATASET" CLEAN="YES">
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118748180</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118748181</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118748182</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118748183</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118748184</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118748185</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118748186</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118748187</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118748185</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118748185</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118748185</COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_TSHLD_HIST" CLEAN="NO">
+        <ROW>
+         <COLUMN NAME="HIST_SEQ_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118752729</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="NO"  NULL="NO">118748180</COLUMN>
+         <COLUMN NAME="VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">'Y'</COLUMN>
+         <COLUMN NAME="CREAT_TS" TYPE="DATE" PK="NO"  NULL="NO">2012-04-16 04:44:22</COLUMN>
+         <COLUMN NAME="CREAT_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DEACT_ID" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="CMMNT_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="HIST_SEQ_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118752730</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="NO"  NULL="NO">118748181</COLUMN>
+         <COLUMN NAME="VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="CREAT_TS" TYPE="DATE" PK="NO"  NULL="NO">2012-04-16 04:44:22</COLUMN>
+         <COLUMN NAME="CREAT_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DEACT_ID" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="CMMNT_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="HIST_SEQ_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118752731</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="NO"  NULL="NO">118748182</COLUMN>
+         <COLUMN NAME="VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">'CR', 'CI', 'EE', 'IA'</COLUMN>
+         <COLUMN NAME="CREAT_TS" TYPE="DATE" PK="NO"  NULL="NO">2012-04-16 04:44:22</COLUMN>
+         <COLUMN NAME="CREAT_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DEACT_ID" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="CMMNT_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="HIST_SEQ_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118752732</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="NO"  NULL="NO">118748183</COLUMN>
+         <COLUMN NAME="VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">'Inactive'</COLUMN>
+         <COLUMN NAME="CREAT_TS" TYPE="DATE" PK="NO"  NULL="NO">2012-04-16 04:44:22</COLUMN>
+         <COLUMN NAME="CREAT_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DEACT_ID" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="CMMNT_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="HIST_SEQ_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118752733</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="NO"  NULL="NO">118748184</COLUMN>
+         <COLUMN NAME="VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">'1', '2', '3', '4', '5', '6', 'NULL'</COLUMN>
+         <COLUMN NAME="CREAT_TS" TYPE="DATE" PK="NO"  NULL="NO">2012-04-16 04:44:22</COLUMN>
+         <COLUMN NAME="CREAT_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DEACT_ID" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="CMMNT_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="HIST_SEQ_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118752734</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="NO"  NULL="NO">118748185</COLUMN>
+         <COLUMN NAME="VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">6</COLUMN>
+         <COLUMN NAME="CREAT_TS" TYPE="DATE" PK="NO"  NULL="NO">2012-04-16 04:44:22</COLUMN>
+         <COLUMN NAME="CREAT_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DEACT_ID" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="CMMNT_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="HIST_SEQ_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118752735</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="NO"  NULL="NO">118748186</COLUMN>
+         <COLUMN NAME="VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">3</COLUMN>
+         <COLUMN NAME="CREAT_TS" TYPE="DATE" PK="NO"  NULL="NO">2012-04-16 04:44:22</COLUMN>
+         <COLUMN NAME="CREAT_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DEACT_ID" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="CMMNT_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="HIST_SEQ_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118752736</COLUMN>
+         <COLUMN NAME="TSHLD_ID" TYPE="NUMBER" PK="NO"  NULL="NO">118748187</COLUMN>
+         <COLUMN NAME="VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">'RBK',  'RBR'</COLUMN>
+         <COLUMN NAME="CREAT_TS" TYPE="DATE" PK="NO"  NULL="NO">2012-04-16 04:44:22</COLUMN>
+         <COLUMN NAME="CREAT_ID" TYPE="CHAR" PK="NO"  NULL="NO">@MINER@</COLUMN>
+         <COLUMN NAME="DEACT_TS" TYPE="DATE" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="DEACT_ID" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="CMMNT_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="USE_BASE_VALUE_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_AUGMENTATION" CLEAN="YES">
+        <ROW>
+         <COLUMN NAME="AGMNT_INSTN_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745167</COLUMN>
+         <COLUMN NAME="INSTN_NB" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="SCNRO_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="CNTRY_ID" TYPE="NUMBER" PK="NO"  NULL="NO">113000002</COLUMN>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">113001027</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="NO"  NULL="NO">113001744</COLUMN>
+         <COLUMN NAME="TRGT_BINDG_NM" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="PTTRN_ID" TYPE="NUMBER" PK="NO"  NULL="NO">118745213</COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_MATCH_DATA_BINDG" CLEAN="YES">
+        <ROW>
+         <COLUMN NAME="AGMNT_INSTN_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745167</COLUMN>
+         <COLUMN NAME="WHERE_ATTR_ID" TYPE="NUMBER" PK="NO"  NULL="NO">113001742</COLUMN>
+         <COLUMN NAME="SELECT_DSET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">113001001</COLUMN>
+         <COLUMN NAME="SELECT_ATTR_ID" TYPE="NUMBER" PK="NO"  NULL="NO">113001060</COLUMN>
+         <COLUMN NAME="SELECT_WHERE_ATTR_ID" TYPE="NUMBER" PK="NO"  NULL="NO">113001003</COLUMN>
+         <COLUMN NAME="MATCHED_DSET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">113001001</COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_DATASET_ATTR" CLEAN="YES">
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">113001001</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">113001001</COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">113001001</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">113001001</COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">113001003</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">113001001</COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">113001003</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">113001001</COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">113001100</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">113001002</COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">113550048</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">113550003</COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745963</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745964</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745981</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745982</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745983</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745984</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745985</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745986</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745987</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745988</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745989</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745990</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745991</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745992</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745993</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745994</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745995</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745996</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745997</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745998</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745999</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746000</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746001</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746002</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746003</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746004</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746005</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746006</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746007</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746008</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746009</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746010</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746011</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746012</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746013</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746014</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746015</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746016</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746017</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746018</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746019</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746020</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746021</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746022</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746023</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746024</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746025</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746026</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746027</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746028</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746029</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746030</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="ATTR_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746031</COLUMN>
+         <COLUMN NAME="PRNT_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="KEY_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+         <COLUMN NAME="NAME_FL" TYPE="CHAR" PK="NO"  NULL="NO">N</COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_DATASET_DMN" CLEAN="YES">
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="DMN_CD" TYPE="CHAR" PK="YES"  NULL="NO">MTS</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="DMN_CD" TYPE="CHAR" PK="YES"  NULL="NO">MTS</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="DMN_CD" TYPE="CHAR" PK="YES"  NULL="NO">MTS</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="DMN_CD" TYPE="CHAR" PK="YES"  NULL="NO">MTS</COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_JOB_DATASET" CLEAN="YES">
+        <ROW>
+         <COLUMN NAME="JOB_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745062</COLUMN>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="ORDER_NB" TYPE="NUMBER" PK="NO"  NULL="NO">0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="JOB_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745062</COLUMN>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="ORDER_NB" TYPE="NUMBER" PK="NO"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="JOB_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745062</COLUMN>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="ORDER_NB" TYPE="NUMBER" PK="NO"  NULL="NO">2</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="JOB_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745062</COLUMN>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="ORDER_NB" TYPE="NUMBER" PK="NO"  NULL="NO">3</COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_PARAM_BINDING" CLEAN="YES">
+        <ROW>
+         <COLUMN NAME="PARAM_NM" TYPE="CHAR" PK="YES"  NULL="NO">pattern</COLUMN>
+         <COLUMN NAME="ALGORITHM_NM" TYPE="CHAR" PK="YES"  NULL="NO">Rule Matcher</COLUMN>
+         <COLUMN NAME="PARAM_SET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745137</COLUMN>
+         <COLUMN NAME="PARAM_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">118745213</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="PARAM_NM" TYPE="CHAR" PK="YES"  NULL="NO">threshold_set_id</COLUMN>
+         <COLUMN NAME="ALGORITHM_NM" TYPE="CHAR" PK="YES"  NULL="NO">Rule Matcher</COLUMN>
+         <COLUMN NAME="PARAM_SET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745137</COLUMN>
+         <COLUMN NAME="PARAM_VALUE_TX" TYPE="CHAR" PK="NO"  NULL="NO">118745213</COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_PTTRN_DATASET" CLEAN="YES">
+        <ROW>
+         <COLUMN NAME="PTTRN_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745213</COLUMN>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="ORDER_NB" TYPE="NUMBER" PK="NO"  NULL="NO">0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="PTTRN_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745213</COLUMN>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="ORDER_NB" TYPE="NUMBER" PK="NO"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="PTTRN_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745213</COLUMN>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="ORDER_NB" TYPE="NUMBER" PK="NO"  NULL="NO">2</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="PTTRN_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745213</COLUMN>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="ORDER_NB" TYPE="NUMBER" PK="NO"  NULL="NO">3</COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_PTTRN_ROLE" CLEAN="YES">
+        <ROW>
+         <COLUMN NAME="PTTRN_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745213</COLUMN>
+         <COLUMN NAME="VRBL_NM" TYPE="CHAR" PK="YES"  NULL="NO">ACCT_GEO_RISK_NB</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Addr Cntry Geo Risk =</COLUMN>
+         <COLUMN NAME="DPLY_PSTN_CT" TYPE="NUMBER" PK="NO"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="FRMT_TX" TYPE="CHAR" PK="NO"  NULL="NO">INTEGER</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="PTTRN_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745213</COLUMN>
+         <COLUMN NAME="VRBL_NM" TYPE="CHAR" PK="YES"  NULL="NO">ACCT_INTRL_ID</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">ACCT_INTRL_ID</COLUMN>
+         <COLUMN NAME="DPLY_PSTN_CT" TYPE="NUMBER" PK="NO"  NULL="NO">6</COLUMN>
+         <COLUMN NAME="FRMT_TX" TYPE="CHAR" PK="NO"  NULL="YES"></COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="PTTRN_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745213</COLUMN>
+         <COLUMN NAME="VRBL_NM" TYPE="CHAR" PK="YES"  NULL="NO">EARLIEST_DT</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Date 1st Addr Chg =</COLUMN>
+         <COLUMN NAME="DPLY_PSTN_CT" TYPE="NUMBER" PK="NO"  NULL="NO">2</COLUMN>
+         <COLUMN NAME="FRMT_TX" TYPE="CHAR" PK="NO"  NULL="NO">DATETIME</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="PTTRN_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745213</COLUMN>
+         <COLUMN NAME="VRBL_NM" TYPE="CHAR" PK="YES"  NULL="NO">LATEST_DT</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Date Last Addr  Chg =</COLUMN>
+         <COLUMN NAME="DPLY_PSTN_CT" TYPE="NUMBER" PK="NO"  NULL="NO">3</COLUMN>
+         <COLUMN NAME="FRMT_TX" TYPE="CHAR" PK="NO"  NULL="NO">DATETIME</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="PTTRN_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745213</COLUMN>
+         <COLUMN NAME="VRBL_NM" TYPE="CHAR" PK="YES"  NULL="NO">NEW_AC_AGE</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Newest Acct Age =</COLUMN>
+         <COLUMN NAME="DPLY_PSTN_CT" TYPE="NUMBER" PK="NO"  NULL="NO">5</COLUMN>
+         <COLUMN NAME="FRMT_TX" TYPE="CHAR" PK="NO"  NULL="NO">INTEGER</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="PTTRN_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745213</COLUMN>
+         <COLUMN NAME="VRBL_NM" TYPE="CHAR" PK="YES"  NULL="NO">OCC_CT</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Accts Chg Ct =</COLUMN>
+         <COLUMN NAME="DPLY_PSTN_CT" TYPE="NUMBER" PK="NO"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="FRMT_TX" TYPE="CHAR" PK="NO"  NULL="NO">INTEGER</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="PTTRN_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745213</COLUMN>
+         <COLUMN NAME="VRBL_NM" TYPE="CHAR" PK="YES"  NULL="NO">OLD_AC_AGE</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">Oldest Acct Age =</COLUMN>
+         <COLUMN NAME="DPLY_PSTN_CT" TYPE="NUMBER" PK="NO"  NULL="NO">4</COLUMN>
+         <COLUMN NAME="FRMT_TX" TYPE="CHAR" PK="NO"  NULL="NO">INTEGER</COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_SEQ_PTTRN" CLEAN="YES">
+        <ROW>
+         <COLUMN NAME="PTTRN_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118745213</COLUMN>
+         <COLUMN NAME="DESC_TX" TYPE="CHAR" PK="NO"  NULL="NO">To retrieve multiple customer accounts have had their mailing addresses changed to the same new address during the lookback period.</COLUMN>
+         <COLUMN NAME="PTTRN_TX" TYPE="LONG" PK="NO"  NULL="NO"><![CDATA[<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE rule-pattern PUBLIC "-//SRA//DTD Patterns//EN" "pattern.dtd">
+<rule-pattern action="BreakAction" focus="ACCOUNT" id="p1">
+  <datasets>
+    <dataset href="/datasets/118746160" id="ds2" name="FR_MultACChgtoSameAD_fAC_PR"/>
+    <dataset href="/datasets/118746168" id="ds3" name="FR_MultACChgtoSameAD_fAC_Acc_SR"/>
+    <dataset href="/datasets/118746169" id="ds4" name="FR_MultACChgtoSameAD_fAC_AcctAddr_SR"/>
+    <dataset href="/datasets/118746170" id="ds5" name="FR_MultACChgtoSameAD_fAC_ChgLog_SR"/>
+  </datasets>
+  <scenario class="Fraud" description="Connections or linkages between accounts based on the registration information associated with accounts can support the detection of fraudulent activity. In particular, contact and statement notification information, such as mailing address, which is common across seemingly unrelated accounts could indicate fraudulent activity such as account takeover schemes affecting multiple accounts, especially for cases in which multiple accounts are changed to the same post office box (POB) or care of (C/O) address.
+This scenario identifies cases where multiple customer accounts have had their mailing addresses changed to the same new address during the lookback period. 
+" focus="ACCOUNT" href="/scenarios/118745209" id="s6" name="(FR/AC) Multiple Accounts with Address Changed to Same Address" scenarioid="118745209" scnroctldid="FR-MultACChgtoSameAD" shortname="Mult AC Chg to Same AD - FR"/>
+  <roles>
+    <role format="INTEGER" highlight="Y" name="OCC_CT">Accts Chg Ct =</role>
+    <role format="INTEGER" highlight="Y" name="ACCT_GEO_RISK_NB">
+Addr Cntry Geo Risk =
+    </role>
+    <role format="DATETIME" highlight="Y" name="EARLIEST_DT">
+Date 1st Addr Chg =
+    </role>
+    <role format="DATETIME" highlight="Y" name="LATEST_DT">
+Date Last Addr  Chg =
+    </role>
+    <role format="INTEGER" highlight="Y" name="OLD_AC_AGE">
+Oldest Acct Age =
+    </role>
+    <role format="INTEGER" highlight="Y" name="NEW_AC_AGE">
+Newest Acct Age =
+    </role>
+    <role format="" highlight="N" name="ACCT_INTRL_ID">ACCT_INTRL_ID</role>
+  </roles>
+  <rule>
+    <row dataset="ds2" norecord="no">
+      <comment>
+To retrieve multiple customer accounts have had their mailing addresses changed to the same new address during the lookback period.
+      </comment>
+      <binding name="ACCT_INTRL_ID">ACCT_INTRL_ID</binding>
+      <binding name="ADD_LINE1">ADD_LINE1</binding>
+      <binding name="ADD_LINE2">ADD_LINE2</binding>
+      <binding name="ADD_LINE3">ADD_LINE3</binding>
+      <binding name="ADD_LINE4">ADD_LINE4</binding>
+      <binding name="ADD_LINE5">ADD_LINE5</binding>
+      <binding name="ADD_LINE6">ADD_LINE6</binding>
+      <binding name="POSTL_CD">POSTL_CD</binding>
+      <binding name="CITY">CITY</binding>
+      <binding name="COUNTRY">COUNTRY</binding>
+      <binding name="REG">REG</binding>
+      <binding name="STATE">STATE</binding>
+      <binding name="OCC_CT">OCC_CT</binding>
+      <binding name="OLD_AC_AGE">OLD_AC_AGE</binding>
+      <binding name="NEW_AC_AGE">NEW_AC_AGE</binding>
+      <binding name="LATEST_DT">LATEST_DT</binding>
+      <binding name="EARLIEST_DT">EARLIEST_DT</binding>
+      <binding name="ACCT_GEO_RISK_NB">ACCT_GEO_RISK_NB</binding>
+    </row>
+    <focal-attribute cluster="no">ACCT_INTRL_ID</focal-attribute>
+  </rule>
+  <rule>
+    <row dataset="ds3" norecord="no">
+      <comment>To retrieve Acct information BB</comment>
+      <constraint>
+$ADD_LINE1==ADD_LINE1 &amp;&amp;
+$ADD_LINE2==ADD_LINE2 &amp;&amp;
+$ADD_LINE3==ADD_LINE3 &amp;&amp;
+$ADD_LINE4==ADD_LINE4 &amp;&amp;
+$ADD_LINE5==ADD_LINE5 &amp;&amp;
+$ADD_LINE6==ADD_LINE6 &amp;&amp;
+$CITY==CITY &amp;&amp;
+$STATE==STATE &amp;&amp;
+$COUNTRY==COUNTRY &amp;&amp;
+$REG==REG &amp;&amp;
+$POSTL_CD==POSTL_CD
+      </constraint>
+      <binding name="ADD_LINE1">ADD_LINE1</binding>
+      <binding name="ADD_LINE2">ADD_LINE2</binding>
+      <binding name="ADD_LINE3">ADD_LINE3</binding>
+      <binding name="ADD_LINE4">ADD_LINE4</binding>
+      <binding name="ADD_LINE5">ADD_LINE5</binding>
+      <binding name="ADD_LINE6">ADD_LINE6</binding>
+      <binding name="POSTL_CD">POSTL_CD</binding>
+      <binding name="CITY">CITY</binding>
+      <binding name="COUNTRY">COUNTRY</binding>
+      <binding name="REG">REG</binding>
+      <binding name="STATE">STATE</binding>
+    </row>
+    <focal-attribute>ACCT_INTRL_ID</focal-attribute>
+  </rule>
+  <rule>
+    <row dataset="ds4" norecord="no">
+      <comment>To retrieve Acct Address BB</comment>
+      <constraint>
+$ADD_LINE1==ADD_LINE1 &amp;&amp;
+$ADD_LINE2==ADD_LINE2 &amp;&amp;
+$ADD_LINE3==ADD_LINE3 &amp;&amp;
+$ADD_LINE4==ADD_LINE4 &amp;&amp;
+$ADD_LINE5==ADD_LINE5 &amp;&amp;
+$ADD_LINE6==ADD_LINE6 &amp;&amp;
+$CITY==CITY &amp;&amp;
+$STATE==STATE &amp;&amp;
+$COUNTRY==COUNTRY &amp;&amp;
+$REG==REG &amp;&amp;
+$POSTL_CD==POSTL_CD
+      </constraint>
+      <binding name="ADD_LINE1">ADD_LINE1</binding>
+      <binding name="ADD_LINE2">ADD_LINE2</binding>
+      <binding name="ADD_LINE3">ADD_LINE3</binding>
+      <binding name="ADD_LINE4">ADD_LINE4</binding>
+      <binding name="ADD_LINE5">ADD_LINE5</binding>
+      <binding name="ADD_LINE6">ADD_LINE6</binding>
+      <binding name="CITY">CITY</binding>
+      <binding name="STATE">STATE</binding>
+      <binding name="COUNTRY">COUNTRY</binding>
+      <binding name="REG">REG</binding>
+      <binding name="POSTL_CD">POSTL_CD</binding>
+    </row>
+    <focal-attribute>ACCT_INTRL_ID</focal-attribute>
+  </rule>
+  <rule>
+    <row dataset="ds5" norecord="no">
+      <comment>To retrieve Change Log information BB</comment>
+      <constraint>
+$ADD_LINE1==ADD_LINE1 &amp;&amp;
+$ADD_LINE2==ADD_LINE2 &amp;&amp;
+$ADD_LINE3==ADD_LINE3 &amp;&amp;
+$ADD_LINE4==ADD_LINE4 &amp;&amp;
+$ADD_LINE5==ADD_LINE5 &amp;&amp;
+$ADD_LINE6==ADD_LINE6 &amp;&amp;
+$CITY==CITY &amp;&amp;
+$STATE==STATE &amp;&amp;
+$COUNTRY==COUNTRY &amp;&amp;
+$REG==REG &amp;&amp;
+$POSTL_CD==POSTL_CD
+      </constraint>
+      <binding name="ADD_LINE1">ADD_LINE1</binding>
+      <binding name="ADD_LINE2">ADD_LINE2</binding>
+      <binding name="ADD_LINE3">ADD_LINE3</binding>
+      <binding name="ADD_LINE4">ADD_LINE4</binding>
+      <binding name="ADD_LINE5">ADD_LINE5</binding>
+      <binding name="ADD_LINE6">ADD_LINE6</binding>
+      <binding name="CITY">CITY</binding>
+      <binding name="STATE">STATE</binding>
+      <binding name="POSTL_CD">POSTL_CD</binding>
+      <binding name="COUNTRY">COUNTRY</binding>
+      <binding name="REG">REG</binding>
+    </row>
+    <focal-attribute>ACCT_INTRL_ID</focal-attribute>
+  </rule>
+</rule-pattern>
+]]></COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_TRANSFORM" CLEAN="YES">
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">ADD_LINE1 = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">ADD_LINE2 = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">2</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">ADD_LINE3 = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">3</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">ADD_LINE4 = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">4</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">ADD_LINE5 = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">5</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">ADD_LINE6 = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">6</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">CITY = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">7</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">STATE = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">8</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">POSTL_CD = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">9</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">COUNTRY = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">10</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">REG = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">11</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">OCC_CT = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">12</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">ACCT_OPEN_DT = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">13</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">LATEST_DT = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">14</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">EARLIEST_DT = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">15</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">OLD_AC_AGE = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">16</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">NEW_AC_AGE = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">17</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">ACCT_GEO_RISK_NB = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">ADD_LINE1 = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">ADD_LINE2 = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">2</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">ADD_LINE3 = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">3</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">ADD_LINE4 = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">4</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">ADD_LINE5 = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">5</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">ADD_LINE6 = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">6</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">CITY = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">7</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">STATE = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">8</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">POSTL_CD = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">9</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">COUNTRY = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">10</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">REG = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">ACCT_INTRL_ID = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">ADD_LINE1 = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">2</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">ADD_LINE2 = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">3</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">ADD_LINE3 = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">4</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">ADD_LINE4 = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">5</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">ADD_LINE5 = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">6</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">ADD_LINE6 = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">7</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">CITY = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">8</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">STATE = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">9</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">POSTL_CD = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">10</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">COUNTRY = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">11</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">REG = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">ACCT_INTRL_ID = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">ADD_LINE1 = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">2</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">ADD_LINE2 = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">3</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">ADD_LINE3 = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">4</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">ADD_LINE4 = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">5</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">ADD_LINE5 = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">6</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">ADD_LINE6 = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">7</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">CITY = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">8</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">STATE = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">9</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">POSTL_CD = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">10</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">COUNTRY = 0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">11</COLUMN>
+         <COLUMN NAME="REALIZED_FL" TYPE="CHAR" PK="NO"  NULL="NO">Y</COLUMN>
+         <COLUMN NAME="TRANSFORM_TX" TYPE="LONG" PK="NO"  NULL="NO">REG = 0</COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_DATASET_GUI_TOOL" CLEAN="YES">
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="TOOL_CD" TYPE="CHAR" PK="NO"  NULL="NO">DS</COLUMN>
+         <COLUMN NAME="TOOL_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">113001001</COLUMN>
+         <COLUMN NAME="TOOL_X" TYPE="NUMBER" PK="NO"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="TOOL_Y" TYPE="NUMBER" PK="NO"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="TOOL_NM" TYPE="CHAR" PK="NO"  NULL="NO">ACCT_WRP</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="TOOL_CD" TYPE="CHAR" PK="NO"  NULL="NO">D</COLUMN>
+         <COLUMN NAME="TOOL_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="TOOL_X" TYPE="NUMBER" PK="NO"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="TOOL_Y" TYPE="NUMBER" PK="NO"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="TOOL_NM" TYPE="CHAR" PK="NO"  NULL="NO">Derivation</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="TOOL_CD" TYPE="CHAR" PK="NO"  NULL="NO">DS</COLUMN>
+         <COLUMN NAME="TOOL_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">113001001</COLUMN>
+         <COLUMN NAME="TOOL_X" TYPE="NUMBER" PK="NO"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="TOOL_Y" TYPE="NUMBER" PK="NO"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="TOOL_NM" TYPE="CHAR" PK="NO"  NULL="NO">ACCT_WRP</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="TOOL_CD" TYPE="CHAR" PK="NO"  NULL="NO">D</COLUMN>
+         <COLUMN NAME="TOOL_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="TOOL_X" TYPE="NUMBER" PK="NO"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="TOOL_Y" TYPE="NUMBER" PK="NO"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="TOOL_NM" TYPE="CHAR" PK="NO"  NULL="NO">Derivation</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="TOOL_CD" TYPE="CHAR" PK="NO"  NULL="NO">DS</COLUMN>
+         <COLUMN NAME="TOOL_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">113001002</COLUMN>
+         <COLUMN NAME="TOOL_X" TYPE="NUMBER" PK="NO"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="TOOL_Y" TYPE="NUMBER" PK="NO"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="TOOL_NM" TYPE="CHAR" PK="NO"  NULL="NO">ACCT_ADDR_WRP</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="TOOL_CD" TYPE="CHAR" PK="NO"  NULL="NO">D</COLUMN>
+         <COLUMN NAME="TOOL_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="TOOL_X" TYPE="NUMBER" PK="NO"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="TOOL_Y" TYPE="NUMBER" PK="NO"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="TOOL_NM" TYPE="CHAR" PK="NO"  NULL="NO">Derivation</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="TOOL_CD" TYPE="CHAR" PK="NO"  NULL="NO">DS</COLUMN>
+         <COLUMN NAME="TOOL_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="NO">113550003</COLUMN>
+         <COLUMN NAME="TOOL_X" TYPE="NUMBER" PK="NO"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="TOOL_Y" TYPE="NUMBER" PK="NO"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="TOOL_NM" TYPE="CHAR" PK="NO"  NULL="NO">ACCT_CHG_LOG_SMRY_WRP</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="TOOL_CD" TYPE="CHAR" PK="NO"  NULL="NO">D</COLUMN>
+         <COLUMN NAME="TOOL_DATASET_ID" TYPE="NUMBER" PK="NO"  NULL="YES"></COLUMN>
+         <COLUMN NAME="TOOL_X" TYPE="NUMBER" PK="NO"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="TOOL_Y" TYPE="NUMBER" PK="NO"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="TOOL_NM" TYPE="CHAR" PK="NO"  NULL="NO">Derivation2</COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_DATASET_GUI_MAPPING" CLEAN="YES">
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">2</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">3</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">4</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">5</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">6</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">7</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">8</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">9</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">10</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">11</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">12</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">13</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">14</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">15</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">16</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">17</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">2</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">3</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">4</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">5</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">6</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">7</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">8</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">9</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">10</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">2</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">3</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">4</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">5</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">6</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">7</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">8</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">9</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">10</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">11</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">0</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">2</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">3</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">4</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">5</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">6</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">7</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">8</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">9</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">10</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="TRANSFORM_NB" TYPE="NUMBER" PK="YES"  NULL="NO">11</COLUMN>
+         <COLUMN NAME="TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+       </ROW>
+   </TABLE>
+   <TABLE NAME="KDD_DATASET_GUI_WIRING" CLEAN="YES">
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746160</COLUMN>
+         <COLUMN NAME="TO_TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="FROM_TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746168</COLUMN>
+         <COLUMN NAME="TO_TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="FROM_TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746169</COLUMN>
+         <COLUMN NAME="TO_TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="FROM_TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">0</COLUMN>
+       </ROW>
+        <ROW>
+         <COLUMN NAME="DATASET_ID" TYPE="NUMBER" PK="YES"  NULL="NO">118746170</COLUMN>
+         <COLUMN NAME="TO_TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">1</COLUMN>
+         <COLUMN NAME="FROM_TOOL_NB" TYPE="NUMBER" PK="YES"  NULL="NO">0</COLUMN>
+       </ROW>
+   </TABLE>
+</METADATA>

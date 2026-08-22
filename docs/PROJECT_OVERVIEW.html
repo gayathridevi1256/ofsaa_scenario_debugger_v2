@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  body {
+    font-family: Calibri, Arial, sans-serif;
+    font-size: 11pt;
+    color: #1a1a1a;
+    max-width: 800px;
+    margin: 60px auto;
+    line-height: 1.6;
+  }
+  h1 {
+    font-size: 20pt;
+    color: #1F3864;
+    border-bottom: 2px solid #1F3864;
+    padding-bottom: 6px;
+    margin-bottom: 4px;
+  }
+  .subtitle {
+    font-size: 10pt;
+    color: #666;
+    margin-top: 0;
+    margin-bottom: 32px;
+  }
+  h2 {
+    font-size: 13pt;
+    color: #1F3864;
+    margin-top: 32px;
+    margin-bottom: 6px;
+  }
+  h3 {
+    font-size: 11pt;
+    color: #2E5499;
+    margin-top: 18px;
+    margin-bottom: 4px;
+  }
+  p {
+    margin: 6px 0 12px 0;
+  }
+  ul, ol {
+    margin: 6px 0 12px 20px;
+    padding: 0;
+  }
+  li {
+    margin-bottom: 5px;
+  }
+  .step-block {
+    background: #f4f7fb;
+    border-left: 4px solid #2E5499;
+    padding: 10px 16px;
+    margin: 10px 0;
+  }
+  .step-title {
+    font-weight: bold;
+    color: #1F3864;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 12px 0;
+  }
+  th {
+    background: #1F3864;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-size: 10pt;
+  }
+  td {
+    padding: 7px 12px;
+    border-bottom: 1px solid #dde3ed;
+    font-size: 10pt;
+    vertical-align: top;
+  }
+  tr:nth-child(even) td {
+    background: #f4f7fb;
+  }
+  .highlight-box {
+    background: #eaf2e8;
+    border: 1px solid #a8d5a0;
+    border-radius: 4px;
+    padding: 12px 18px;
+    margin: 16px 0;
+    font-size: 10.5pt;
+  }
+  .limitation-box {
+    background: #fff8e6;
+    border: 1px solid #f0c040;
+    border-radius: 4px;
+    padding: 12px 18px;
+    margin: 16px 0;
+    font-size: 10.5pt;
+  }
+  code {
+    font-family: Consolas, monospace;
+    background: #eef2f7;
+    padding: 1px 4px;
+    border-radius: 2px;
+    font-size: 9.5pt;
+  }
+</style>
+</head>
+<body>
+
+<h1>OFSAA Scenario Debugger</h1>
+<p class="subtitle">Project Overview &nbsp;|&nbsp; Version 1.0.0</p>
+
+
+<h2>What Is This Tool?</h2>
+
+<p>
+The OFSAA Scenario Debugger is an internal web application built to help the team investigate
+why an OFSAA alert scenario is <strong>not generating alerts</strong>.
+</p>
+<p>
+When a scenario runs in OFSAA and produces no alerts, the usual process is manual — someone
+opens the log file, reads the SQL, runs queries in a database client, and tries to figure out
+which condition is filtering out all the data. This can take hours per scenario.
+</p>
+<p>
+This tool <strong>automates that entire process</strong>. You upload the scenario log file,
+click Run, and within minutes the system tells you exactly which part of the SQL is the
+problem — and why.
+</p>
+
+
+<h2>The Problem It Solves</h2>
+
+<p>
+OFSAA scenarios are built using a chain of SQL queries called CTEs (Common Table Expressions).
+Each CTE feeds data into the next, like a production line. If any one CTE returns zero rows,
+no alert is generated.
+</p>
+
+<p>Example chain:</p>
+<p style="margin-left:20px; color:#2E5499;">
+  Loan Data &nbsp;&#8594;&nbsp; Customer Filter &nbsp;&#8594;&nbsp; Risk Filter &nbsp;&#8594;&nbsp; Alert
+</p>
+
+<p>
+If the "Risk Filter" step returns zero rows, the alert never fires. But why?
+</p>
+<ul>
+  <li>Is the underlying data simply not there?</li>
+  <li>Is a threshold (like minimum risk level) set too high?</li>
+  <li>Is a date filter cutting out all records?</li>
+</ul>
+<p>
+Without this tool, answering that question means running each CTE manually in a database tool,
+one by one, until the empty one is found — then digging further to find the specific condition
+causing it. This tool does all of that automatically and presents the findings in a clear,
+visual interface.
+</p>
+
+
+<h2>How It Works — Step by Step</h2>
+
+<div class="step-block">
+  <span class="step-title">Step 1 — Upload the Log File</span><br>
+  The user uploads the OFSAA scenario execution log file through the web interface.
+  No database access is needed at this stage.
+</div>
+
+<div class="step-block">
+  <span class="step-title">Step 2 — Read the Log</span><br>
+  The system reads the log file and extracts the scenario name, business date, and the full
+  SQL query that OFSAA executed.
+</div>
+
+<div class="step-block">
+  <span class="step-title">Step 3 — Set the Batch Date</span><br>
+  The system identifies the correct business date for the analysis — matching the date from the
+  original log, not today's date.
+</div>
+
+<div class="step-block">
+  <span class="step-title">Step 4 — Execute the Dataset Query</span><br>
+  The main SQL query is run against the Oracle database to confirm the data environment and
+  establish a baseline.
+</div>
+
+<div class="step-block">
+  <span class="step-title">Step 5 — Parse the CTEs</span><br>
+  The SQL is broken down into its individual building blocks. Each block is saved separately
+  so it can be tested in isolation.
+</div>
+
+<div class="step-block">
+  <span class="step-title">Step 6 — Execute Each CTE One by One</span><br>
+  Each CTE is run against Oracle. If it returns rows, the next one is tested. When a CTE
+  returns zero rows, that is the identified problem point.
+</div>
+
+<div class="step-block">
+  <span class="step-title">Step 7 — Diagnose the Failing CTE</span><br>
+  The system automatically investigates the failing CTE using two checks:
+  <ul style="margin-top:8px;">
+    <li><strong>Data Unavailability:</strong> Are the source tables empty? Is a JOIN
+    eliminating all rows due to no matching keys? Is the date range filter too narrow?</li>
+    <li><strong>Threshold Analysis:</strong> Is a numeric condition (e.g. "risk score >= 9")
+    set too high or too low? The system queries the actual data range and tells you exactly
+    what the threshold should be.</li>
+  </ul>
+</div>
+
+<div class="step-block">
+  <span class="step-title">Step 8 — Display Results with Actionable Suggestions</span><br>
+  All findings are presented visually, including the exact SQL condition responsible and a
+  plain-English recommendation — for example:<br><br>
+  <em>"Try reducing the Efctv_Risk_Lvl threshold to get results and try again."</em>
+</div>
+
+
+<h2>What the User Sees</h2>
+
+<h3>Login Screen</h3>
+<p>Simple username and password login. Access is controlled by an administrator.</p>
+
+<h3>Dashboard</h3>
+<ul>
+  <li>Upload a log file or drag-and-drop it onto the page</li>
+  <li>Run multiple scenarios at once (batch mode)</li>
+  <li>View the full history of all previous runs</li>
+  <li>Results from a previous run are cached — re-opening the same scenario instantly
+  shows past results without re-running the analysis</li>
+</ul>
+
+<h3>Results Screen</h3>
+<ul>
+  <li>Live progress updates as each pipeline step runs</li>
+  <li>Each CTE shown as a card with a clear pass or fail status</li>
+  <li>Full diagnostic breakdown for the failing CTE</li>
+  <li>Threshold Suggestions panel showing the HRE parameter name, current setting,
+  actual data range, and a plain-English fix suggestion</li>
+  <li>Option to re-run with fresh data at any time</li>
+</ul>
+
+
+<h2>Key Features</h2>
+
+<table>
+  <tr>
+    <th>Feature</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>Automated Diagnosis</td>
+    <td>No manual SQL execution required — the tool does it all</td>
+  </tr>
+  <tr>
+    <td>Real Database Queries</td>
+    <td>Connects directly to the Oracle database (FCCMATOMIC) for accurate results</td>
+  </tr>
+  <tr>
+    <td>CTE-Level Breakdown</td>
+    <td>Pinpoints exactly which step in the query chain fails</td>
+  </tr>
+  <tr>
+    <td>Threshold Suggestions</td>
+    <td>Shows actual data range vs. current threshold setting with recommended values</td>
+  </tr>
+  <tr>
+    <td>HRE Parameter Names</td>
+    <td>Maps database column conditions back to HRE configuration names
+    (e.g. <code>CUST_EFCTV_RISK_NB</code> shown as <code>Efctv_Risk_Lvl</code>)</td>
+  </tr>
+  <tr>
+    <td>Batch Processing</td>
+    <td>Run multiple scenario logs at the same time</td>
+  </tr>
+  <tr>
+    <td>Result Caching</td>
+    <td>Previous results are saved; the analysis only re-runs when explicitly requested</td>
+  </tr>
+  <tr>
+    <td>Audit History</td>
+    <td>Every run is logged with who ran it and when</td>
+  </tr>
+  <tr>
+    <td>User Management</td>
+    <td>Admin can add and remove users</td>
+  </tr>
+</table>
+
+
+<h2>Typical Use Case</h2>
+
+<div class="highlight-box">
+  <strong>Scenario:</strong> OFSAA runs overnight. An alert scenario produces zero alerts.<br><br>
+
+  <strong>Before this tool:</strong> An analyst spends 2–3 hours manually opening the log,
+  running each CTE in a database tool, narrowing down the issue, and guessing at which
+  threshold to change.<br><br>
+
+  <strong>With this tool:</strong>
+  <ol style="margin-top:8px;">
+    <li>Analyst downloads the scenario log from OFSAA</li>
+    <li>Opens the Scenario Debugger in a browser</li>
+    <li>Uploads the log file and clicks Run</li>
+    <li>Within 1–2 minutes, the tool shows:<br>
+      <em style="margin-left:12px;">"CTE 'RiskFilter' returned 0 rows.<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;Condition: CUST_EFCTV_RISK_NB (Efctv_Risk_Lvl) &gt;= 9<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;Actual data range: 2 to 7<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;Try reducing the Efctv_Risk_Lvl threshold to get results and try again."</em>
+    </li>
+    <li>Analyst adjusts the threshold in HRE and re-runs the scenario</li>
+  </ol>
+
+  <strong>Time saving: 2–3 hours reduced to under 5 minutes.</strong>
+</div>
+
+
+<h2>Important Notes</h2>
+
+<div class="limitation-box">
+  <ul style="margin:0; padding-left:18px;">
+    <li>This tool <strong>does not modify</strong> OFSAA, HRE, or any database settings.
+    It only reads and diagnoses. All fixes must be applied manually in HRE.</li>
+    <li>A live connection to the Oracle database is required to run diagnostic queries.
+    The tool cannot work offline.</li>
+    <li>Designed for scenarios using standard CTE-based SQL (the OFSAA default pattern).</li>
+    <li>Maximum log file size: 10 MB.</li>
+  </ul>
+</div>
+
+</body>
+</html>

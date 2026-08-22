@@ -1,0 +1,67 @@
+# Python
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv/
+venv/
+env/
+backend/.venv/
+
+# Environment
+.env
+.env.local
+.env.save
+frontend-next/.env
+frontend-next/.env.production
+
+# Logs
+*.log
+nohup.out
+**/nohup.out
+
+# Generated output
+output/
+outputs/
+backend/outputs/
+backend/logs/
+backend/uploads/
+backend/pdf_reports/
+
+# Database
+backend/db/
+db/
+*.db
+*.sqlite
+*.sqlite3
+
+# Next.js
+.next/
+frontend-next/.next/
+frontend-next/out/
+
+# Node
+node_modules/
+frontend-next/node_modules/
+
+# IDE
+.vscode/
+.idea/
+.claude/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Python cache
+.pytest_cache/
+.mypy_cache/
+.cache/
+.python-version
+
+# Binary
+datamap.jar
