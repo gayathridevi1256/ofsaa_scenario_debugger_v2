@@ -86,19 +86,14 @@ export function UploadZone({ onJobStarted }) {
   };
 
   return (
-    <div className="card animate-fade-in" style={{ marginBottom: 32 }}>
-      <h2 style={{ fontSize: "1rem", fontWeight: 600, marginBottom: 12 }}>Upload Log Files</h2>
-      {error && <div className="alert alert-error" style={{ marginBottom: 12 }}>{error}</div>}
+    <div className="card animate-fade-in" style={{ marginBottom: 28 }}>
+      <h2 style={{ fontFamily: "var(--font-display)", fontSize: "1.05rem", fontWeight: 700, marginBottom: 14 }}>Upload Log Files</h2>
+      {error && <div className="alert alert-error" style={{ marginBottom: 14 }}>{error}</div>}
       <div
         onDragOver={(e) => { e.preventDefault(); setDragging(true); }}
         onDragLeave={() => setDragging(false)}
         onDrop={handleDrop}
-        style={{
-          border: `2px dashed ${dragging ? "var(--accent)" : "var(--border)"}`,
-          borderRadius: "var(--radius-md)", padding: 32, textAlign: "center",
-          background: dragging ? "var(--accent-subtle)" : "var(--bg-elevated)",
-          cursor: "pointer", transition: "all 0.15s",
-        }}
+        className={`dropzone${dragging ? " dragging" : ""}`}
         onClick={() => fileRef.current?.click()}
       >
         <input
@@ -115,21 +110,26 @@ export function UploadZone({ onJobStarted }) {
         />
         {uploading ? (
           <div>
-            <div className="spinner" style={{ margin: "0 auto 12px" }} />
-            <div style={{ fontSize: "0.875rem", color: "var(--text-muted)" }}>
+            <div className="spinner" style={{ margin: "0 auto 14px" }} />
+            <div style={{ fontSize: "0.875rem", color: "var(--text-secondary)", fontWeight: 500 }}>
               {currentFile
                 ? `Uploading ${uploaded + 1} of ${total}: ${currentFile}`
                 : `Starting batch run with ${total} files…`}
             </div>
-            <div style={{ width: "100%", height: 4, background: "var(--border)", borderRadius: 2, marginTop: 8 }}>
-              <div style={{ width: `${total > 0 ? ((uploaded * 100) / total) : progress}%`, height: "100%", background: "var(--accent)", borderRadius: 2, transition: "width 0.2s" }} />
+            <div style={{ width: "100%", maxWidth: 320, margin: "10px auto 0", height: 5, background: "var(--border)", borderRadius: 3, overflow: "hidden" }}>
+              <div style={{ width: `${total > 0 ? ((uploaded * 100) / total) : progress}%`, height: "100%", background: "var(--gradient-accent)", borderRadius: 3, transition: "width 0.2s" }} />
             </div>
           </div>
         ) : (
           <>
-            <div style={{ fontSize: "2rem", marginBottom: 8 }}>📂</div>
-            <div style={{ fontWeight: 600 }}>Drop .log files here or click to browse</div>
-            <div style={{ fontSize: "0.75rem", color: "var(--text-muted)", marginTop: 4 }}>Select up to {MAX_FILES} files · Max 50MB each</div>
+            <div className="dropzone-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M12 4v11m0-11 4 4m-4-4-4 4" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M5 16v2.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V16" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" />
+              </svg>
+            </div>
+            <div style={{ fontWeight: 700, color: "var(--text-primary)" }}>Drop .log files here or click to browse</div>
+            <div style={{ fontSize: "0.78rem", color: "var(--text-muted)", marginTop: 5 }}>Select up to {MAX_FILES} files · Max 50MB each</div>
           </>
         )}
       </div>

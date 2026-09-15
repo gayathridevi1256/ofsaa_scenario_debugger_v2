@@ -1,25 +1,60 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const FAILURE_TYPE_COLORS = {
   where_combination: "var(--warning, #f59e0b)",
   where_condition: "var(--danger)",
   having: "var(--danger)",
   join: "var(--accent)",
+  threshold_kill: "var(--warning, #f59e0b)",
   upstream_dependency: "var(--text-muted)",
   no_source_data: "var(--text-muted)",
   unknown: "var(--text-muted)",
 };
 
-export function RootCauseCard({ rootCause, results, aiRecommendation }) {
+export function RootCauseCard({ rootCause, results, aiRecommendation, logFilePath }) {
+  const router = useRouter();
   if (!results?.length && !rootCause) return null;
+
+  // Two diagnosis paths can identify a tunable threshold: the specialized
+  // THRESHOLD_KILL detector (aggregated/inner-query conditions tied to
+  // KDD_TSHLD config) and the generic WHERE/HAVING elimination path, which
+  // also populates threshold_suggestions whenever the killer condition is a
+  // plain numeric range comparison — but keeps failure_type as "WHERE"/
+  // "HAVING" rather than "threshold_kill". Checking threshold_suggestions
+  // directly catches both, so the banner shows whenever there's a concrete,
+  // actionable suggestion to act on — not just for the narrower path.
+  const hasThresholdKill = results?.some((r) =>
+    (r.failure_type || "").toLowerCase() === "threshold_kill" ||
+    r.threshold_suggestions?.length > 0
+  );
 
   return (
     <div className="card" style={{ marginTop: 24, borderLeft: "4px solid var(--danger)" }}>
       <h2 style={{ fontSize: "1rem", fontWeight: 700, marginBottom: 12, display: "flex", alignItems: "center", gap: 8 }}>
         <span style={{ color: "var(--danger)" }}>⚠</span> Root Cause Analysis
       </h2>
+      {hasThresholdKill && logFilePath && (
+        <div
+          style={{
+            marginBottom: 16, padding: 12, borderRadius: "var(--radius-sm)",
+            border: "1px solid var(--warning, #f59e0b)", background: "rgba(245,158,11,0.08)",
+            display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, flexWrap: "wrap",
+          }}
+        >
+          <div style={{ fontSize: "0.8rem" }}>
+            <strong>This scenario's thresholds are killing all the rows.</strong> Tune them against real data from the same log — no need to re-upload.
+          </div>
+          <button
+            className="btn btn-primary btn-sm"
+            onClick={() => router.push(`/threshold-tuning?file_path=${encodeURIComponent(logFilePath)}`)}
+          >
+            🎯 Tune These Thresholds
+          </button>
+        </div>
+      )}
       {aiRecommendation && (
         <div
           style={{

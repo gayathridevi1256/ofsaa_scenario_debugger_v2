@@ -304,7 +304,15 @@ def _step_execute_resolved_function(state: dict) -> str:
 def _step_set_batch_date(state: dict) -> str:
     from set_batch_date import set_batch_date
 
-    set_batch_date()
+    # Pass this job's own output_dir explicitly — set_batch_date's
+    # load_metadata() defaults to "whatever directory is most recently
+    # modified anywhere under OUTPUT_BASE_PATH" when not given one, which
+    # is a real race under concurrency (confirmed live: this app doesn't
+    # serialize requests, and any other job/background test touching a
+    # different scenario's directory even a moment earlier could make this
+    # step read the wrong job's metadata, or hit a bare "Metadata file not
+    # found" with no connection to the file this job actually uploaded).
+    set_batch_date(state["output_dir"])
 
     business_date = state["metadata"].get("current_business_date", "unknown")
     return f"Batch date set to: {business_date}"

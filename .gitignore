@@ -31,6 +31,7 @@ backend/outputs/
 backend/logs/
 backend/uploads/
 backend/pdf_reports/
+pdf_reports/
 
 # Database
 backend/db/
@@ -47,6 +48,7 @@ frontend-next/out/
 # Node
 node_modules/
 frontend-next/node_modules/
+tools/node/
 
 # IDE
 .vscode/
@@ -65,3 +67,4 @@ Thumbs.db
 
 # Binary
 datamap.jar
+

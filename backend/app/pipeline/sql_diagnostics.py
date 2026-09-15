@@ -14,6 +14,7 @@ Two failure categories are diagnosed and surfaced:
 
 import os
 import re
+import math
 import json
 import logging
 
@@ -460,23 +461,65 @@ def _sample_inner_query_data(conn, inner_sql: str, metadata: dict, run_logger=No
         if run_logger and type_debug:
             run_logger.log(step, f"  Column types: {', '.join(type_debug)}")
         if numeric_cols:
-            col_list = ", ".join([
-                f"MIN({c}) AS min_{c}, MAX({c}) AS max_{c}, AVG({c}) AS avg_{c}"
+            # Attempt 1: full stats with percentiles (P10/P25/P50/P75/P90) — used
+            # by compute_threshold_kill_suggestion() to pick a safe, rounded
+            # suggested threshold value instead of the raw min/max. Still a
+            # single query over the full population, same as the plain
+            # min/max/avg version below — no extra DB round trip. Multiple
+            # PERCENTILE_CONT expressions across multiple columns in one flat
+            # SELECT (no GROUP BY) is a new shape for this codebase even
+            # though the single-column form is proven elsewhere (see
+            # _query_column_stats), so this falls back to the plain
+            # min/max/avg query on any failure rather than losing stats
+            # entirely.
+            pct_col_list = ", ".join([
+                f"MIN({c}) AS min_{c}, MAX({c}) AS max_{c}, AVG({c}) AS avg_{c}, "
+                f"PERCENTILE_CONT(0.10) WITHIN GROUP (ORDER BY {c}) AS p10_{c}, "
+                f"PERCENTILE_CONT(0.25) WITHIN GROUP (ORDER BY {c}) AS p25_{c}, "
+                f"PERCENTILE_CONT(0.50) WITHIN GROUP (ORDER BY {c}) AS p50_{c}, "
+                f"PERCENTILE_CONT(0.75) WITHIN GROUP (ORDER BY {c}) AS p75_{c}, "
+                f"PERCENTILE_CONT(0.90) WITHIN GROUP (ORDER BY {c}) AS p90_{c}"
                 for c in numeric_cols
             ])
-            stats_sql = f"SELECT {col_list} FROM (\n{inner_sql}\n) t"
-            if run_logger:
-                run_logger.log_sql(step, "sample_inner_stats", stats_sql)
-            cursor.execute(stats_sql)
-            stats_row = cursor.fetchone()
-            idx = 0
-            for c in numeric_cols:
-                result["column_stats"][c] = {
-                    "min": stats_row[idx],
-                    "max": stats_row[idx + 1],
-                    "avg": stats_row[idx + 2],
-                }
-                idx += 3
+            stats_sql = f"SELECT {pct_col_list} FROM (\n{inner_sql}\n) t"
+            got_percentiles = False
+            try:
+                if run_logger:
+                    run_logger.log_sql(step, "sample_inner_stats", stats_sql)
+                cursor.execute(stats_sql)
+                stats_row = cursor.fetchone()
+                idx = 0
+                for c in numeric_cols:
+                    result["column_stats"][c] = {
+                        "min": stats_row[idx], "max": stats_row[idx + 1], "avg": stats_row[idx + 2],
+                        "p10": stats_row[idx + 3], "p25": stats_row[idx + 4], "p50": stats_row[idx + 5],
+                        "p75": stats_row[idx + 6], "p90": stats_row[idx + 7],
+                    }
+                    idx += 8
+                got_percentiles = True
+            except Exception as e1:
+                logger.debug("Percentile stats failed, falling back to min/max/avg: %s", e1)
+                if run_logger:
+                    run_logger.log(step, f"  Percentile stats failed, falling back to min/max/avg: {e1}")
+
+            if not got_percentiles:
+                # Attempt 2: plain min/max/avg (original behavior)
+                col_list = ", ".join([
+                    f"MIN({c}) AS min_{c}, MAX({c}) AS max_{c}, AVG({c}) AS avg_{c}"
+                    for c in numeric_cols
+                ])
+                stats_sql = f"SELECT {col_list} FROM (\n{inner_sql}\n) t"
+                if run_logger:
+                    run_logger.log_sql(step, "sample_inner_stats_fallback", stats_sql)
+                cursor.execute(stats_sql)
+                stats_row = cursor.fetchone()
+                idx = 0
+                for c in numeric_cols:
+                    result["column_stats"][c] = {
+                        "min": stats_row[idx], "max": stats_row[idx + 1], "avg": stats_row[idx + 2],
+                        "p10": None, "p25": None, "p50": None, "p75": None, "p90": None,
+                    }
+                    idx += 3
         cursor.close()
         if run_logger:
             run_logger.log(step, f"  Data sample: {total_rows:,} total rows, {len(numeric_cols)} numeric columns analyzed")
@@ -550,6 +593,10 @@ def _check_threshold_kill(sample_data: dict, outer_sql: str, run_logger=None, st
                                 "actual_max": max_val,
                                 "actual_min": col_stats.get("min"),
                                 "operator": op,
+                                "p10": col_stats.get("p10"), "p25": col_stats.get("p25"),
+                                "p50": col_stats.get("p50"), "p75": col_stats.get("p75"),
+                                "p90": col_stats.get("p90"),
+                                "population_rows": sample_data.get("row_count", 0),
                             })
                             if run_logger:
                                 run_logger.log(step, f"  KILLER FOUND: {col_name} {op} {threshold_val} (actual max={max_val})")
@@ -569,6 +616,221 @@ def _check_threshold_kill(sample_data: dict, outer_sql: str, run_logger=None, st
     else:
         print(msg)
     return None
+
+
+# ----------------------------------------------------------------------
+# THRESHOLD-KILL SUGGESTION ENGINE
+# ----------------------------------------------------------------------
+# Pure, DB/LLM-free functions that turn a killer condition's real measured
+# data into a concrete suggested new threshold value. Single source of
+# truth: used both to populate threshold_suggestions[] here (frontend card,
+# no LLM involved) and by ai_recommendation_service.py's
+# _build_threshold_hint() (AI recommendation prose) — so the two surfaces
+# can never numerically disagree.
+#
+# Deliberately does NOT suggest the raw actual_max/actual_min: for a >=
+# condition, pinning the threshold to the exact observed max would only
+# ever match the single row that hit that exact value — not a meaningful
+# business cutoff, and brittle the moment that exact record ages out.
+
+_EXTREME_GAP_RATIO = 5.0  # threshold vs. observed data gap ratio beyond which
+# this is treated as a data-scale/business question, not a simple value
+# tweak. A ~10x gap (the case that prompted this) is unambiguous; 5x is a
+# defensible cutoff that catches order-of-magnitude mismatches without
+# flagging ordinary 2-3x safety margins, which are common and often
+# intentional in business threshold design.
+
+
+def _nice_floor_positive(x: float) -> float:
+    """Largest 'nice' number (1/2/5 x 10^n) that is <= x, for x > 0."""
+    if x <= 0:
+        return 0.0
+    e = math.floor(math.log10(x))
+    for m in (10, 5, 2, 1):
+        n = m * (10 ** e)
+        if n <= x + 1e-9:
+            return float(n)
+    return float(10 ** e)
+
+
+def _nice_ceil_positive(x: float) -> float:
+    """Smallest 'nice' number (1/2/5 x 10^n) that is >= x, for x > 0."""
+    if x <= 0:
+        return 0.0
+    e = math.floor(math.log10(x))
+    for m in (1, 2, 5, 10):
+        n = m * (10 ** e)
+        if n >= x - 1e-9:
+            return float(n)
+    return float(10 ** (e + 1))
+
+
+def _nice_floor(x: float | None) -> float | None:
+    """Sign-aware: 'round down' means algebraically smaller, so a negative x
+    rounds to a MORE negative nice number, not toward zero."""
+    if x is None:
+        return None
+    return _nice_floor_positive(x) if x >= 0 else -_nice_ceil_positive(-x)
+
+
+def _nice_ceil(x: float | None) -> float | None:
+    """Sign-aware counterpart of _nice_floor — see its docstring."""
+    if x is None:
+        return None
+    return _nice_ceil_positive(x) if x >= 0 else -_nice_floor_positive(-x)
+
+
+def _cfg_float(v) -> float | None:
+    """Safe parse of KDD_TSHLD's text-typed MIN_VALUE_TX/MAX_VALUE_TX."""
+    if v is None:
+        return None
+    try:
+        return float(v)
+    except (TypeError, ValueError):
+        return None
+
+
+def compute_threshold_kill_suggestion(killer: dict, config_entry: dict | None) -> dict:
+    """Given a threshold_killers[] entry and its matched KDD_TSHLD config
+    entry (or None), computes a concrete suggested new threshold value.
+
+    Returns a dict with:
+      - candidate_value: the safe-direction, rounded suggestion (before
+        clamping to the configured range)
+      - clamped_value: candidate_value clamped into [cfg_min, cfg_max] when
+        that range is known; None if escalate is True
+      - clamped: whether clamping actually changed the value
+      - escalate: True if no value within the configured legal range would
+        admit any of the real observed data — a numeric tweak alone can't
+        fix this, it needs the allowed range widened or the environment's
+        data reviewed
+      - gap_ratio / extreme_gap: how many multiples apart the *currently
+        configured* threshold is from the real observed boundary — when
+        extreme, the suggestion should be framed as a business question,
+        not a confident directive
+      - cfg_min / cfg_max / population_rows: passed through for display
+    """
+    op = killer.get("operator") or ">="
+    threshold = killer.get("threshold")
+    actual_max = killer.get("actual_max")
+    actual_min = killer.get("actual_min")
+    cfg_min = _cfg_float(config_entry.get("min")) if config_entry else None
+    cfg_max = _cfg_float(config_entry.get("max")) if config_entry else None
+
+    lower_bound = op in (">=", ">")
+    boundary = actual_max if lower_bound else actual_min
+
+    # 1. Safe-direction rounding, with an explicit invariant check + exact
+    #    boundary fallback if rounding somehow breaks the invariant.
+    candidate = _nice_floor(boundary) if lower_bound else _nice_ceil(boundary)
+    invariant_ok = (
+        candidate is not None and boundary is not None and
+        (candidate <= actual_max if lower_bound else candidate >= actual_min)
+    )
+    if not invariant_ok:
+        candidate = boundary
+
+    # 2. Clamp into the KDD_TSHLD-configured legal range, if any.
+    clamped = candidate
+    escalate = False
+    if clamped is not None:
+        if lower_bound:
+            if cfg_max is not None:
+                clamped = min(clamped, cfg_max)
+            if cfg_min is not None:
+                clamped = max(clamped, cfg_min)
+            escalate = actual_max is None or clamped > actual_max
+        else:
+            if cfg_min is not None:
+                clamped = max(clamped, cfg_min)
+            if cfg_max is not None:
+                clamped = min(clamped, cfg_max)
+            escalate = actual_min is None or clamped < actual_min
+
+    # 3. Gap ratio between the CURRENTLY CONFIGURED threshold and the real
+    #    observed boundary (not the suggested value) — flags when the
+    #    mismatch is large enough to be a data-scale/business question.
+    gap_ratio = None
+    if lower_bound and threshold is not None:
+        gap_ratio = float("inf") if not actual_max else abs(threshold / actual_max)
+    elif not lower_bound and threshold not in (None, 0):
+        gap_ratio = float("inf") if actual_min is None else abs(actual_min / threshold)
+    extreme_gap = gap_ratio is not None and gap_ratio >= _EXTREME_GAP_RATIO
+
+    return {
+        "column": killer.get("column"), "operator": op, "current_threshold": threshold,
+        "candidate_value": candidate,
+        "clamped_value": clamped if not escalate else None,
+        "clamped": clamped != candidate,
+        "escalate": escalate,
+        "gap_ratio": gap_ratio, "extreme_gap": extreme_gap,
+        "cfg_min": cfg_min, "cfg_max": cfg_max,
+        "population_rows": killer.get("population_rows"),
+        "boundary": boundary,
+        "reference_percentiles": (
+            {"p75": killer.get("p75"), "p90": killer.get("p90")} if lower_bound
+            else {"p10": killer.get("p10"), "p25": killer.get("p25")}
+        ),
+    }
+
+
+def _match_threshold_config_entry(killer: dict, threshold_config: dict) -> dict | None:
+    """Inclusion-based column<->KDD_TSHLD name matching (names rarely match
+    the raw SQL column exactly) — mirrors the matching already done inline
+    where threshold_config is built (see diagnose_inner_query_sequence),
+    but resolved per-killer since threshold_config there is a flat
+    {tshld_name: entry} dict, not indexed by column."""
+    col_upper = (killer.get("column") or "").upper()
+    if not col_upper:
+        return None
+    for tshld_name, entry in (threshold_config or {}).items():
+        name_upper = (tshld_name or "").upper()
+        if name_upper and (name_upper in col_upper or col_upper in name_upper):
+            return entry
+    return None
+
+
+def _n(v) -> str:
+    """Format a number for display: thousands separator, 2 decimals only
+    when not a whole number."""
+    if v is None:
+        return "?"
+    if float(v) == int(v):
+        return f"{int(v):,}"
+    return f"{v:,.2f}"
+
+
+def _format_threshold_kill_suggestion_text(killer: dict, calc: dict) -> str:
+    """Short, deterministic sentence for the frontend's threshold_suggestions
+    card — no LLM involved. Mirrors the three cases _build_threshold_hint()
+    renders in ai_recommendation_service.py, just terser."""
+    col = killer.get("column") or "?"
+    op = calc["operator"]
+    lower_bound = op in (">=", ">")
+    boundary_label = "max" if lower_bound else "min"
+    pop = calc.get("population_rows")
+    pop_txt = f" across {pop:,} rows" if pop else ""
+
+    if calc["escalate"]:
+        return (
+            f"No value within the configured allowed range ({_n(calc['cfg_min'])}–{_n(calc['cfg_max'])}) "
+            f"would admit the real observed data (observed {boundary_label}={_n(calc['boundary'])}{pop_txt}) "
+            f"— escalate to widen the allowed range or review the environment's data scale."
+        )
+    if calc["extreme_gap"]:
+        ratio = calc["gap_ratio"]
+        ratio_txt = f"~{ratio:.1f}x" if ratio not in (None, float("inf")) else "an extreme multiple of"
+        return (
+            f"Configured threshold ({_n(calc['current_threshold'])}) is {ratio_txt} the observed "
+            f"{boundary_label} ({_n(calc['boundary'])}{pop_txt}) — this looks like a data-scale "
+            f"mismatch; verify with the business before changing the value."
+        )
+    direction = "lower" if lower_bound else "raise"
+    clamp_note = " (kept within the configured allowed range)" if calc["clamped"] else ""
+    return (
+        f"Actual {boundary_label} observed: {_n(calc['boundary'])}{pop_txt}. "
+        f"Safe suggestion: {direction} threshold to {_n(calc['clamped_value'])}{clamp_note}."
+    )
 
 
 def _find_top_level_where(sql: str) -> int:
@@ -934,6 +1196,14 @@ def _get_threshold_config(conn, tshld_set_id) -> dict:
         cursor.close()
 
 
+def get_threshold_config(conn, tshld_set_id) -> dict:
+    """Public entry point for _get_threshold_config — used by the standalone
+    Threshold Tuning feature (backend/app/services/threshold_tuning_service.py)
+    to show a scenario's currently configured threshold values independent of
+    running a full diagnostic job."""
+    return _get_threshold_config(conn, tshld_set_id)
+
+
 def _extract_main_sql_param_mapping(output_dir: str) -> dict:
     """
     Reads the main SQL from output_dir/extracted_queries/*_main_query_*.sql and
@@ -971,6 +1241,315 @@ def _extract_main_sql_param_mapping(output_dir: str) -> dict:
         if op not in mapping[col_l]:           # first occurrence wins (HR before MR/RR)
             mapping[col_l][op] = param
     return mapping
+
+
+# ──────────────────────────────────────────────────────────────────────────────
+# PROACTIVE THRESHOLD TUNING — used by the standalone Threshold Tuning page
+# (threshold_tuning_service.py) to recommend a value for EVERY configured
+# threshold, not just ones currently causing a diagnosed failure. Reuses
+# compute_threshold_kill_suggestion (the same deterministic engine, same
+# never-suggest-the-raw-boundary reasoning) once a real column is identified.
+# ──────────────────────────────────────────────────────────────────────────────
+
+_PARAM_COND_RE = re.compile(r'\b(?:(\w+)\.)?(\w+)\s*(>=|<=|>|<|=)\s*@(\w+)', re.IGNORECASE)
+_FROM_JOIN_RE = re.compile(r'\b(?:FROM|JOIN)\s+([\w.]+)\s+(\w+)\b', re.IGNORECASE)
+_SQL_KEYWORDS = {"ON", "WHERE", "AND", "OR", "GROUP", "ORDER", "HAVING", "UNION", "SELECT", "AS"}
+
+
+_CASE_END_TOKEN_RE = re.compile(r'\bCASE\b|\bEND\b', re.IGNORECASE)
+
+
+def _extract_case_expression_ending_at(main_sql: str, end_pos: int) -> str | None:
+    """Given the position right after a CASE...END expression's closing
+    'END' keyword at `end_pos`, scans backward tracking nested CASE/END
+    pairs to find the matching opening 'CASE', returning the full
+    'CASE...END' text. Real OFSAA scenario SQL commonly compares a
+    threshold against a computed ratio this way (e.g. 'CASE WHEN
+    Tot_Trans_Amt > 0 THEN Tot_Small_Trans_Amt*100/Tot_Trans_Amt ELSE 0
+    END >= @Threshold') rather than a bare column — the naive 'word right
+    before the operator' extraction sees only the literal word 'end' in
+    that case, useless as a column name. Returns None if no balanced CASE
+    is found before end_pos."""
+    tokens = list(_CASE_END_TOKEN_RE.finditer(main_sql, 0, end_pos))
+    if not tokens or tokens[-1].end() != end_pos:
+        return None
+    depth = 1
+    for tok in reversed(tokens[:-1]):
+        if tok.group(0).upper() == 'END':
+            depth += 1
+        else:  # CASE
+            depth -= 1
+            if depth == 0:
+                return main_sql[tok.start():end_pos]
+    return None
+
+
+def _strip_single_alias_prefix(expr: str) -> str:
+    """If `expr` consistently qualifies its column references with exactly
+    one table alias (e.g. every column in a CASE expression is written
+    'g.Tot_Trans_Amt'), strips that alias prefix throughout. A reconstructed
+    standalone sampling query exposes those same columns unqualified — its
+    own wrapper alias is never the original scenario SQL's alias — so a
+    copied expression needs this to resolve at all."""
+    aliases = {m.group(1) for m in re.finditer(r'\b([A-Za-z_]\w*)\.\w', expr)}
+    if len(aliases) == 1:
+        alias = aliases.pop()
+        return re.sub(rf'\b{re.escape(alias)}\.', '', expr)
+    return expr
+
+
+def extract_param_column_bindings(main_sql: str) -> dict:
+    """Like _extract_main_sql_param_mapping, but also captures the table
+    alias (that function discards it) — needed to resolve a threshold's
+    param name to a real physical table, not just a bare column name.
+    Returns {param_name: [(alias_or_None, column, operator), ...]}. When the
+    comparison is against a 'CASE...END' computed expression rather than a
+    bare column, `column` is the full expression text (alias prefixes
+    stripped) and `alias` is None — see _extract_case_expression_ending_at."""
+    bindings: dict = {}
+    for m in _PARAM_COND_RE.finditer(main_sql or ""):
+        alias, col, op, param = m.group(1), m.group(2), m.group(3), m.group(4)
+        if col.upper() == 'END':
+            case_expr = _extract_case_expression_ending_at(main_sql, m.end(2))
+            if case_expr:
+                alias = None
+                col = _strip_single_alias_prefix(case_expr)
+        bindings.setdefault(param, []).append((alias, col, op))
+    return bindings
+
+
+def _mask_comment_parens(text: str) -> str:
+    """Returns `text` with any '(' or ')' inside a '--' line comment
+    replaced by a space — every other character, including newlines, is
+    preserved exactly, so character offsets computed against the result
+    stay valid for slicing the original `text`. Used to keep paren-depth
+    scanning (finding a FROM (...) subquery's true closing paren) from
+    being thrown off by parenthetical remarks in SQL comments."""
+    out = list(text)
+    i, n = 0, len(text)
+    while i < n:
+        if text[i] == '-' and i + 1 < n and text[i + 1] == '-':
+            end = text.find('\n', i)
+            if end == -1:
+                end = n
+            for k in range(i, end):
+                if out[k] in '()':
+                    out[k] = ' '
+            i = end
+        else:
+            i += 1
+    return ''.join(out)
+
+
+def _extract_with_prefix(self_contained_text: str) -> str | None:
+    """Given text starting with 'WITH cte1 AS (...), cte2 AS (...), ...
+    <outer query>', returns just the CTE-definitions portion — from 'WITH'
+    up to (not including) the outer query's own top-level SELECT — so it
+    can be spliced onto a different, unrelated tail query to make that
+    query independently executable. Finds the boundary by paren-depth
+    tracking (comment-masked): each CTE's own SELECT is nested inside its
+    '(...)', so the first SELECT keyword seen back at depth 0 is the outer
+    query's, marking where the WITH clause ends. Returns None if no WITH
+    clause is found (caller should fall back rather than guess)."""
+    masked = _mask_comment_parens(self_contained_text)
+    with_m = re.search(r'\bWITH\b', masked, re.IGNORECASE)
+    if not with_m:
+        return None
+
+    # Depth just BEFORE each position (so a SELECT sitting outside every
+    # CTE's own parens reads back as depth 0, while one nested inside a
+    # CTE's body reads back as depth >= 1).
+    depth = 0
+    depth_before = [0] * (len(masked) + 1)
+    for i, ch in enumerate(masked):
+        depth_before[i] = depth
+        if ch == '(':
+            depth += 1
+        elif ch == ')':
+            depth -= 1
+
+    for m in re.finditer(r'\bSELECT\b', masked[with_m.end():], re.IGNORECASE):
+        pos = with_m.end() + m.start()
+        if depth_before[pos] == 0:
+            return self_contained_text[with_m.start():pos]
+    return None
+
+
+def extract_alias_source_map(sql_text: str) -> dict:
+    """Returns {alias_lower: source} where source is either a bare table
+    name (str, from a plain 'FROM table alias' / 'JOIN table alias') or a
+    dict {"subquery": sql_text} for a derived table ('FROM (<subquery>)
+    alias', paren-depth-aware since the subquery body can contain nested
+    parens). Both shapes are needed: OFSAA scenario SQL commonly compares
+    thresholds against an AGGREGATED column computed in a derived subquery
+    (e.g. SUM(...) AS Tot_Trxn_Am_Cdt), not a raw physical-table column —
+    confirmed live: every numeric threshold in a real scenario bound to a
+    derived-table alias, none to a bare table. Best-effort, not a full
+    parser (a crude keyword guard filters out matches where 'alias' is
+    actually the next clause keyword).
+
+    A derived table nested inside a larger derived table that opens with a
+    WITH clause (defining CTEs the inner one depends on — extremely common
+    in OFSAA scenario SQL, e.g. a per-customer aggregation subquery sitting
+    inside a WITH-scoped block that defines clndr_vw/Wire_Trxn_Vw/etc.) is
+    NOT independently executable: isolating it strips away the CTE
+    definitions its FROM clause references, which fails with ORA-00942 (or,
+    confirmed live, sometimes the less obvious ORA-00911) once wrapped
+    standalone. So every non-self-contained alias here is remapped to the
+    smallest self-contained (WITH-opening) ancestor subquery that textually
+    contains it — sampling that instead, by the same bare column name,
+    which is what actually succeeded in live testing."""
+    mapping: dict = {}
+
+    for m in _FROM_JOIN_RE.finditer(sql_text or ""):
+        table, alias = m.group(1), m.group(2)
+        if alias.upper() not in _SQL_KEYWORDS:
+            mapping[alias.lower()] = table
+
+    # Paren-depth scanning below must not be corrupted by parens inside
+    # '--' comments (commented-out dead code, bug-ticket notes like
+    # "-- Bug#12345 (see JIRA-6789)") — confirmed live: three lines of dead
+    # code left as "-- count(distinct(case when..." each contributed two
+    # unmatched '(' that silently broke the closing-paren search for an
+    # entire outer subquery, so its alias never resolved to anything at
+    # all. Scan a comment-masked copy (parens inside comments blanked out,
+    # every other character including newlines preserved 1:1) so character
+    # offsets stay valid for slicing the real text below.
+    masked_sql = _mask_comment_parens(sql_text or "")
+
+    for m in re.finditer(r'\bFROM\s*\(', sql_text or "", re.IGNORECASE):
+        open_pos = m.end() - 1
+        depth = 0
+        close_pos = -1
+        for i in range(open_pos, len(masked_sql)):
+            if masked_sql[i] == '(':
+                depth += 1
+            elif masked_sql[i] == ')':
+                depth -= 1
+                if depth == 0:
+                    close_pos = i
+                    break
+        if close_pos == -1:
+            continue
+        alias_m = re.match(r'\s*(\w+)', sql_text[close_pos + 1:close_pos + 40])
+        if alias_m and alias_m.group(1).upper() not in _SQL_KEYWORDS:
+            mapping[alias_m.group(1).lower()] = {"subquery": sql_text[open_pos + 1:close_pos]}
+
+    def _is_self_contained(subquery: str) -> bool:
+        for line in subquery.splitlines():
+            stripped = line.strip()
+            if not stripped or stripped.startswith('--'):
+                continue
+            return stripped[:5].upper() == 'WITH ' or stripped.upper() == 'WITH'
+        return False
+
+    subqueries = {a: v["subquery"] for a, v in mapping.items() if isinstance(v, dict)}
+    for alias, sq in subqueries.items():
+        if _is_self_contained(sq):
+            continue
+        best_alias, best_len = None, None
+        for other_alias, other_sq in subqueries.items():
+            if other_alias == alias or not _is_self_contained(other_sq):
+                continue
+            if sq in other_sq and (best_len is None or len(other_sq) < best_len):
+                best_alias, best_len = other_alias, len(other_sq)
+        if best_alias:
+            # Splice this alias's own body onto the ancestor's WITH-clause
+            # CTE definitions, rather than sampling the ancestor wholesale.
+            # The ancestor is the OUTER query — it commonly has the
+            # scenario's own threshold-elimination WHERE clause applied on
+            # top of this alias's aggregation (this alias sits inside a
+            # "select ... from (<this alias>) alias where <thresholds>"
+            # shape), so sampling it wholesale silently samples the
+            # POST-filter population. That's fine by coincidence when
+            # something still passes the filter, but confirmed live: for a
+            # scenario currently at 0 alerts, the ancestor is empty by
+            # definition (it *is* the filtered-to-nothing result), so
+            # every sample came back "no rows" — useless for exactly the
+            # case (loosening a dead scenario) that most needs it. Reusing
+            # just the CTE definitions keeps this alias independently
+            # executable while sampling its own true output, not
+            # whatever's left after the very filter being tuned.
+            with_prefix = _extract_with_prefix(subqueries[best_alias])
+            if with_prefix:
+                mapping[alias] = {"subquery": f"{with_prefix}\nSELECT * FROM (\n{sq}\n) g_src"}
+            else:
+                mapping[alias] = mapping[best_alias]
+
+    return mapping
+
+
+def sample_column_stats(conn, source, column: str) -> dict | None:
+    """Real MIN/MAX/percentiles for `column` — the true population, not
+    filtered by any of the scenario's other conditions. `source` is either
+    a bare table name (str) or a dict {"subquery": sql_text} from
+    extract_alias_source_map, in which case the subquery is executed and
+    stats are taken over its result (mirrors _sample_inner_query_data's
+    approach for a specific failing CTE — here applied proactively to
+    whatever derived table the threshold's column actually lives in).
+    (Different from _sample_inner_query_data itself: there is no single
+    'inner query' to scope to here, since this runs for every threshold,
+    not just a specific failing CTE.) Returns None if the query fails (e.g.
+    wrong table/column guess from the alias-resolution heuristic) rather
+    than raising — callers should treat that threshold as unrecommendable,
+    not fail the whole batch."""
+    # Alias must start with a letter, not "_" — confirmed live this is the
+    # actual cause of an ORA-00911 that looked (misleadingly) like it came
+    # from comments/WITH-clauses/PERCENTILE_CONT: identical query content
+    # succeeded when the wrapping alias was "x" and failed when it was
+    # "_src", with nothing else different.
+    from_clause = f"(\n{source['subquery']}\n) x_src" if isinstance(source, dict) else source
+    src_label = "<subquery>" if isinstance(source, dict) else source
+    cursor = conn.cursor()
+    try:
+        # Attempt 1: full stats with percentiles. Tries first, falls back
+        # to plain min/max/count on any failure (mirrors
+        # _query_column_stats's Attempt-1/Attempt-2 pattern) - confirmed
+        # live that PERCENTILE_CONT can fail with ORA-00911 against a
+        # deeply-nested multi-CTE/UNION-ALL derived table even when a plain
+        # MIN/MAX/COUNT over the exact same FROM clause succeeds; the
+        # fallback keeps a real recommendation available (with reduced
+        # percentile context) rather than losing it outright.
+        try:
+            cursor.execute(f"""
+                SELECT COUNT(*), MIN({column}), MAX({column}),
+                       PERCENTILE_CONT(0.10) WITHIN GROUP (ORDER BY {column}),
+                       PERCENTILE_CONT(0.25) WITHIN GROUP (ORDER BY {column}),
+                       PERCENTILE_CONT(0.50) WITHIN GROUP (ORDER BY {column}),
+                       PERCENTILE_CONT(0.75) WITHIN GROUP (ORDER BY {column}),
+                       PERCENTILE_CONT(0.90) WITHIN GROUP (ORDER BY {column})
+                FROM {from_clause}
+                WHERE {column} IS NOT NULL
+            """)
+            row = cursor.fetchone()
+            if row and row[0]:
+                total, mn, mx, p10, p25, p50, p75, p90 = row
+                return {
+                    "population_rows": int(total), "actual_min": mn, "actual_max": mx,
+                    "p10": p10, "p25": p25, "p50": p50, "p75": p75, "p90": p90,
+                }
+        except Exception as e1:
+            logger.debug("sample_column_stats percentile query failed for %s.%s, falling back: %s", src_label, column, e1)
+
+        # Attempt 2: plain min/max/count (no percentiles)
+        cursor.execute(f"""
+            SELECT COUNT(*), MIN({column}), MAX({column})
+            FROM {from_clause}
+            WHERE {column} IS NOT NULL
+        """)
+        row = cursor.fetchone()
+        if not row or not row[0]:
+            return None
+        total, mn, mx = row
+        return {
+            "population_rows": int(total), "actual_min": mn, "actual_max": mx,
+            "p10": None, "p25": None, "p50": None, "p75": None, "p90": None,
+        }
+    except Exception as e2:
+        logger.debug("sample_column_stats failed for %s.%s: %s", src_label, column, e2)
+        return None
+    finally:
+        cursor.close()
 
 
 def _match_param_name(value, threshold_bindings: dict) -> str | None:
@@ -1936,6 +2515,63 @@ def _analyze_branch_failure(conn, branch_sql: str, metadata: dict, run_logger=No
     return result
 
 
+def _resolve_from_table(remainder: str, max_depth: int = 4) -> str:
+    """Given the text immediately following a FROM keyword (with 'FROM'
+    itself already stripped), resolves the actual table/view name. A FROM
+    clause opening with "(" is ambiguous between two real shapes seen live
+    in OFSAA's final-query decomposition output:
+      - a derived-table subquery: FROM (SELECT ... FROM <real tables> ...) —
+        recurse into its own top-level FROM.
+      - Oracle's parenthesized ANSI join-chain syntax: FROM (table1 JOIN
+        table2 ON(...) JOIN table3 ON(...) ...) — the real table name is
+        the very next identifier, no FROM keyword involved.
+    Confirmed live: a 9-branch UNION ALL used the join-chain shape for 8 of
+    its 9 branches, all silently reported "?" before this. Falls back to "?"
+    if no resolvable table name is found within max_depth levels."""
+    for _ in range(max_depth):
+        stripped = None
+        for ln in remainder.split('\n'):
+            s = ln.strip()
+            if not s or s.startswith('--'):
+                continue
+            stripped = s
+            break
+        if stripped is None:
+            return "?"
+
+        if stripped.startswith('('):
+            open_pos = remainder.index('(')
+            depth = 0
+            close_pos = -1
+            for i in range(open_pos, len(remainder)):
+                if remainder[i] == '(':
+                    depth += 1
+                elif remainder[i] == ')':
+                    depth -= 1
+                    if depth == 0:
+                        close_pos = i
+                        break
+            if close_pos == -1:
+                return "?"
+            inner = remainder[open_pos + 1:close_pos]
+            inner_stripped = inner.strip()
+            if re.match(r'SELECT\b', inner_stripped, re.IGNORECASE):
+                inner_from_pos = _find_top_level_clause("FROM", inner)
+                if inner_from_pos == -1:
+                    return "?"
+                remainder = re.sub(r'^FROM\s*', '', inner[inner_from_pos:].strip(), count=1, flags=re.IGNORECASE)
+            else:
+                # Parenthesized join-chain — the table name is the very
+                # next identifier, not behind a nested FROM.
+                remainder = inner
+            continue
+
+        m = re.match(r'([\w.]+)', stripped)
+        return m.group(1) if m else "?"
+
+    return "?"
+
+
 def _probe_union_all_branches(conn, sql: str, metadata: dict, run_logger=None, output_dir: str = "") -> list[dict]:
     """
     Finds the UNION ALL block (at any nesting depth), counts rows per branch,
@@ -2005,12 +2641,11 @@ def _probe_union_all_branches(conn, sql: str, metadata: dict, run_logger=None, o
                     break
         # Use top-level FROM position to avoid capturing subquery FROMs
         from_pos = _find_top_level_clause("FROM", branch)
+        from_table = "?"
         if from_pos != -1:
             after_from = branch[from_pos:].strip()
-            from_m = re.match(r'FROM\s+([\w.]+)', after_from, re.IGNORECASE)
-            from_table = from_m.group(1) if from_m else "?"
-        else:
-            from_table = "?"
+            remainder = re.sub(r'^FROM\s*', '', after_from, count=1, flags=re.IGNORECASE)
+            from_table = _resolve_from_table(remainder)
         entry = {
             "branch_num":   idx + 1,
             "branch_label": branch_label,
@@ -3877,6 +4512,19 @@ def diagnose_inner_query_sequence(
                             name_upper = (tshld_name or "").upper()
                             if name_upper and (name_upper in col_upper or col_upper in name_upper):
                                 matched_config[tshld_name] = entry
+
+                    # Concrete, deterministic suggested threshold values —
+                    # never the raw actual_max/actual_min (see
+                    # compute_threshold_kill_suggestion's docstring for why).
+                    threshold_suggestions = []
+                    for k in threshold_info["killers"]:
+                        cfg = _match_threshold_config_entry(k, matched_config)
+                        calc = compute_threshold_kill_suggestion(k, cfg)
+                        threshold_suggestions.append({
+                            "column": k.get("column"),
+                            "suggestion": _format_threshold_kill_suggestion_text(k, calc),
+                        })
+
                     diag = {
                         "failure_type": "THRESHOLD_KILL",
                         "failure_condition": killers_summary,
@@ -3886,7 +4534,7 @@ def diagnose_inner_query_sequence(
                             f"Inner query {prev_iq['view_name']} returns {prev_count:,} rows "
                             f"but outer WHERE thresholds eliminate all. {killers_summary}."
                         ),
-                        "threshold_suggestions": [],
+                        "threshold_suggestions": threshold_suggestions,
                         "data_availability": {
                             "inner_query_name": prev_iq["view_name"],
                             "inner_query_rows": prev_count,

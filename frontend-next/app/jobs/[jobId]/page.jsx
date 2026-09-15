@@ -121,16 +121,17 @@ export default function JobPage() {
     <div className="page">
       <Navbar user={user} onLogout={logout} />
       <main className="page-content">
-        <div style={{ marginBottom: 24, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <div className="page-header">
           <div>
-            <span style={{ fontSize: "1.1rem", fontWeight: 700 }}>{job.scenario_name || "Unknown"}</span>
-            <span style={{ marginLeft: 12, fontFamily: "var(--font-mono)", fontSize: "0.75rem", color: "var(--accent)" }}>
-              {job.job_id?.slice(0, 8)}…
-            </span>
-            {job.batch_date && <span style={{ marginLeft: 12, fontSize: "0.8rem", color: "var(--text-muted)" }}>{job.batch_date}</span>}
+            <p className="eyebrow-label">Job diagnosis</p>
+            <h1 className="page-title" style={{ fontSize: "1.3rem" }}>{job.scenario_name || "Unknown"}</h1>
+            <p className="page-subtitle" style={{ display: "flex", gap: 10, alignItems: "center" }}>
+              <span style={{ fontFamily: "var(--font-mono)", color: "var(--accent-ink)" }}>{job.job_id?.slice(0, 8)}…</span>
+              {job.batch_date && <span>{job.batch_date}</span>}
+            </p>
           </div>
           {jobStatus === "completed" && (
-            <div style={{ display: "flex", gap: 8 }}>
+            <div className="page-header-actions">
               {batchIds && (
                 <button className="btn btn-secondary btn-sm" onClick={() => router.push(`/dashboard/batch?ids=${batchIds}`)}>
                   ← Back to Batch
@@ -159,7 +160,14 @@ export default function JobPage() {
           </div>
         )}
         {showResults && <CteWaterfall cteResults={cteResults} />}
-        {showResults && <RootCauseCard rootCause={rootCause} results={diagnosticResults} aiRecommendation={aiRecommendation} />}
+        {showResults && (
+          <RootCauseCard
+            rootCause={rootCause}
+            results={diagnosticResults}
+            aiRecommendation={aiRecommendation}
+            logFilePath={job.log_file_path}
+          />
+        )}
         <div style={{ height: 64 }} />
       </main>
     </div>

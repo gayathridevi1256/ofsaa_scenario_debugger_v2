@@ -33,14 +33,29 @@ logger = logging.getLogger(__name__)
 # LOAD METADATA
 # ----------------------------------------------------------------------
 
-def load_metadata() -> dict:
+def load_metadata(output_dir: str = None) -> dict:
+    """Reads metadata.json for the current job. When `output_dir` is given
+    (the FastAPI pipeline always has one — state["output_dir"], set by the
+    log-reader step), reads directly from it. Otherwise falls back to
+    get_latest_output_directory()'s "most-recently-modified directory
+    anywhere under OUTPUT_BASE_PATH" heuristic, for standalone
+    command-line use.
 
-    latest_output_dir = (
-        get_latest_output_directory()
-    )
+    That fallback is NOT safe under concurrency: confirmed live this
+    function was being called with no output_dir from the FastAPI pipeline
+    too, so any other job (a background test, a second concurrent
+    upload — this app doesn't serialize requests) that touched a different
+    scenario's directory even a moment earlier could make this one grab
+    the wrong job's metadata, or hit a bare "Metadata file not found" if
+    that other directory doesn't have one yet — an intermittent, hard-to-
+    explain failure with no connection to whatever file the user actually
+    uploaded. Always pass output_dir from pipeline code; the fallback
+    exists only for scripts run directly with no job context at all."""
+
+    target_dir = output_dir or get_latest_output_directory()
 
     metadata_file = os.path.join(
-        latest_output_dir,
+        target_dir,
         "metadata.json"
     )
 
@@ -140,22 +155,68 @@ def execute_command(
 
         else:
 
+            # The remote script's own [FATAL] message (e.g. "Some Batch
+            # Process is already running") is the actual, actionable
+            # reason — it was being captured into cleaned_output above and
+            # printed to the server console, but discarded here, so the
+            # user only ever saw the bare command with no explanation.
+            # Confirmed live: this is what was hiding a real, transient
+            # OFSAA-side state issue (a concurrent/stuck batch on a shared
+            # environment) behind an undiagnosable error.
+            reason = cleaned_output.strip() or "(no output captured)"
+
             raise RuntimeError(
-                f"\nCommand failed:\n{command}"
+                f"\nCommand failed:\n{command}\n\nServer response:\n{reason}"
             )
+
+
+# ----------------------------------------------------------------------
+# CHECK CURRENT BATCH DATE
+# ----------------------------------------------------------------------
+
+def _get_current_batch_date():
+    """Reads KDD_PRCSNG_BATCH_CONTROL.DATA_DUMP_DT — the business date the
+    remote OFSAA batch is ALREADY configured for, if any. Returns a
+    datetime.date, or None if the check itself fails or no row exists
+    (defensive: if we can't determine the current state, the caller should
+    fall through to the normal end/set/start sequence rather than silently
+    skip it — never guess that a skip is safe)."""
+    from db_connect import connect_to_oracle
+
+    try:
+        conn = connect_to_oracle()
+    except Exception as e:
+        print(f"\nCould not check current batch date (proceeding with SSH batch-date set): {e}")
+        return None
+
+    try:
+        cursor = conn.cursor()
+        try:
+            cursor.execute("SELECT DATA_DUMP_DT FROM kdd_prcsng_batch_control")
+            row = cursor.fetchone()
+            if row and row[0]:
+                return row[0].date()
+        finally:
+            cursor.close()
+    except Exception as e:
+        print(f"\nCould not check current batch date (proceeding with SSH batch-date set): {e}")
+    finally:
+        conn.close()
+
+    return None
 
 
 # ----------------------------------------------------------------------
 # SET BATCH DATE
 # ----------------------------------------------------------------------
 
-def set_batch_date():
+def set_batch_date(output_dir: str = None):
 
     # --------------------------------------------------------------
     # LOAD METADATA
     # --------------------------------------------------------------
 
-    metadata = load_metadata()
+    metadata = load_metadata(output_dir)
 
     business_date = metadata.get(
         "current_business_date"
@@ -166,6 +227,28 @@ def set_batch_date():
         raise ValueError(
             "\ncurrent_business_date not found"
         )
+
+    # --------------------------------------------------------------
+    # SKIP ENTIRELY IF THE REMOTE BATCH IS ALREADY SET TO THIS DATE
+    # --------------------------------------------------------------
+    # The remote OFSAA batch control is a single shared resource — running
+    # end/set/start again when it's already correctly configured doesn't
+    # just waste ~30-40s of SSH round trips, it FAILS outright with "Some
+    # Batch Process is already running" (confirmed live, repeatedly) since
+    # start_mantas_batch.sh refuses to start a second time. This is the
+    # normal case whenever two requests for the SAME scenario/date run
+    # close together (re-analyzing, re-tuning, a second team member) — not
+    # a genuine conflict needing to be reported as an error at all.
+
+    required_date = datetime.strptime(business_date, "%Y-%m-%d").date()
+    current_batch_date = _get_current_batch_date()
+
+    if current_batch_date == required_date:
+        print(
+            f"\nRemote batch is already set to the required date ({required_date}) — "
+            f"skipping end/set/start entirely."
+        )
+        return
 
     formatted_business_date = (
         format_business_date(

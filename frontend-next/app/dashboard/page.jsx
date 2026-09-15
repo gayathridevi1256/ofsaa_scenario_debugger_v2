@@ -21,9 +21,12 @@ export default function DashboardPage() {
     <div className="page">
       <Navbar user={user} onLogout={logout} />
       <main className="page-content">
-        <div className="animate-fade-in">
-          <h1 style={{ fontSize: "1.5rem", fontWeight: 700, marginBottom: 4 }}>Dashboard</h1>
-          <p style={{ color: "var(--text-muted)", fontSize: "0.875rem", marginBottom: 32 }}>Upload a log file and run the diagnostic pipeline</p>
+        <div className="animate-fade-in page-header">
+          <div>
+            <p className="eyebrow-label">Dashboard</p>
+            <h1 className="page-title">Diagnose a scenario</h1>
+            <p className="page-subtitle">Upload a log file and run the diagnostic pipeline against the real environment</p>
+          </div>
         </div>
         <UploadZone onJobStarted={() => jobsAPI.listJobs().then((r) => setJobs(Array.isArray(r) ? r : r.jobs || []))} />
         <JobHistory jobs={jobs} loading={loading} error={error} />

@@ -35,8 +35,8 @@ SECRET_KEY = os.getenv("SECRET_KEY", "CHANGE_ME_BEFORE_DEPLOYING_USE_SECRETS_TOK
 JWT_ALGORITHM = "HS256"
 JWT_EXPIRY_MINUTES = int(os.getenv("JWT_EXPIRY_MINUTES", "480"))
 
-APP_NAME = os.getenv("APP_NAME", "OFSAA Scenario Debugger")
-APP_VERSION = "1.0.0"
+APP_NAME = os.getenv("APP_NAME", "ScenarioIQ")
+APP_VERSION = "2.0.0"
 API_HOST = os.getenv("API_HOST", "127.0.0.1")
 API_PORT = int(os.getenv("API_PORT", "8000"))
 CORS_ORIGINS = os.getenv("CORS_ORIGINS", "http://localhost:5173,http://localhost:3000").split(",")

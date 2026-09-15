@@ -10,8 +10,13 @@ export default function BatchPage() {
     <div className="page">
       <Navbar user={user} onLogout={logout} />
       <main className="page-content">
-        <h1 style={{ fontSize: "1.5rem", fontWeight: 700, marginBottom: 4 }}>Batch Results</h1>
-        <p style={{ color: "var(--text-muted)", fontSize: "0.875rem", marginBottom: 32 }}>Batch run summary</p>
+        <div className="page-header">
+          <div>
+            <p className="eyebrow-label">Batch</p>
+            <h1 className="page-title">Batch Results</h1>
+            <p className="page-subtitle">Batch run summary</p>
+          </div>
+        </div>
         <div className="card" style={{ textAlign: "center", padding: 60, color: "var(--text-muted)" }}>
           Batch results page — upload multiple files to see results here
         </div>

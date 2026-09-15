@@ -19,6 +19,7 @@ from app.config import (
     OLLAMA_MODEL,
     OLLAMA_TIMEOUT_S,
 )
+from app.pipeline.sql_diagnostics import compute_threshold_kill_suggestion
 
 logger = logging.getLogger(__name__)
 
@@ -246,6 +247,21 @@ def _has_leakage(text: str) -> bool:
     return _has_repetition_loop(text)
 
 
+_NO_UNIT_SENTINELS = ("no_unit", "none", "n/a", "na", "null")
+
+
+def _clean_unit(unit) -> str:
+    """KDD_TSHLD.UNIT_TX literally contains placeholder strings like
+    '<NO_UNIT>' for unitless thresholds (confirmed live: leaked into a
+    recommendation as '2.0<NO_UNIT>') — treat those the same as no unit at
+    all. Checked as a substring since the exact placeholder format (angle
+    brackets or not) isn't guaranteed consistent across the schema."""
+    cleaned = str(unit).strip().strip("<>").lower() if unit else ""
+    if not cleaned or cleaned in _NO_UNIT_SENTINELS or "no_unit" in cleaned:
+        return ""
+    return str(unit)
+
+
 def _extract_measured_facts(results: list[dict]) -> tuple[list[str], bool]:
     """Real row counts already measured by direct queries against Oracle during
     diagnosis — across ALL diagnosed CTEs, not just the first, so a job with
@@ -313,7 +329,7 @@ def _extract_measured_facts(results: list[dict]) -> tuple[list[str], bool]:
         for tshld_name, entry in (data_avail.get("threshold_config") or {}).items():
             desc = entry.get("desc")
             display = entry.get("display_name") or tshld_name
-            unit = entry.get("unit") or ""
+            unit = _clean_unit(entry.get("unit"))
             fact = f"- configured threshold '{display}': current value {entry.get('curr')}{unit}"
             if entry.get("min") is not None or entry.get("max") is not None:
                 fact += f" (allowed range {entry.get('min')}-{entry.get('max')})"
@@ -397,6 +413,146 @@ def _build_data_value_hint(source_check: dict) -> str:
     )
 
 
+def _match_threshold_config(killer: dict, threshold_config: dict) -> dict | None:
+    """Mirrors sql_diagnostics.py's inclusion-based column<->KDD_TSHLD name
+    matching (names rarely match the raw SQL column exactly) so each killer
+    can be linked back to its own configured value/description — the pipeline
+    only stores the whole CTE's flat set of matches, not a per-killer link."""
+    col_upper = (killer.get("column") or "").upper()
+    if not col_upper:
+        return None
+    for tshld_name, entry in (threshold_config or {}).items():
+        name_upper = (tshld_name or "").upper()
+        if name_upper and (name_upper in col_upper or col_upper in name_upper):
+            return entry
+    return None
+
+
+def _find_all_threshold_kills(results: list[dict]) -> list[tuple[str, dict, dict | None]]:
+    """Returns [(cte_name, killer, matched_config_or_None), ...] for EVERY
+    threshold_killer across ALL diagnosed CTEs and ALL killers within each —
+    not just the first. Confirmed live: a single CTE had two failing
+    threshold conditions ('Names_Ct' and 'Tot_Small_Trans_Amt') and the
+    recommendation only ever addressed one of them."""
+    out = []
+    for r in results or []:
+        data_avail = r.get("data_availability") or {}
+        for k in data_avail.get("threshold_killers") or []:
+            out.append((r.get("cte_name", "?"), k, _match_threshold_config(k, data_avail.get("threshold_config") or {})))
+    return out
+
+
+def _n(v) -> str:
+    """Format a number for display: thousands separator, 2 decimals only
+    when not a whole number."""
+    if v is None:
+        return "?"
+    try:
+        return f"{int(v):,}" if float(v) == int(v) else f"{v:,.2f}"
+    except (TypeError, ValueError):
+        return str(v)
+
+
+def _build_threshold_hint(killer: dict, config_entry: dict | None) -> str:
+    """Deterministically computes a concrete suggested new threshold value —
+    delegated entirely to sql_diagnostics.py's compute_threshold_kill_suggestion
+    (the single source of truth also used to populate the frontend's
+    threshold_suggestions[] card, so the two surfaces can't numerically
+    disagree). That function deliberately does NOT suggest the raw
+    actual_max/actual_min: for a >= condition, pinning the threshold to the
+    exact observed max would only ever match the single row that hit that
+    exact value — not a meaningful business cutoff (confirmed: this is
+    exactly what an earlier version of this function did, and it was flagged
+    as impractical). It instead applies safe-direction rounding, clamps into
+    the KDD_TSHLD-configured legal range, and flags an extreme gap between
+    the configured threshold and the real data as a business question rather
+    than a confident directive.
+
+    Never left to the model: it is reliable at explaining what a threshold/
+    column means in plain English (see the meaning-line call in
+    _generate_threshold_recommendation), not at doing this arithmetic
+    itself — and with more than one condition to get right in one short
+    response the risk compounds (see _find_all_threshold_kills)."""
+    col = killer.get("column") or "?"
+    calc = compute_threshold_kill_suggestion(killer, config_entry)
+    op = calc["operator"]
+    threshold = calc["current_threshold"]
+    lower_bound = op in (">=", ">")
+    boundary = calc["boundary"]
+
+    name = (config_entry.get("display_name") if config_entry else None) or col
+    unit = _clean_unit(config_entry.get("unit")) if config_entry else ""
+    pop = calc.get("population_rows")
+    pop_txt = f" across {pop:,} rows" if pop else ""
+
+    if calc["escalate"]:
+        return (
+            f"No value within the configured allowed range for '{name}' "
+            f"({_n(calc['cfg_min'])}{unit}–{_n(calc['cfg_max'])}{unit}) would admit any real "
+            f"observed data (observed {'max' if lower_bound else 'min'} = {_n(boundary)}{unit}{pop_txt}) — "
+            f"this needs escalating: either the allowed configuration range itself needs "
+            f"widening, or the environment's data/scale needs review. Changing the "
+            f"threshold's current value alone cannot fix this."
+        )
+
+    if calc["extreme_gap"]:
+        ratio = calc["gap_ratio"]
+        ratio_txt = f"~{ratio:.1f}x" if ratio not in (None, float("inf")) else "an extreme multiple of"
+        return (
+            f"The configured '{name}' threshold is currently {_n(threshold)}{unit}, but the real "
+            f"observed {'maximum' if lower_bound else 'minimum'} in this data is {_n(boundary)}{unit}"
+            f"{pop_txt} — {ratio_txt} apart. This environment's data may not represent "
+            f"production scale — verify with the business/scenario owner whether "
+            f"{_n(threshold)}{unit} is the intended real-world threshold before changing it, "
+            f"rather than assuming the gap should simply be closed."
+        )
+
+    direction = "Lower" if lower_bound else "Raise"
+    new_val = calc["clamped_value"]
+    clamp_note = " (adjusted to stay within the configured allowed range)" if calc["clamped"] else ""
+    return (
+        f"{direction} the '{name}' threshold from {_n(threshold)}{unit} to {_n(new_val)}{unit}{clamp_note} — "
+        f"the condition {col} {op} {threshold} eliminates all rows because the real observed "
+        f"{'maximum' if lower_bound else 'minimum'} is {_n(boundary)}{unit}{pop_txt}; {_n(new_val)}{unit} is a "
+        f"safe round-number {'floor' if lower_bound else 'ceiling'} that still admits the real data."
+    )
+
+
+def _generate_threshold_recommendation(root_cause: str, threshold_kills: list[tuple[str, dict, dict | None]]) -> str:
+    """Threshold-kill hybrid path, mirroring _generate_data_value_recommendation:
+    for EACH distinct failing threshold condition (there can be several on one
+    CTE, or across several CTEs), asks the model for one line explaining what
+    the threshold/column controls in plain business terms (only when a real
+    KDD_TSHLD description is available — reliable), and always appends a
+    deterministically-computed line stating the concrete suggested new
+    threshold value (see _build_threshold_hint — not reliable to leave to the
+    model). Never returns None — the deterministic lines alone are already
+    correct and useful even if every LLM call fails."""
+    multi = len(threshold_kills) > 1
+    blocks = []
+    for cte_name, killer, config_entry in threshold_kills:
+        hint = _build_threshold_hint(killer, config_entry)
+
+        desc = config_entry.get("desc") if config_entry else None
+        meaning_line = ""
+        if desc:
+            prompt = f"Column/threshold: {killer.get('column', '?')}\nConfigured description: {desc}"
+            for temperature in (0.2, 0.4):
+                text = _call_ollama_once(prompt, _SYSTEM_PROMPT_COLUMN_MEANING, temperature)
+                if text is None:
+                    break  # transport/timeout failure — fall through to hint-only
+                candidate = text.strip().splitlines()[0].strip(" \t-*•") if text.strip() else ""
+                if candidate and not _has_leakage(candidate):
+                    meaning_line = candidate
+                    break
+
+        prefix = f"CTE '{cte_name}': " if multi else ""
+        block = f"{prefix}{meaning_line}\n{hint}" if meaning_line else f"{prefix}{hint}"
+        blocks.append(block)
+
+    return "\n\n".join(blocks)
+
+
 def _build_prompt(root_cause: str, results: list[dict] | None) -> tuple[str, str]:
     """Returns (prompt_text, system_prompt) — the system prompt is selected
     based on what kind of grounding is actually available, so a model never
@@ -477,8 +633,9 @@ def _call_ollama_once(prompt: str, system_prompt: str, temperature: float) -> st
 
 def generate_recommendation(root_cause: str, results: list[dict] | None = None) -> str | None:
     """Return a recommendation string (normally 2 lines; more when multiple
-    distinct data-insufficiency causes were diagnosed — see
-    _generate_data_value_recommendation), or None if unavailable/disabled.
+    distinct data-insufficiency or threshold-kill causes were diagnosed — see
+    _generate_data_value_recommendation / _generate_threshold_recommendation),
+    or None if unavailable/disabled.
 
     Retries once (same prompt, slightly higher temperature) if the first
     response fails the leakage/repetition guard — confirmed live that this
@@ -488,16 +645,27 @@ def generate_recommendation(root_cause: str, results: list[dict] | None = None) 
     genuinely unreachable won't fix itself in a few seconds) — only on a
     successful-but-invalid response.
 
-    Data-insufficiency column-value case (see _build_data_value_hint) is
-    handled specially: the "which value is needed" line is always computed
-    deterministically and never left to the model, since that specific
-    reasoning step was confirmed unreliable across repeated live testing."""
+    Two cases are handled specially, both for the same reason: a specific
+    numeric/positional judgment call is always computed deterministically in
+    Python and never left to the model, because that judgment call was
+    confirmed unreliable across repeated live testing —
+      - Data-insufficiency column-value case (see _build_data_value_hint):
+        "which value is needed" — the model got equality/inequality polarity
+        backwards on most runs regardless of phrasing.
+      - Threshold-kill case (see _build_threshold_hint): "what's the new
+        threshold value" — reliable for a single condition, but silently
+        dropped every condition after the first when a CTE had more than
+        one failing threshold at once."""
     if not AI_RECOMMENDATION_ENABLED or not root_cause:
         return None
 
     observed_checks = _find_all_observed_value_checks(results or [])
     if observed_checks:
         return _generate_data_value_recommendation(root_cause, observed_checks)
+
+    threshold_kills = _find_all_threshold_kills(results or [])
+    if threshold_kills:
+        return _generate_threshold_recommendation(root_cause, threshold_kills)
 
     prompt, system_prompt = _build_prompt(root_cause, results)
 
@@ -560,3 +728,67 @@ def _generate_data_value_recommendation(root_cause: str, checks: list[tuple[list
         blocks.append(block)
 
     return "\n\n".join(blocks)
+
+
+_THRESHOLD_TUNING_SYSTEM_PROMPT = (
+    "You are writing the opening executive-summary paragraph of a PDF report for a "
+    "bank's AML/OFSAA compliance team, about a proposed threshold-tuning change for "
+    "one scenario. All exact numbers (current/projected alert counts, threshold "
+    "values, percentages) are already shown precisely elsewhere in the report as "
+    "tables and figures, verified by re-executing the real scenario query against "
+    "the database — your job is ONLY to write 2-3 short, professional sentences of "
+    "plain-English context and framing."
+    "\n\n"
+    "CRITICAL: do not include any specific number, count, percentage, or threshold "
+    "value in your text — refer to them only in general, qualitative terms (e.g. "
+    "'a meaningful reduction', 'several thresholds', 'the configured maximum') — "
+    "never a digit. A number you state here could be wrong and would contradict the "
+    "precise figures already printed elsewhere in the report; the safe way to avoid "
+    "that is to never state one."
+    "\n\n"
+    "Do not use headings, markdown, or bullet points — plain sentences only. Always "
+    "end by recommending the business/scenario owner review and approve these "
+    "changes before they are applied to production."
+)
+
+
+def generate_threshold_tuning_summary(
+    scenario_name: str,
+    tshld_set_id: str,
+    target_reduction_pct: float | None,
+    target_met: bool | None,
+    applied_count: int,
+    direction_note: str,
+) -> str | None:
+    """Short, deliberately numberless executive-summary paragraph for the
+    Threshold Tuning PDF report. Every number in that report comes from
+    Python, computed from a real re-executed Oracle query — this call
+    exists only for the plain-English framing sentence at the top, and the
+    system prompt explicitly forbids stating any number, so there is
+    nothing here for the model to get wrong that could corrupt the report's
+    actual figures. Returns None (never raises) on any failure — the PDF
+    generator falls back to a canned sentence, same as every other
+    best-effort AI touch in this module."""
+    if not AI_RECOMMENDATION_ENABLED:
+        return None
+
+    facts = [f"Scenario: {scenario_name}", f"Threshold set: {tshld_set_id}"]
+    if target_reduction_pct is not None:
+        facts.append(
+            "A target alert-volume reduction was requested and "
+            + ("was met." if target_met else "could not be fully met within the currently configured threshold range.")
+        )
+    else:
+        facts.append("No specific reduction target was requested — the largest safe change was found instead.")
+    facts.append(f"{applied_count} threshold(s) have a recommended change.")
+    facts.append(direction_note)
+    fact_block = "\n".join(facts)
+
+    prompt = f"Facts:\n{fact_block}\n\nWrite the executive summary paragraph now."
+    text = _call_ollama_once(prompt, _THRESHOLD_TUNING_SYSTEM_PROMPT, temperature=0.4)
+    if not text:
+        return None
+    if _has_leakage(text) or re.search(r'\d', text):
+        logger.warning("Threshold tuning summary rejected (leakage or contained a number) — falling back to canned text")
+        return None
+    return text.strip()

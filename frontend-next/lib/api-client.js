@@ -69,6 +69,36 @@ export const jobsAPI = {
     }),
 };
 
+export const thresholdTuningAPI = {
+  analyze: (filePath) =>
+    api.post(`/threshold-tuning/analyze?file_path=${encodeURIComponent(filePath)}`).then((r) => r.data),
+  recommend: (filePath, targetReductionPct) => {
+    let url = `/threshold-tuning/recommend?file_path=${encodeURIComponent(filePath)}`;
+    if (targetReductionPct !== null && targetReductionPct !== undefined && targetReductionPct !== "") {
+      url += `&target_reduction_pct=${encodeURIComponent(targetReductionPct)}`;
+    }
+    return api.post(url).then((r) => r.data);
+  },
+  downloadReport: (analysis, recommendation) =>
+    api.post(
+      "/threshold-tuning/report",
+      { analysis, recommendation },
+      { responseType: "blob" }
+    ).then((r) => {
+      const disposition = r.headers?.["content-disposition"] || "";
+      const match = disposition.match(/filename="?([^"]+)"?/);
+      const filename = match ? match[1] : `${analysis.scenario_name}_threshold_tuning.pdf`;
+      const url = window.URL.createObjectURL(new Blob([r.data]));
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", filename);
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.URL.revokeObjectURL(url);
+    }),
+};
+
 export const adminAPI = {
   listUsers: () => api.get("/admin/users").then((r) => r.data),
   createUser: (data) => api.post("/admin/users", data).then((r) => r.data),

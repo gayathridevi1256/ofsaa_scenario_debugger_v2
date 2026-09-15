@@ -63,16 +63,16 @@ function BatchPageInner() {
     <div className="page">
       <Navbar user={user} onLogout={logout} />
       <main className="page-content">
-        <div style={{ marginBottom: 24, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <div className="page-header">
           <div>
-            <h1 style={{ fontSize: "1.25rem", fontWeight: 700, marginBottom: 4 }}>Batch Run</h1>
-            <p style={{ color: "var(--text-muted)", fontSize: "0.825rem" }}>
+            <p className="eyebrow-label">Batch run</p>
+            <h1 className="page-title" style={{ fontSize: "1.35rem" }}>
               {jobs.length > 0 ? `${done} of ${jobs.length} complete` : loading ? "Loading…" : "No jobs found"}
-            </p>
+            </h1>
           </div>
-          <div style={{ display: "flex", gap: 8 }}>
+          <div className="page-header-actions">
           <button className="btn btn-secondary btn-sm" onClick={() => router.push("/dashboard")}>
-            Back to Dashboard
+            ← Back to Dashboard
           </button>
           {done === jobs.length && jobs.length > 0 && (
             <button className="btn btn-primary btn-sm" onClick={handleDownloadAll} disabled={exporting}>
@@ -85,51 +85,53 @@ function BatchPageInner() {
         {loading && <div style={{ display: "flex", justifyContent: "center", padding: 40 }}><div className="spinner" /></div>}
 
         {!loading && jobs.length > 0 && (
-          <div className="card" style={{ overflow: "hidden" }}>
-            <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.825rem" }}>
-              <thead>
-                <tr style={{ background: "var(--bg-overlay)", borderBottom: "1px solid var(--border)" }}>
-                  <th style={{ padding: "10px 16px", textAlign: "left", fontWeight: 600, color: "var(--text-muted)" }}>#</th>
-                  <th style={{ padding: "10px 16px", textAlign: "left", fontWeight: 600, color: "var(--text-muted)" }}>Scenario</th>
-                  <th style={{ padding: "10px 16px", textAlign: "left", fontWeight: 600, color: "var(--text-muted)" }}>Status</th>
-                  <th style={{ padding: "10px 16px", textAlign: "left", fontWeight: 600, color: "var(--text-muted)" }}>Batch Date</th>
-                  <th style={{ padding: "10px 16px", textAlign: "center", fontWeight: 600, color: "var(--text-muted)" }}>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {jobs.map((job, idx) => {
-                  const cfg = STATUS_MAP[job.status] || STATUS_MAP.pending;
-                  return (
-                    <tr key={job.job_id} style={{ borderBottom: "1px solid var(--border)", background: idx % 2 === 0 ? "transparent" : "var(--bg-overlay)" }}>
-                      <td style={{ padding: "10px 16px", color: "var(--text-muted)" }}>{idx + 1}</td>
-                      <td style={{ padding: "10px 16px", fontWeight: 500 }}>{job.scenario}</td>
-                      <td style={{ padding: "10px 16px" }}>
-                        <span style={{
-                          display: "inline-flex", alignItems: "center", gap: 6,
-                          background: cfg.bg, color: cfg.color, padding: "2px 10px",
-                          borderRadius: 999, fontSize: "0.75rem", fontWeight: 600,
-                        }}>
-                          {job.status === "running" && <div className="spinner spinner-sm" />}
-                          {cfg.label}
-                        </span>
-                      </td>
-                      <td style={{ padding: "10px 16px", color: "var(--text-muted)", fontSize: "0.8rem" }}>
-                        {job.batch_date || "—"}
-                      </td>
-                      <td style={{ padding: "10px 16px", textAlign: "center" }}>
-                        <button
-                          className="btn btn-secondary btn-sm"
-                          onClick={() => router.push(`/jobs/${job.job_id}?batch=${ids.join(",")}`)}
-                          disabled={job.status === "pending"}
-                        >
-                          View
-                        </button>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+          <div className="card card-tight animate-fade-in">
+            <div className="table-wrap">
+              <table className="table">
+                <thead>
+                  <tr>
+                    <th style={{ width: 36 }}>#</th>
+                    <th>Scenario</th>
+                    <th>Status</th>
+                    <th>Batch Date</th>
+                    <th style={{ textAlign: "center" }}>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {jobs.map((job, idx) => {
+                    const cfg = STATUS_MAP[job.status] || STATUS_MAP.pending;
+                    return (
+                      <tr key={job.job_id}>
+                        <td style={{ color: "var(--text-muted)" }}>{idx + 1}</td>
+                        <td style={{ fontWeight: 600 }}>{job.scenario}</td>
+                        <td>
+                          <span style={{
+                            display: "inline-flex", alignItems: "center", gap: 6,
+                            background: cfg.bg, color: cfg.color, padding: "3px 11px",
+                            borderRadius: 999, fontSize: "0.72rem", fontWeight: 700,
+                          }}>
+                            {job.status === "running" && <div className="spinner spinner-sm" />}
+                            {cfg.label}
+                          </span>
+                        </td>
+                        <td style={{ color: "var(--text-secondary)", fontSize: "0.8rem", fontFamily: "var(--font-mono)" }}>
+                          {job.batch_date || "—"}
+                        </td>
+                        <td style={{ textAlign: "center" }}>
+                          <button
+                            className="btn btn-secondary btn-sm"
+                            onClick={() => router.push(`/jobs/${job.job_id}?batch=${ids.join(",")}`)}
+                            disabled={job.status === "pending"}
+                          >
+                            View
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
           </div>
         )}
       </main>

@@ -12,6 +12,7 @@ from app.routers.health import router as health_router
 from app.routers.auth import router as auth_router
 from app.routers.upload import router as upload_router
 from app.routers.jobs import router as jobs_router
+from app.routers.threshold_tuning import router as threshold_tuning_router
 from app.routers.websocket import router as ws_router
 from app.routers.admin.users import router as admin_users_router
 from app.routers.admin.audit import router as admin_audit_router
@@ -45,6 +46,7 @@ app.include_router(health_router)
 app.include_router(auth_router)
 app.include_router(upload_router)
 app.include_router(jobs_router)
+app.include_router(threshold_tuning_router)
 app.include_router(ws_router)
 app.include_router(admin_users_router)
 app.include_router(admin_audit_router)

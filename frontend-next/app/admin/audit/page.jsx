@@ -20,28 +20,35 @@ export default function AuditPage() {
     <div className="page">
       <Navbar user={user} onLogout={logout} />
       <main className="page-content">
-        <h1 style={{ fontSize: "1.5rem", fontWeight: 700, marginBottom: 4 }}>Audit Log</h1>
-        <p style={{ color: "var(--text-muted)", fontSize: "0.875rem", marginBottom: 32 }}>Security audit trail</p>
-        <div className="card">
-          <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.82rem" }}>
-            <thead>
-              <tr style={{ borderBottom: "1px solid var(--border)" }}>
-                {["Timestamp", "User", "Action", "Detail"].map((h) => (
-                  <th key={h} style={{ textAlign: "left", padding: "8px 12px", color: "var(--text-muted)", fontWeight: 600, textTransform: "uppercase", fontSize: "0.7rem" }}>{h}</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {entries.map((e) => (
-                <tr key={e.id} style={{ borderBottom: "1px solid var(--border)" }}>
-                  <td style={{ padding: "10px 12px", fontFamily: "var(--font-mono)", fontSize: "0.72rem" }}>{new Date(e.timestamp).toLocaleString()}</td>
-                  <td style={{ padding: "10px 12px", fontFamily: "var(--font-mono)" }}>{e.username || "—"}</td>
-                  <td style={{ padding: "10px 12px" }}>{e.action}</td>
-                  <td style={{ padding: "10px 12px", color: "var(--text-muted)" }}>{e.detail || "—"}</td>
+        <div className="page-header">
+          <div>
+            <p className="eyebrow-label">Admin</p>
+            <h1 className="page-title">Audit Log</h1>
+            <p className="page-subtitle">Security audit trail</p>
+          </div>
+        </div>
+        <div className="card card-tight animate-fade-in">
+          <div className="table-wrap">
+            <table className="table">
+              <thead>
+                <tr>
+                  {["Timestamp", "User", "Action", "Detail"].map((h) => (
+                    <th key={h}>{h}</th>
+                  ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {entries.map((e) => (
+                  <tr key={e.id}>
+                    <td style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "var(--text-secondary)" }}>{new Date(e.timestamp).toLocaleString()}</td>
+                    <td style={{ fontFamily: "var(--font-mono)", fontSize: "0.78rem" }}>{e.username || "—"}</td>
+                    <td style={{ fontWeight: 500 }}>{e.action}</td>
+                    <td style={{ color: "var(--text-muted)" }}>{e.detail || "—"}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </main>
     </div>

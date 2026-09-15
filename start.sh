@@ -22,6 +22,17 @@ cd "$APP_DIR/frontend-next"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 nvm use 20 2>/dev/null || true
+
+# `npm run start` (next start) serves a production build — it needs `.next`
+# to already exist, which `npm run build` (next build) creates. That build
+# step was missing here, so this would fail with "Could not find a
+# production build" on any fresh checkout (only worked before because a
+# `.next` happened to already be on disk from a prior manual build).
+if [ ! -d ".next" ]; then
+  echo "  No production build found — running 'npm run build' (first run only)..."
+  npm run build
+fi
+
 nohup bash -c "export NVM_DIR=\"\$HOME/.nvm\"; [ -s \"\$NVM_DIR/nvm.sh\" ] && . \"\$NVM_DIR/nvm.sh\"; nvm use 20; npm run start" > "$APP_DIR/logs/frontend.log" 2>&1 &
 echo "  PID: $!"
 

@@ -2,20 +2,36 @@
 
 import Link from "next/link";
 
+function MarkIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="12" r="9" stroke="#fff" strokeWidth="1.6" opacity="0.9" />
+      <path d="M12 12 L12 6" stroke="#fff" strokeWidth="2" strokeLinecap="round" transform="rotate(40 12 12)" />
+      <circle cx="12" cy="12" r="1.6" fill="#fff" />
+    </svg>
+  );
+}
+
 export function Navbar({ user, onLogout, hideUser }) {
   return (
-    <nav style={{ background: "var(--bg-surface)", borderBottom: "1px solid var(--border)", padding: "12px 20px" }}>
-      <div style={{ maxWidth: 1100, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <Link href="/dashboard" style={{ fontWeight: 700, fontSize: "1rem", color: "var(--text-primary)", textDecoration: "none" }}>
-            Scenario Debugger
+    <nav className="navbar">
+      <div className="navbar-inner">
+        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+          <Link href="/dashboard" className="navbar-brand">
+            <span className="navbar-mark"><MarkIcon /></span>
+            <span className="navbar-title">Scenario<span style={{ color: "var(--accent)" }}>IQ</span></span>
           </Link>
-          <span style={{ fontSize: "0.7rem", color: "var(--text-muted)" }}>v1.0</span>
+          <span className="navbar-version">v2.0</span>
+          {!hideUser && (
+            <Link href="/threshold-tuning" className="navbar-link">
+              Threshold Tuning
+            </Link>
+          )}
         </div>
-        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
           {!hideUser && user && (
             <>
-              <span style={{ fontSize: "0.8rem", color: "var(--text-secondary)" }}>{user.full_name || user.username}</span>
+              <span className="navbar-user">{user.full_name || user.username}</span>
               <span className={`badge ${user.role === "admin" ? "badge-warning" : "badge-muted"}`}>{user.role}</span>
             </>
           )}

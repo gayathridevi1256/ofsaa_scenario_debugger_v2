@@ -6,7 +6,7 @@ import logging
 from app.database.job_repo import create_job, get_job, list_jobs, update_job_status
 from app.database.audit_repo import audit
 from app.pipeline.orchestrator import run_pipeline
-from app.config import PIPELINE_TIMEOUT_SECONDS
+from app.config import PIPELINE_TIMEOUT_SECONDS, UPLOADS_DIR
 
 logger = logging.getLogger(__name__)
 
@@ -82,12 +82,23 @@ async def rerun_job(job_id: str, user: dict, force: bool = False, manager=None) 
     job = get_job(job_id)
     if not job:
         raise ValueError(f"Job {job_id} not found")
-    file_path = str(__import__('app.config', fromlist=['UPLOADS_DIR']).UPLOADS_DIR / job["log_filename"])
+    file_path = str(UPLOADS_DIR / job["log_filename"])
     return await run_pipeline_job(file_path, user, force=force, manager=manager)
 
 
+def _with_log_file_path(job: dict) -> dict:
+    """Reconstructs the original uploaded log's full path from its stored
+    basename (same approach rerun_job already relies on to re-run a job) so
+    the frontend can send a job straight into another flow — e.g. Threshold
+    Tuning — without the user re-uploading the same file."""
+    if job.get("log_filename"):
+        job = {**job, "log_file_path": str(UPLOADS_DIR / job["log_filename"])}
+    return job
+
+
 def get_job_detail(job_id: str) -> dict | None:
-    return get_job(job_id)
+    job = get_job(job_id)
+    return _with_log_file_path(job) if job else None
 
 
 def get_job_list(user: dict, limit: int = 50) -> list[dict]:

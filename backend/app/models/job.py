@@ -16,6 +16,7 @@ class JobOut(BaseModel):
     job_id: str
     user_id: int
     log_filename: str
+    log_file_path: str | None = None
     scenario_name: str | None = None
     batch_date: str | None = None
     status: str

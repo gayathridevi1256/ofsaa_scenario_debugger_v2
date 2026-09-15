@@ -76,8 +76,8 @@ export function JobHistory({ jobs, loading, error }) {
 
   return (
     <div className="card animate-fade-in">
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
-        <h2 style={{ fontSize: "1rem", fontWeight: 600, margin: 0 }}>Recent Jobs</h2>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 18 }}>
+        <h2 style={{ fontFamily: "var(--font-display)", fontSize: "1.05rem", fontWeight: 700, margin: 0 }}>Recent Jobs</h2>
         {selectedIds.size >= 2 && (
           <button
             className="btn btn-primary btn-sm"
@@ -88,11 +88,11 @@ export function JobHistory({ jobs, loading, error }) {
           </button>
         )}
       </div>
-      <div style={{ overflowX: "auto" }}>
-        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.82rem" }}>
+      <div className="table-wrap">
+        <table className="table">
           <thead>
-            <tr style={{ borderBottom: "1px solid var(--border)" }}>
-              <th style={{ textAlign: "center", padding: "8px 6px", width: 36 }}>
+            <tr>
+              <th style={{ textAlign: "center", width: 36 }}>
                 {completedJobs.length > 0 && (
                   <input
                     type="checkbox"
@@ -103,14 +103,14 @@ export function JobHistory({ jobs, loading, error }) {
                 )}
               </th>
               {["Job ID", "Scenario", "Date", "Status", "Started", ""].map((h, i) => (
-                <th key={i} style={{ textAlign: "left", padding: "8px 12px", color: "var(--text-muted)", fontWeight: 600, textTransform: "uppercase", fontSize: "0.7rem", letterSpacing: "0.05em" }}>{h}</th>
+                <th key={i}>{h}</th>
               ))}
             </tr>
           </thead>
           <tbody>
             {jobs.slice(0, 20).map((job) => (
-              <tr key={job.job_id} style={{ borderBottom: "1px solid var(--border)" }}>
-                <td style={{ padding: "10px 6px", textAlign: "center" }}>
+              <tr key={job.job_id}>
+                <td style={{ textAlign: "center" }}>
                   {job.status === "completed" && (
                     <input
                       type="checkbox"
@@ -121,12 +121,12 @@ export function JobHistory({ jobs, loading, error }) {
                     />
                   )}
                 </td>
-                <td style={{ padding: "10px 12px", fontFamily: "var(--font-mono)", fontSize: "0.75rem", color: "var(--accent)", cursor: "pointer" }} onClick={() => router.push(`/jobs/${job.job_id}`)}>{job.job_id?.slice(0, 8)}…</td>
-                <td style={{ padding: "10px 12px", cursor: "pointer" }} onClick={() => router.push(`/jobs/${job.job_id}`)}>{job.scenario_name || "—"}</td>
-                <td style={{ padding: "10px 12px", fontFamily: "var(--font-mono)", fontSize: "0.75rem", cursor: "pointer" }} onClick={() => router.push(`/jobs/${job.job_id}`)}>{job.batch_date || "—"}</td>
-                <td style={{ padding: "10px 12px", cursor: "pointer" }} onClick={() => router.push(`/jobs/${job.job_id}`)}><span className={`badge ${STATUS_MAP[job.status]?.cls}`}>{STATUS_MAP[job.status]?.label || job.status}</span></td>
-                <td style={{ padding: "10px 12px", fontFamily: "var(--font-mono)", fontSize: "0.75rem", cursor: "pointer" }} onClick={() => router.push(`/jobs/${job.job_id}`)}>{job.started_at ? new Date(job.started_at).toLocaleString() : "—"}</td>
-                <td style={{ padding: "6px 12px" }}>
+                <td style={{ fontFamily: "var(--font-mono)", fontSize: "0.75rem", color: "var(--accent-ink)", cursor: "pointer" }} onClick={() => router.push(`/jobs/${job.job_id}`)}>{job.job_id?.slice(0, 8)}…</td>
+                <td style={{ cursor: "pointer", fontWeight: 500 }} onClick={() => router.push(`/jobs/${job.job_id}`)}>{job.scenario_name || "—"}</td>
+                <td style={{ fontFamily: "var(--font-mono)", fontSize: "0.75rem", cursor: "pointer", color: "var(--text-secondary)" }} onClick={() => router.push(`/jobs/${job.job_id}`)}>{job.batch_date || "—"}</td>
+                <td style={{ cursor: "pointer" }} onClick={() => router.push(`/jobs/${job.job_id}`)}><span className={`badge ${STATUS_MAP[job.status]?.cls}`}>{STATUS_MAP[job.status]?.label || job.status}</span></td>
+                <td style={{ fontFamily: "var(--font-mono)", fontSize: "0.75rem", cursor: "pointer", color: "var(--text-secondary)" }} onClick={() => router.push(`/jobs/${job.job_id}`)}>{job.started_at ? new Date(job.started_at).toLocaleString() : "—"}</td>
+                <td>
                   {job.status === "completed" && (
                     <button
                       className="btn btn-secondary btn-sm"
